@@ -1,0 +1,47 @@
+Comandos principais/mais utilizados - Git
+
+git log ➜ retorna uma lista dos commits realizados
+
+git config --global user.name "Seu nome"
+
+git config --global user.email seu_email@email.com
+
+git config -l ou git config --list
+
+git status ➜ retorna as modificações que estão pendentes na pasta que está sendo vigiada e os arquivos que ainda não estão sendo vigiados (caso sejam arquivos novos ou recém-criados)
+
+git checkout nomeDaPasta/NomeDoArquivo.xml ➜ retira e ignora arquivos indesejados do diretório de trabalho (muito utilizado quando há arquivos de configurações próprios em cada máquina e conflitam com outros)
+
+git add nomeDaPasta/NomeDoArquivo.java
+
+git add --all
+
+git commit -m "Algum tipo de mensagem resumindo o que foi alterado"
+
+git commit -am "Algum tipo de mensagem resumindo o que foi alterado"
+
+git clone https://github.com/ProjetoGuardaMirim/GuardaMirimJW.git
+
+git pull origin master ➜ recebe as alterações disponíveis no repositório remoto
+
+git push origin master ➜ envia as alterações (commits) do repositório local para o repositório compartilhado/remoto
+
+git fetch origin
+
+git merge origin/master (pull) ou git merge master/origin (push)
+
+git remote add origin https://github.com/ProjetoGuardaMirim/GuardaMirimJW.git
+
+git remote -v
+
+git remote rm origin
+
+git remote rm github
+
+git remote rename github origin
+
+git remote set-url origin git@github.com:ProjetoGuardaMirim/GuardaMirimJW.git
+
+git remote set-url --push origin git@github.com:ProjetoGuardaMirim/GuardaMirimJW.git
+
+git remote set-url --fetch origin git@github.com:ProjetoGuardaMirim/GuardaMirimJW.git
