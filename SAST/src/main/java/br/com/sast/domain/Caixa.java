@@ -33,7 +33,7 @@ public class Caixa {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false)
-	private Pessoa codigoPessoa;
+	private Pessoa pessoa;
 	
 	/** Setters e Getters **/
 	
@@ -61,7 +61,7 @@ public class Caixa {
 	public void setPessoa(Pessoa pessoa){
 		this.pessoa = pessoa;
 	}
-	public Pessoa pessoa(){
+	public Pessoa getPessoa(){
 		return pessoa;
 	}
 	
