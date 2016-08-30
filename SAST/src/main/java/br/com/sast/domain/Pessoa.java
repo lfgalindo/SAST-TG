@@ -2,7 +2,13 @@ package br.com.sast.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /*
  * Classe responsável por modelar a tabela Pessoa
@@ -13,17 +19,32 @@ import javax.persistence.Entity;
 @Entity
 public class Pessoa {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int codigo;
+	
+	@Column(length = 45, nullable = false)
 	private String nome; 
+	
+	@Column(length = 45, nullable = false)
 	private String endereco;
+	
+	@Column(length = 13, nullable = false)
 	private String telefone;
+	
+	@Column(length = 14, nullable = false, unique = true)
 	private String cpf; 
+	
+	@Column(length = 30, nullable = false)
 	private String email;
+	
+	@Temporal(TemporalType.DATE)
+	private Date nascimento;	
+	
+	@Column(length = 20, nullable = false)
 	private String login;
-	private Date nascimento;
 	
-	
-	
+	//Gets & Sets
 	public int getCodigo() {
 		return codigo;
 	}
@@ -66,5 +87,12 @@ public class Pessoa {
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	public Date getNascimento() {
+		return nascimento;
+	}
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
+	
 	
 }
