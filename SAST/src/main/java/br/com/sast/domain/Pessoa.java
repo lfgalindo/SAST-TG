@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -44,7 +46,11 @@ public class Pessoa {
 	@Column(length = 20, nullable = false)
 	private String login;
 	
-	//Gets & Sets
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Cargo codigoCargo;
+	
+	//GETS & SETS
 	public int getCodigo() {
 		return codigo;
 	}
@@ -92,6 +98,12 @@ public class Pessoa {
 	}
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
+	}
+	public Cargo getCodigoCargo() {
+		return codigoCargo;
+	}
+	public void setCodigoCargo(Cargo codigoCargo) {
+		this.codigoCargo = codigoCargo;
 	}
 	
 	

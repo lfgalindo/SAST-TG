@@ -1,29 +1,28 @@
 package br.com.sast.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /*
- * Classe responsável por modelar a tabela Cargo
+ * Classe responsável por modelar a tabela PlanoPessoa
  * @author Luís Guilherme Fernandes Ferreira
  * @since Classe criada em 30/08/2016
  */
 
 @Entity
-public class Cargo {
+public class PlanoPessoa {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int codigo;
 	
-	@Column(length = 45, nullable = false)
-	private String nome;
-	
-	@Column(length = 45, nullable = false)
-	private String descricao;
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Pessoa codigoPessoa;
 	
 	//GETS & SETS
 	public int getCodigo() {
@@ -34,20 +33,14 @@ public class Cargo {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
+	public Pessoa getCodigoPessoa() {
+		return codigoPessoa;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCodigoPessoa(Pessoa codigoPessoa) {
+		this.codigoPessoa = codigoPessoa;
 	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+	
+	
 	
 }
