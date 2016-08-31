@@ -1,4 +1,4 @@
-package dao;
+package br.com.sast.dao;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_plano".
