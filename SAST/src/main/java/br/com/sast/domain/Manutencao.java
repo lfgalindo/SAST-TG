@@ -12,10 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/*
- * Classe responsável por modelar a tabela Manutencao
- * @author Luís Guilherme Fernandes Ferreira
- * @since Classe criada em 30/08/2016
+/**
+ * Classe definida para mapear a entidade "tb_manutencao" e seus atributos.
+ * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
+ * @since 30/08/2016
  */
 
 @Entity

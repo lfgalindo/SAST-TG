@@ -7,10 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-/*
- * Classe responsável por modelar a tabela PlanoPessoa
- * @author Luís Guilherme Fernandes Ferreira
- * @since Classe criada em 30/08/2016
+/**
+ * Classe definida para mapear a entidade "tb_planopessoa" e seus atributos.
+ * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
+ * @since 30/08/2016
  */
 
 @Entity
@@ -23,6 +23,10 @@ public class PlanoPessoa {
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
 	private Pessoa codigoPessoa;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Plano codigoPlano;
 	
 	//GETS & SETS
 	public int getCodigo() {
@@ -39,6 +43,14 @@ public class PlanoPessoa {
 
 	public void setCodigoPessoa(Pessoa codigoPessoa) {
 		this.codigoPessoa = codigoPessoa;
+	}
+
+	public Plano getCodigoPlano() {
+		return codigoPlano;
+	}
+
+	public void setCodigoPlano(Plano codigoPlano) {
+		this.codigoPlano = codigoPlano;
 	}
 	
 	

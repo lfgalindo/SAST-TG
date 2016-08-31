@@ -60,12 +60,20 @@
 			<version>4.12</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.lucee/postgresql -->
+		<!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
 		<dependency>
-			<groupId>org.lucee</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>8.3-606.jdbc4</version>
+		    <groupId>postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>8.3-606.jdbc4</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.39</version>
+		</dependency>
+		
 
 
 	</dependencies>

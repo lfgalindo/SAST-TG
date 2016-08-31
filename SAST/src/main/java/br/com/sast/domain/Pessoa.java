@@ -12,10 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/*
- * Classe responsável por modelar a tabela Pessoa
- * @author Luís Guilherme Fernandes Ferreira
- * @since Classe criada em 30/08/2016
+/**
+ * Classe definida para mapear a entidade "tb_pessoa" e seus atributos.
+ * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
+ * @since 30/08/2016
  */
 
 @Entity
@@ -49,6 +49,10 @@ public class Pessoa {
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
 	private Cargo codigoCargo;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Perfil codigoPerfil;
 	
 	//GETS & SETS
 	public int getCodigo() {
@@ -104,6 +108,12 @@ public class Pessoa {
 	}
 	public void setCodigoCargo(Cargo codigoCargo) {
 		this.codigoCargo = codigoCargo;
+	}
+	public Perfil getCodigoPerfil() {
+		return codigoPerfil;
+	}
+	public void setCodigoPerfil(Perfil codigoPerfil) {
+		this.codigoPerfil = codigoPerfil;
 	}
 	
 	
