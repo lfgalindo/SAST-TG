@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * Classe definida para mapear a entidade "tb_planopessoa" e seus atributos.
@@ -14,6 +15,7 @@ import javax.persistence.ManyToOne;
  */
 
 @Entity
+@Table(name = "tb_planopessoa")
 public class PlanoPessoa {
 	
 	@Id

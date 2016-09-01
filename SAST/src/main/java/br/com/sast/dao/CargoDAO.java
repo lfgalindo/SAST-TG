@@ -1,7 +1,9 @@
 package br.com.sast.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
+
 import br.com.sast.domain.Cargo;
 import br.com.sast.util.HibernateUtil;
 
@@ -17,26 +19,49 @@ public class CargoDAO {
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
-		Transaction transacao = null;
-		
 		try{
 			
-			transacao = sessao.beginTransaction();
+			sessao.beginTransaction();
 			sessao.save(cargo);
-			transacao.commit();
+			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
 			
-			if(transacao != null){
-				transacao.rollback();
-			}
-			
-			throw erro;
+			sessao.getTransaction().rollback();
+			erro.getMessage();
 			
 		}finally{
 			sessao.close();
 		}
 		
 	} //Fim do método inserir 
+	
+	@SuppressWarnings("deprecation")
+	public Cargo consultar(int codCargo){
+		
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		Cargo cargo = null;
+		
+		try{
+			
+			Criteria consulta = sessao.createCriteria(Cargo.class);
+			consulta.add(Restrictions.eq("codigo", codCargo));
+			
+			cargo = (Cargo)consulta.uniqueResult();
+			
+		}catch(RuntimeException erro){
+			
+			erro.getMessage();
+			
+		}finally{
+			
+			sessao.close();
+			
+		}
+		
+		return cargo;
+		
+	}//Fim da classe consultar
 	
 } //Fim da classe CargoDAO

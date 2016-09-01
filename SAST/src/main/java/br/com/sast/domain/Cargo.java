@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Classe definida para mapear a entidade "tb_cargo" e seus atributos.
@@ -13,6 +14,7 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table(name = "tb_cargo")
 public class Cargo {
 	
 	@Id

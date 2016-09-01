@@ -1,6 +1,9 @@
 package br.com.sast.dao;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+
 import br.com.sast.domain.Perfil;
 import br.com.sast.util.HibernateUtil;
 
@@ -32,5 +35,34 @@ public class PerfilDAO {
         }
 				
 	} // Fim do método inserir
+	
+	@SuppressWarnings("deprecation")
+	public Perfil consultar(int codPerfil){
+		
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		Perfil perfil = null;
+		
+		try{
+			
+			Criteria consulta = sessao.createCriteria(Perfil.class);
+			consulta.add(Restrictions.eq("codigo", codPerfil));
+			
+			perfil = (Perfil)consulta.uniqueResult();
+			
+		}catch(RuntimeException erro){
+			
+			erro.getMessage();
+			
+		}finally{
+			
+			sessao.close();
+			
+		}
+		
+		return perfil;
+		
+	}
+	
 	
 } // Fim da classe
