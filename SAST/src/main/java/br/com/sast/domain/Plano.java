@@ -3,6 +3,7 @@ package br.com.sast.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 
@@ -12,6 +13,7 @@ import javax.persistence.Column;
  * @since 30/08/2016
  */
 @Entity
+@Table(name = "tb_plano")
 public class Plano {
 	
 	@Id

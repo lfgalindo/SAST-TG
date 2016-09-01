@@ -1,8 +1,8 @@
 package br.com.sast.dao;
 
-//import org.hibernate.Session;
+import org.hibernate.Session;
 import br.com.sast.domain.Perfil;
-//import util.HibernateUtil;
+import br.com.sast.util.HibernateUtil;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_perfil".
@@ -11,9 +11,25 @@ import br.com.sast.domain.Perfil;
  */
 
 public class PerfilDAO {
-
+	
 	public void inserir(Perfil perfil){
-		//Session sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+	
+        try {
+        	sessao.beginTransaction();
+
+            sessao.save(perfil);
+
+            sessao.getTransaction().commit();
+
+        } catch (RuntimeException erro) {
+        	sessao.getTransaction().rollback();
+            erro.getMessage();
+            
+        } finally {
+            sessao.close();
+        }
 				
 	} // Fim do método inserir
 	

@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Perfil {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codigo;
 	
 	@Column(length = 45, nullable = false)
