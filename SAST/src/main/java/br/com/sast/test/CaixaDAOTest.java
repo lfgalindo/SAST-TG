@@ -17,10 +17,9 @@ public class CaixaDAOTest {
 	@Test
 	public void inserir(){
 		Date date = new Date();
-		//PessoaDAO pessoaDAO = new PessoaDAO();
+		Pessoa pessoa = new Pessoa();
 		Caixa caixa = new Caixa();
 		
-		Pessoa pessoa = null;
 		
 		caixa.setCodigo(1);
 		caixa.setDtCriacao(date);

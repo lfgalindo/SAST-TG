@@ -119,9 +119,5 @@ public class Perfil {
 	public Integer getGerenciarConficuracoes(){
 		return gerenciarConfiguracoes;
 	}
-	    
-    public String toString(){
-		return "Perfil " + codigo + ": { " + nomePerfil + " }";
-    }
-    
+	
 }
