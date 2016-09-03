@@ -118,5 +118,8 @@ public class Pessoa {
 		this.codigoPerfil = codigoPerfil;
 	}
 	
+	public String toString(){
+		return "A pessoa " + codigo + "é o resultado";
+	}
 	
 }

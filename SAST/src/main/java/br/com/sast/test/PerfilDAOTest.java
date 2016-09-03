@@ -15,15 +15,14 @@ import br.com.sast.domain.Perfil;
 public class PerfilDAOTest {
 
 	@Test
-    @Ignore
 	public void inserir(){
 		
 		Perfil perfil = new Perfil();
-		Integer dado = 5;
+		Integer dado = 4;
 		
 		perfil.setCodigo(dado);
 		perfil.setGerenciarCaixas(dado);
-		perfil.setNomePerfil("TesteCinco");
+		perfil.setNomePerfil("TesteQuatro");
 		perfil.setGerenciarCargos(dado);
 		perfil.setGerenciarConfiguracoes(dado);
 		perfil.setGerenciarFaturas(dado);
@@ -38,7 +37,6 @@ public class PerfilDAOTest {
 	}
 	
 	@Test
-    @Ignore
     public void listar(){
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
@@ -51,10 +49,9 @@ public class PerfilDAOTest {
     }
 	
     @Test
-    @Ignore
     public void buscar(){
     	
-        Integer codigo = 4;
+        Integer codigo = 1;
         
         PerfilDAO perfilDAO = new PerfilDAO();
         
@@ -64,8 +61,9 @@ public class PerfilDAOTest {
     }
     
     @Test
+    @Ignore
     public void excluir(){
-        Integer codigo = 5;
+        Integer codigo = 1;
 
         PerfilDAO perfilDAO = new PerfilDAO();
         
@@ -77,10 +75,9 @@ public class PerfilDAOTest {
     }
     
     @Test
-    @Ignore
     public void editar(){
 
-        Integer codigo = 3;
+        Integer codigo = 2;
 
         PerfilDAO perfilDAO = new PerfilDAO();
 
@@ -88,7 +85,7 @@ public class PerfilDAOTest {
         
         System.out.println("Objeto encontrado " + resultado);
         
-        resultado.setNomePerfil("TesteTres");
+        resultado.setNomePerfil("TesteEditado");
         
         perfilDAO.editar(resultado);
         

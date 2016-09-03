@@ -1,8 +1,10 @@
 package br.com.sast.test;
 
 import java.util.Date;
+
 import org.junit.Test;
 import br.com.sast.dao.CaixaDAO;
+import br.com.sast.dao.PessoaDAO;
 import br.com.sast.domain.Caixa;
 import br.com.sast.domain.Pessoa;
 
@@ -16,16 +18,16 @@ public class CaixaDAOTest {
 	
 	@Test
 	public void inserir(){
-		Date date = new Date();
-		//PessoaDAO pessoaDAO = new PessoaDAO();
+		PessoaDAO pessoaDAO = new PessoaDAO();
 		Caixa caixa = new Caixa();
 		
-		Pessoa pessoa = null;
 		
-		caixa.setCodigo(1);
-		caixa.setDtCriacao(date);
+		Pessoa pessoa = pessoaDAO.consultar(1);
+		
+		caixa.setCodigo(2);
+		caixa.setDtCriacao(new Date());
 		caixa.setPessoa(pessoa);
-		caixa.setRemovido(1);
+		caixa.setRemovido(0);
 		
 		CaixaDAO caixaDAO = new CaixaDAO();
 		

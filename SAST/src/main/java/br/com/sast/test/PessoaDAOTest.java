@@ -2,6 +2,7 @@ package br.com.sast.test;
 
 import java.util.Date;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.sast.dao.CargoDAO;
@@ -20,6 +21,7 @@ import br.com.sast.domain.Pessoa;
 public class PessoaDAOTest {
 
 	@Test
+	@Ignore
 	public void inserir(){
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
@@ -54,7 +56,7 @@ public class PessoaDAOTest {
 		
 		Pessoa pessoa = pessoaDAO.consultar(1);
 		
-		System.out.println("Nome do cargo: " + pessoa.getNome() + "\nDescricao: " + pessoa.getCpf());
+		System.out.println(pessoa);
 		
 	}//Fim do método consultar
 	
