@@ -28,7 +28,7 @@ public class PessoaDAOTest {
 	
 		Pessoa pessoa = new Pessoa();
 		
-		Perfil perfil = perfilDAO.consultar(1);
+		Perfil perfil = perfilDAO.buscar(1);
 		Cargo cargo = cargoDAO.consultar(1);
 		
 		pessoa.setNome("LUIZINHO");
