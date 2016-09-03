@@ -55,7 +55,7 @@ public class Caixa {
 	public void setRemovido(Integer removido){
 		this.removido = removido;
 	}
-	public Integer dtRemovido(){
+	public Integer getRemovido(){
 		return removido;
 	}
 	
@@ -64,6 +64,10 @@ public class Caixa {
 	}
 	public Pessoa getPessoa(){
 		return pessoa;
+	}
+	
+	public String toString(){
+		return "Caixa código: " + getCodigo() + ", data de criação: " + getDtCriacao();
 	}
 	
 }

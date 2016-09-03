@@ -79,4 +79,8 @@ public class Plano {
 		return valor;
 	}
 	
+	public String toString(){
+		return "Plano código: " + getCodigo() + ", tipo " + getTipoConexao();
+	}
+	
 }

@@ -15,6 +15,7 @@ import br.com.sast.domain.Perfil;
 public class PerfilDAOTest {
 
 	@Test
+    @Ignore
 	public void inserir(){
 		
 		Perfil perfil = new Perfil();
@@ -49,6 +50,7 @@ public class PerfilDAOTest {
     }
 	
     @Test
+    @Ignore
     public void buscar(){
     	
         Integer codigo = 1;
@@ -75,6 +77,7 @@ public class PerfilDAOTest {
     }
     
     @Test
+    @Ignore
     public void editar(){
 
         Integer codigo = 2;

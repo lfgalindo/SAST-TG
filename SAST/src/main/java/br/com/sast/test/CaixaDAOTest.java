@@ -1,7 +1,8 @@
 package br.com.sast.test;
 
 import java.util.Date;
-
+import java.util.List;
+import org.junit.Ignore;
 import org.junit.Test;
 import br.com.sast.dao.CaixaDAO;
 import br.com.sast.dao.PessoaDAO;
@@ -17,6 +18,7 @@ import br.com.sast.domain.Pessoa;
 public class CaixaDAOTest {
 	
 	@Test
+    @Ignore
 	public void inserir(){
 		PessoaDAO pessoaDAO = new PessoaDAO();
 		Caixa caixa = new Caixa();
@@ -32,6 +34,64 @@ public class CaixaDAOTest {
 		CaixaDAO caixaDAO = new CaixaDAO();
 		
 		caixaDAO.inserir(caixa);
-	}	
+	}
+	
+	@Test
+    public void listar(){
+		
+		CaixaDAO caixaDAO = new CaixaDAO();
+
+        List<Caixa> resultado = caixaDAO.listar();
+        
+        for(Caixa caixa : resultado){
+            System.out.println(caixa);
+        }
+    }
+	
+    @Test
+    @Ignore
+    public void buscar(){
+    	
+        Integer codigo = 13;
+        
+        CaixaDAO caixaDAO = new CaixaDAO();
+        
+        Caixa resultado = caixaDAO.buscar(codigo);
+        
+        System.out.println("Objeto encontrado: " + resultado);
+    }
+    
+    @Test
+    @Ignore
+    public void excluir(){
+        Integer codigo = 13;
+
+        CaixaDAO caixaDAO = new CaixaDAO();
+        
+        Caixa resultado = caixaDAO.buscar(codigo);
+        
+        System.out.println("Objeto excluído " + resultado);
+        
+        caixaDAO.excluir(resultado);
+    }
+    
+    @Test
+    @Ignore
+    public void editar(){
+
+        Integer codigo = 14;
+
+        CaixaDAO caixaDAO = new CaixaDAO();
+
+        Caixa resultado = caixaDAO.buscar(codigo);
+        
+        System.out.println("Objeto encontrado " + resultado);
+        
+        resultado.setRemovido(10);
+        
+        caixaDAO.editar(resultado);
+        
+        System.out.println("Objeto Editado: " + resultado);
+    }	
 
 }
