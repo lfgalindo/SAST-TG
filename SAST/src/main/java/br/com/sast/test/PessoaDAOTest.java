@@ -30,8 +30,8 @@ public class PessoaDAOTest {
 	
 		Pessoa pessoa = new Pessoa();
 		
-		Perfil perfil = perfilDAO.buscar(1);
-		Cargo cargo = cargoDAO.consultar(1);
+		Perfil perfil = perfilDAO.buscar(4);
+		Cargo cargo = cargoDAO.consultar(5);
 		
 		pessoa.setNome("LUIZINHO");
 		pessoa.setTelefone("99999");

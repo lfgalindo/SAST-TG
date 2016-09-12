@@ -18,7 +18,7 @@ import br.com.sast.domain.Pessoa;
 public class CaixaDAOTest {
 	
 	@Test
-    @Ignore
+    //@Ignore
 	public void inserir(){
 		PessoaDAO pessoaDAO = new PessoaDAO();
 		Caixa caixa = new Caixa();
