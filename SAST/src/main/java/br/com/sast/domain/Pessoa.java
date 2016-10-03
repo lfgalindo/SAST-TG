@@ -7,16 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/*
- * Classe responsável por modelar a tabela Pessoa
- * @author Luís Guilherme Fernandes Ferreira
- * @since Classe criada em 30/08/2016
+/**
+ * Classe definida para mapear a entidade "tb_pessoa" e seus atributos.
+ * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
+ * @since 30/08/2016
  */
 
 @Entity
+@Table(name = "tb_pessoa")
 public class Pessoa {
 
 	@Id
@@ -44,7 +48,15 @@ public class Pessoa {
 	@Column(length = 20, nullable = false)
 	private String login;
 	
-	//Gets & Sets
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Cargo codigoCargo;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false, unique = false)
+	private Perfil codigoPerfil;
+	
+	//GETS & SETS
 	public int getCodigo() {
 		return codigo;
 	}
@@ -93,6 +105,21 @@ public class Pessoa {
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
+	public Cargo getCodigoCargo() {
+		return codigoCargo;
+	}
+	public void setCodigoCargo(Cargo codigoCargo) {
+		this.codigoCargo = codigoCargo;
+	}
+	public Perfil getCodigoPerfil() {
+		return codigoPerfil;
+	}
+	public void setCodigoPerfil(Perfil codigoPerfil) {
+		this.codigoPerfil = codigoPerfil;
+	}
 	
+	public String toString(){
+		return "A pessoa " + codigo + "é o resultado";
+	}
 	
 }
