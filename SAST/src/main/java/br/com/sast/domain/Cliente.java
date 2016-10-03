@@ -14,14 +14,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- * Classe definida para mapear a entidade "tb_pessoa" e seus atributos.
+ * Classe definida para mapear a entidade "tb_cliente" e seus atributos.
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 30/08/2016
  */
 
 @Entity
-@Table(name = "tb_pessoa")
-public class Pessoa {
+@Table(name = "tb_cliente")
+public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,13 +31,37 @@ public class Pessoa {
 	private String nome; 
 	
 	@Column(length = 45, nullable = false)
+	private String razao;
+	
+	@Column(length = 45, nullable = false)
 	private String endereco;
+	
+	@Column(length = 45, nullable = false)
+	private String bairro;
+	
+	@Column(length = 5, nullable = false)
+	private String numero;
+	
+	@Column(length = 45 , nullable = true)
+	private String complemento;
+	
+	@Column(length = 25, nullable = false)
+	private String cidade;
+	
+	@Column(length = 2, nullable = false)
+	private String estado;
 	
 	@Column(length = 13, nullable = false)
 	private String telefone;
 	
 	@Column(length = 14, nullable = false, unique = true)
 	private String cpf; 
+	
+	@Column(length = 20, nullable = false, unique = true)
+	private String rg;
+	
+	@Column(length = 20, nullable = false)
+	private String estadoCivil;
 	
 	@Column(length = 30, nullable = false)
 	private String email;
@@ -48,13 +72,13 @@ public class Pessoa {
 	@Column(length = 20, nullable = false)
 	private String login;
 	
-	@ManyToOne
-	@JoinColumn(nullable = false, unique = false)
-	private Cargo codigoCargo;
+	@Column(length = 10, nullable = false)
+	private String senha;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
 	private Perfil codigoPerfil;
+	
 	
 	//GETS & SETS
 	public int getCodigo() {
@@ -105,12 +129,7 @@ public class Pessoa {
 	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
-	public Cargo getCodigoCargo() {
-		return codigoCargo;
-	}
-	public void setCodigoCargo(Cargo codigoCargo) {
-		this.codigoCargo = codigoCargo;
-	}
+	
 	public Perfil getCodigoPerfil() {
 		return codigoPerfil;
 	}
@@ -118,8 +137,62 @@ public class Pessoa {
 		this.codigoPerfil = codigoPerfil;
 	}
 	
+	public String getRazao() {
+		return razao;
+	}
+	public void setRazao(String razao) {
+		this.razao = razao;
+	}
+	public String getBairro() {
+		return bairro;
+	}
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+	public String getNumero() {
+		return numero;
+	}
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+	public String getComplemento() {
+		return complemento;
+	}
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	public String toString(){
-		return "A pessoa " + codigo + "é o resultado";
+		return "O cliente " + codigo + "é o resultado";
 	}
 	
 }

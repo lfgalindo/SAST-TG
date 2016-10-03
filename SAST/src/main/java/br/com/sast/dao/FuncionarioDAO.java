@@ -7,27 +7,28 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import br.com.sast.domain.PlanoPessoa;
+import br.com.sast.domain.Funcionario;
 import br.com.sast.util.HibernateUtil;
 
+
 /**
- * Classe definida para realizar a persistência na entidade "tb_planopessoa".
+ * Classe definida para realizar a persistência na entidade "tb_funcionario".
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 31/08/2016
  */
 
-public class PlanoPessoaDAO {
+public class FuncionarioDAO {
 	
-	//Função para inserir dados no banco
-	public void inserir(PlanoPessoa planopessoa){
+	//Método para inserir dados no banco
+	public void inserir(Funcionario cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.save(planopessoa);
-			sessao.getTransaction().commit();
+			sessao.save(cliente);
+			sessao.beginTransaction().commit();
 			
 		}catch(RuntimeException erro){
 			
@@ -42,18 +43,19 @@ public class PlanoPessoaDAO {
 		
 	}//Fim do método inserir
 	
-	//Função para listar todos os registros da tabela planopessoa
+	
+	//Método para listar os registros do banco
 	@SuppressWarnings({"deprecation", "unchecked"})
-	public List<PlanoPessoa> listar(){
+	public List<Funcionario> listar(){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
-			Criteria consulta = sessao.createCriteria(PlanoPessoa.class);
+			Criteria consulta = sessao.createCriteria(Funcionario.class);
 			consulta.addOrder(Order.asc("codigo"));
 			
-			List<PlanoPessoa>resultado = consulta.list();
+			List<Funcionario> resultado = consulta.list();
 			
 			return resultado;
 			
@@ -67,23 +69,25 @@ public class PlanoPessoaDAO {
 			
 		}
 		
-		
 	}//Fim do método listar
 	
-	//Função para buscar um registro no banco
+	
+	//Método para buscar um registro do banco.
 	@SuppressWarnings("deprecation")
-	public PlanoPessoa consultar(int codPlanoPessoa){
+	public Funcionario consultar(int codCli){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
-		PlanoPessoa planopessoa = null;
+		Funcionario pessoa = null;
 		
 		try{
 			
-			Criteria consulta = sessao.createCriteria(PlanoPessoa.class);
-			consulta.add(Restrictions.eq("codigo", codPlanoPessoa));
+			Criteria consulta = sessao.createCriteria(Funcionario.class);
 			
-			planopessoa = (PlanoPessoa)consulta.uniqueResult();
+			consulta.add(Restrictions.eq("codigo", codCli));
+			
+			pessoa = (Funcionario)consulta.uniqueResult();
+			
 			
 		}catch(RuntimeException erro){
 			
@@ -95,19 +99,19 @@ public class PlanoPessoaDAO {
 			
 		}
 		
-		return planopessoa;
+		return pessoa;
 		
-	}//Fim do método buscar
+	}// Fim da classe consultar
 	
-	//Método para editar um registro
-	public void editar(PlanoPessoa planopessoa){
+	//Método para editar um registro do banco
+	public void editar(Funcionario cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.update(planopessoa);
+			sessao.update(cliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -123,15 +127,15 @@ public class PlanoPessoaDAO {
 		
 	}//Fim do método editar
 	
-	//Função para excluir um registro
-	public void excluir(PlanoPessoa planopessoa){
+	//Método para excluir um registro do banco
+	public void excluir(Funcionario pessoa){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.delete(planopessoa);
+			sessao.delete(pessoa);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -145,5 +149,7 @@ public class PlanoPessoaDAO {
 			
 		}
 		
-	}//Fim do método para excluir
-}//Fim da classe
+	}//Fim do método excluir
+	
+
+} //Fim da classe PessoaDAO

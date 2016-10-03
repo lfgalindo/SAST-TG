@@ -50,11 +50,11 @@ public class Manutencao {
 	
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
-	private Pessoa codigoCliente;
+	private Cliente codigoCliente;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
-	private Pessoa codigoFuncionario;
+	private Funcionario codigoFuncionario;
 	
 	//GETS & SETS
 	public int getCodigo() {
@@ -121,19 +121,19 @@ public class Manutencao {
 		this.baixa = baixa;
 	}
 
-	public Pessoa getCodigoCliente() {
+	public Cliente getCodigoCliente() {
 		return codigoCliente;
 	}
 
-	public void setCodigoCliente(Pessoa codigoCliente) {
+	public void setCodigoCliente(Cliente codigoCliente) {
 		this.codigoCliente = codigoCliente;
 	}
 
-	public Pessoa getCodigoFuncionario() {
+	public Funcionario getCodigoFuncionario() {
 		return codigoFuncionario;
 	}
 
-	public void setCodigoFuncionario(Pessoa codigoFuncionario) {
+	public void setCodigoFuncionario(Funcionario codigoFuncionario) {
 		this.codigoFuncionario = codigoFuncionario;
 	}
 
