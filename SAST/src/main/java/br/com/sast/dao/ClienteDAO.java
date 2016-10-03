@@ -7,8 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import br.com.sast.domain.Pessoa;
+import br.com.sast.domain.Cliente;
 import br.com.sast.util.HibernateUtil;
+
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_pessoa".
@@ -16,17 +17,17 @@ import br.com.sast.util.HibernateUtil;
  * @since 31/08/2016
  */
 
-public class PessoaDAO {
+public class ClienteDAO {
 	
 	//Método para inserir dados no banco
-	public void inserir(Pessoa pessoa){
+	public void inserir(Cliente cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.save(pessoa);
+			sessao.save(cliente);
 			sessao.beginTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -45,16 +46,16 @@ public class PessoaDAO {
 	
 	//Método para listar os registros do banco
 	@SuppressWarnings({"deprecation", "unchecked"})
-	public List<Pessoa> listar(){
+	public List<Cliente> listar(){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
-			Criteria consulta = sessao.createCriteria(Pessoa.class);
+			Criteria consulta = sessao.createCriteria(Cliente.class);
 			consulta.addOrder(Order.asc("codigo"));
 			
-			List<Pessoa> resultado = consulta.list();
+			List<Cliente> resultado = consulta.list();
 			
 			return resultado;
 			
@@ -73,19 +74,19 @@ public class PessoaDAO {
 	
 	//Método para buscar um registro do banco.
 	@SuppressWarnings("deprecation")
-	public Pessoa consultar(int codCli){
+	public Cliente consultar(int codCli){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
-		Pessoa pessoa = null;
+		Cliente pessoa = null;
 		
 		try{
 			
-			Criteria consulta = sessao.createCriteria(Pessoa.class);
+			Criteria consulta = sessao.createCriteria(Cliente.class);
 			
 			consulta.add(Restrictions.eq("codigo", codCli));
 			
-			pessoa = (Pessoa)consulta.uniqueResult();
+			pessoa = (Cliente)consulta.uniqueResult();
 			
 			
 		}catch(RuntimeException erro){
@@ -103,14 +104,14 @@ public class PessoaDAO {
 	}// Fim da classe consultar
 	
 	//Método para editar um registro do banco
-	public void editar(Pessoa pessoa){
+	public void editar(Cliente cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.update(pessoa);
+			sessao.update(cliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -127,7 +128,7 @@ public class PessoaDAO {
 	}//Fim do método editar
 	
 	//Método para excluir um registro do banco
-	public void excluir(Pessoa pessoa){
+	public void excluir(Cliente pessoa){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		

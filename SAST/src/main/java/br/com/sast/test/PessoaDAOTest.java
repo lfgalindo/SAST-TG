@@ -5,12 +5,10 @@ import java.util.Date;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.sast.dao.CargoDAO;
 import br.com.sast.dao.PerfilDAO;
-import br.com.sast.dao.PessoaDAO;
-import br.com.sast.domain.Cargo;
+import br.com.sast.dao.ClienteDAO;
 import br.com.sast.domain.Perfil;
-import br.com.sast.domain.Pessoa;
+import br.com.sast.domain.Cliente;
 
 /**
  * Classe definida para para testar os métodos da classe PesssoaDAO.
@@ -25,26 +23,23 @@ public class PessoaDAOTest {
 	public void inserir(){
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
-		CargoDAO cargoDAO = new CargoDAO();
 		Date data = new Date();
 	
-		Pessoa pessoa = new Pessoa();
+		Cliente cliente = new Cliente();
 		
 		Perfil perfil = perfilDAO.buscar(4);
-		Cargo cargo = cargoDAO.consultar(5);
 		
-		pessoa.setNome("LUIZINHO");
-		pessoa.setTelefone("99999");
-		pessoa.setNascimento(data);
-		pessoa.setLogin("LUIZIN");
-		pessoa.setEmail("LUIZINHO@NET");
-		pessoa.setCpf("88888");
-		pessoa.setEndereco("RUA DO LUIZINHO");
-		pessoa.setCodigoCargo(cargo);
-		pessoa.setCodigoPerfil(perfil);
+		cliente.setNome("LUIZINHO");
+		cliente.setTelefone("99999");
+		cliente.setNascimento(data);
+		cliente.setLogin("LUIZIN");
+		cliente.setEmail("LUIZINHO@NET");
+		cliente.setCpf("88888");
+		cliente.setEndereco("RUA DO LUIZINHO");
+		cliente.setCodigoPerfil(perfil);
 		
-		PessoaDAO pessoaDAO = new PessoaDAO();
-		pessoaDAO.inserir(pessoa);
+		ClienteDAO clienteDAO = new ClienteDAO();
+		clienteDAO.inserir(cliente);
 		
 		
 	}//Fim do método inserir
@@ -52,11 +47,11 @@ public class PessoaDAOTest {
 	@Test
 	public void consultar(){
 		
-		PessoaDAO pessoaDAO = new PessoaDAO();
+		ClienteDAO clienteDAO = new ClienteDAO();
 		
-		Pessoa pessoa = pessoaDAO.consultar(1);
+		Cliente cliente = clienteDAO.consultar(1);
 		
-		System.out.println(pessoa);
+		System.out.println(cliente);
 		
 	}//Fim do método consultar
 	

@@ -9,14 +9,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * Classe definida para mapear a entidade "tb_planopessoa" e seus atributos.
+ * Classe definida para mapear a entidade "tb_planocliente" e seus atributos.
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 30/08/2016
  */
 
 @Entity
-@Table(name = "tb_planopessoa")
-public class PlanoPessoa {
+@Table(name = "tb_planocliente")
+public class PlanoCliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +24,7 @@ public class PlanoPessoa {
 	
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
-	private Pessoa codigoPessoa;
+	private Cliente codigoCliente;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false, unique = false)
@@ -39,12 +39,12 @@ public class PlanoPessoa {
 		this.codigo = codigo;
 	}
 
-	public Pessoa getCodigoPessoa() {
-		return codigoPessoa;
+	public Cliente getCodigoCliente() {
+		return codigoCliente;
 	}
 
-	public void setCodigoPessoa(Pessoa codigoPessoa) {
-		this.codigoPessoa = codigoPessoa;
+	public void setCodigoPessoa(Cliente codigoPessoa) {
+		this.codigoCliente = codigoPessoa;
 	}
 
 	public Plano getCodigoPlano() {
