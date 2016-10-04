@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+
+html{
+    height: 100%;
+}
+body{
+    background-color: #fff;
+    font-family: arial;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+}
+.login#back {
+    width: 50%;
+    height: 100%;
+    margin: 0px;
+    display: block;
+    float: left;
+    background-image: url("../imagens/suporte.png");
+}
+.login#container {
+    display: block;
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-color: #2F4F4F;
+}
+.entrar{
+    border: none;
+    margin: 200px auto;
+    padding: 5px;
+    text-align: center;
+    vertical-align: middle;
+    width: 60%;
+}
+input.txt {
+    width: 100%;
+    margin: 5px 0px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: solid 1px #aba5a5;
+}
+.btn {
+    width: 100%;
+    margin: 20px auto;
+    padding: 13px;
+    background: #b3b3b3;
+    color: #fff;
+    border: none;
+}
