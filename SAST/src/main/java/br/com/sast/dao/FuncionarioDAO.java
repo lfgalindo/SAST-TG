@@ -1,7 +1,6 @@
 package br.com.sast.dao;
 
 import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -21,7 +20,7 @@ public class FuncionarioDAO {
 	
 	//Método para inserir dados no banco
 	public void inserir(Funcionario cliente){
-		
+	
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
@@ -150,6 +149,28 @@ public class FuncionarioDAO {
 		}
 		
 	}//Fim do método excluir
-	
+        
+        //Método para autenticar um funcionário cadastrado no banco.
+	@SuppressWarnings("deprecation")
+        public Funcionario autenticar(String login,String senha){
+            
+            Session sessao = HibernateUtil.getSessionFactory().openSession();
+        
+            try{
+            
+                Criteria consulta = sessao.createCriteria(Funcionario.class);
 
-} //Fim da classe PessoaDAO
+                consulta.add(Restrictions.eq("login", login));
+                consulta.add(Restrictions.eq("senha", senha));
+            
+                Funcionario resultado = (Funcionario) consulta.uniqueResult(); 
+            
+                return resultado;
+            } catch(RuntimeException e) {
+                throw e;
+            } finally {
+                sessao.close();
+            }
+        }//Fim do método autenticar
+
+} //Fim da classe FuncionárioDAO

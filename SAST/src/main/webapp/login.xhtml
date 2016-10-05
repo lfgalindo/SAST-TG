@@ -22,13 +22,15 @@
                         <div class="entrar">
                                 <h:inputText id="txtLogin" value="" styleClass="txt"
                                              required="true"
-                                             requiredMessage="O campo Login é obrigatório" />
+                                             requiredMessage="O campo Login é obrigatório"
+                                             value="#{autenticacaoBean.funcionario.login}" />
                                 
                                 <h:inputText id="txtSenha" value="" styleClass="txt" 
                                              required="true"
-                                             requiredMessage="O campo Senha é obrigatório" />
+                                             requiredMessage="O campo Senha é obrigatório"
+                                             value="#{autenticacaoBean.funcionario.senha}"/>
                                 <h:commandButton value="Entrar" type="submit" styleClass="btn"
-                                                 actionListener="#"/>
+                                                 actionListener="#{autenticacaoBean.autenticar()}"/>
                         </div>
                     </h:form>
                 </f:view>
