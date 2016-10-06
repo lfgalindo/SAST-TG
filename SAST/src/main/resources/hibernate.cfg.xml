@@ -21,14 +21,13 @@
     <property name="hbm2ddl.auto">validate</property>
     <!-- Mapeamento -->
     <!-- <mapping class="br.com.bsmotos.oficina.domain.Cliente" /> -->
-    <mapping class="br.com.sast.domain.Caixa"/>
     <mapping class="br.com.sast.domain.Cargo"/>
-    <mapping class="br.com.sast.domain.Fatura"/>
+    <mapping class="br.com.sast.domain.Cliente"/>
+    <mapping class="br.com.sast.domain.Empresa"/>
+    <mapping class="br.com.sast.domain.Funcionario"/>
     <mapping class="br.com.sast.domain.Manutencao"/>
-    <mapping class="br.com.sast.domain.Movimentacao"/>
     <mapping class="br.com.sast.domain.Perfil"/>
-    <mapping class="br.com.sast.domain.Pessoa"/>
     <mapping class="br.com.sast.domain.Plano"/>
-    <mapping class="br.com.sast.domain.PlanoPessoa"/>
+    <mapping class="br.com.sast.domain.PlanoCliente"/>
   </session-factory>
 </hibernate-configuration>
