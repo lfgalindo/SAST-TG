@@ -17,23 +17,22 @@
             <div class="login" id="back">
             </div>
             <div class="login" id="container">
-                <f:view>
+                <p:growl id="msg2"/>
                     <h:form>
-                        <div class="entrar">
-                                <h:inputText id="txtLogin" value="" styleClass="txt"
+                            <h:panelGrid columns="1" class="entrar">
+                                <p:inputText id="txtLogin" styleClass="txt"
                                              required="true"
                                              requiredMessage="O campo Login é obrigatório"
-                                             value="#{autenticacaoBean.funcionario.login}" />
+                                             value="#{AutenticacaoBean.funcionario.login}" />
                                 
-                                <h:inputText id="txtSenha" value="" styleClass="txt" 
+                                <p:password id="txtSenha" styleClass="txt" 
                                              required="true"
                                              requiredMessage="O campo Senha é obrigatório"
-                                             value="#{autenticacaoBean.funcionario.senha}"/>
-                                <h:commandButton value="Entrar" type="submit" styleClass="btn"
-                                                 actionListener="#{autenticacaoBean.autenticar()}"/>
-                        </div>
+                                             value="#{AutenticacaoBean.funcionario.senha}"/>
+                                <p:commandButton value="Entrar" type="submit" styleClass="btn"
+                                                 actionListener="#{AutenticacaoBean.autenticar()}"/>
+                            </h:panelGrid>
                     </h:form>
-                </f:view>
-            </div>     
+                </div>     
 	</h:body>
 </html>

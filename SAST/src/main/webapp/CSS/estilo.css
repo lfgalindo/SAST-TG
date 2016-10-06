@@ -7,7 +7,14 @@ body{
     background-color: #fff;
     font-family: arial;
     font-size: 12px;
+    font-weight: normal;
     height: 100%;
+    margin: 0px;
+}
+form {
+    width: 100%;
+    height: 100%;
+    display: table;
     margin: 0px;
 }
 .login#back {
@@ -34,18 +41,35 @@ body{
     width: 60%;
 }
 input.txt {
-    width: 100%;
+    width: 100% !important;
     margin: 5px 0px;
-    padding: 10px;
+    padding: 10px 0px !important;
     background: transparent;
-    border: none;
-    border-bottom: solid 1px #aba5a5;
+    border: none !important;
+    border-bottom: solid 1px #aba5a5!important;
+    box-shadow: none;
+    color: #fff;
+    text-shadow: none;
 }
+input:focus {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 none !important;
+    outline: 0 !important;
+    border-bottom: solid 1px #aba5a5!important;
+} 
 .btn {
     width: 100%;
     margin: 20px auto;
-    padding: 13px;
+    padding: 15px;
     background: #b3b3b3;
     color: #fff;
     border: none;
 }
+.btn:hover {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 none !important;
+    outline: 0 !important;
+    border-bottom: solid 1px #aba5a5!important;
+    background: #fff;
+    color:#2F4F4F;
+} 
