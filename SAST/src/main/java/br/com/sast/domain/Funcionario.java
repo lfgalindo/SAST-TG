@@ -218,7 +218,7 @@ public class Funcionario {
 		this.formacao = formacao;
 	}
 	public String toString(){
-		return "O funcionário " + codigo + "é o resultado";
+		return "O funcionário " + codigo + " é o resultado";
 	}
 	
 }

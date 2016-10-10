@@ -63,7 +63,7 @@ public class PerfilDAO {
     } // Fim do método listar
 	
 	// Método que fará a persistência no banco para buscar um determinado perfil
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation", "unchecked"})
 	public Perfil buscar(Integer codigo){
 		
         Session sessao = HibernateUtil.getSessionFactory().openSession();

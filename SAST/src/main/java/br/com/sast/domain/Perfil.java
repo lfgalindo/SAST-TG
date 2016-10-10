@@ -25,10 +25,10 @@ public class Perfil {
 	private String nomePerfil;
 	
 	@Column(nullable = false)
-	private Integer gerenciarPessoas;
+	private Integer gerenciarClientes;
 	
 	@Column(nullable = false)
-	private Integer gerenciarFaturas;
+	private Integer gerenciarFuncionarios;
 	
 	@Column(nullable = false)
 	private Integer gerenciarCargos;
@@ -36,11 +36,6 @@ public class Perfil {
 	@Column(nullable = false)
 	private Integer gerenciarPlanos;
 	
-	@Column(nullable = false)
-	private Integer gerenciarCaixas;
-	
-	@Column(nullable = false)
-	private Integer gerenciarMovimentacoes;
 	
 	@Column(nullable = false)
 	private Integer gerenciarManutencoes;
@@ -64,19 +59,6 @@ public class Perfil {
 		return nomePerfil;
 	}
 	
-	public void setGerenciarPessoas(Integer gerenciarPessoas){
-		this.gerenciarPessoas = gerenciarPessoas;
-	}
-	public Integer getGerenciarPessoas(){
-		return gerenciarPessoas;
-	}
-	
-	public void setGerenciarFaturas(Integer gerenciarFaturas){
-		this.gerenciarFaturas = gerenciarFaturas;
-	}
-	public Integer getGerenciarFaturas(){
-		return gerenciarFaturas;
-	}
 	
 	public void setGerenciarCargos(Integer gerenciarCargos){
 		this.gerenciarCargos = gerenciarCargos;
@@ -92,20 +74,6 @@ public class Perfil {
 		return gerenciarPlanos;
 	}
 	
-	public void setGerenciarCaixas(Integer gerenciarCaixas){
-		this.gerenciarCaixas = gerenciarCaixas;
-	}
-	public Integer getGerenciarCaixas(){
-		return gerenciarCaixas;
-	}
-	
-	public void setGerenciarMovimentacoes(Integer gerenciarMovimentacoes){
-		this.gerenciarMovimentacoes = gerenciarMovimentacoes;
-	}
-	public Integer getGerenciarMovimentacoes(){
-		return gerenciarMovimentacoes;
-	}
-	
 	public void setGerenciarManutencoes(Integer gerenciarManutencoes){
 		this.gerenciarManutencoes = gerenciarManutencoes;
 	}
@@ -119,8 +87,23 @@ public class Perfil {
 	public Integer getGerenciarConficuracoes(){
 		return gerenciarConfiguracoes;
 	}
-	    
-    public String toString(){
+	
+    public Integer getGerenciarClientes() {
+		return gerenciarClientes;
+	}
+	public void setGerenciarClientes(Integer gerenciarClientes) {
+		this.gerenciarClientes = gerenciarClientes;
+	}
+	public Integer getGerenciarFuncionarios() {
+		return gerenciarFuncionarios;
+	}
+	public void setGerenciarFuncionarios(Integer gerenciarFuncionarios) {
+		this.gerenciarFuncionarios = gerenciarFuncionarios;
+	}
+	public Integer getGerenciarConfiguracoes() {
+		return gerenciarConfiguracoes;
+	}
+	public String toString(){
 		return "Perfil " + codigo + ": { " + nomePerfil + " }";
     }
     

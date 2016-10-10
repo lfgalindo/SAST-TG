@@ -19,15 +19,15 @@ import br.com.sast.util.HibernateUtil;
 public class FuncionarioDAO {
 	
 	//Método para inserir dados no banco
-	public void inserir(Funcionario cliente){
+	public void inserir(Funcionario funcionario){
 	
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.save(cliente);
-			sessao.beginTransaction().commit();
+			sessao.save(funcionario);
+			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
 			
@@ -73,7 +73,7 @@ public class FuncionarioDAO {
 	
 	//Método para buscar um registro do banco.
 	@SuppressWarnings("deprecation")
-	public Funcionario consultar(int codCli){
+	public Funcionario consultar(int codFunc){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
@@ -83,7 +83,7 @@ public class FuncionarioDAO {
 			
 			Criteria consulta = sessao.createCriteria(Funcionario.class);
 			
-			consulta.add(Restrictions.eq("codigo", codCli));
+			consulta.add(Restrictions.eq("codigo", codFunc));
 			
 			pessoa = (Funcionario)consulta.uniqueResult();
 			
@@ -103,14 +103,14 @@ public class FuncionarioDAO {
 	}// Fim da classe consultar
 	
 	//Método para editar um registro do banco
-	public void editar(Funcionario cliente){
+	public void editar(Funcionario funcionario){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.update(cliente);
+			sessao.update(funcionario);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -127,14 +127,14 @@ public class FuncionarioDAO {
 	}//Fim do método editar
 	
 	//Método para excluir um registro do banco
-	public void excluir(Funcionario pessoa){
+	public void excluir(Funcionario funcionario){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.delete(pessoa);
+			sessao.delete(funcionario);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){

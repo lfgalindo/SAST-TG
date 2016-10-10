@@ -137,4 +137,16 @@ public class Manutencao {
 		this.codigoFuncionario = codigoFuncionario;
 	}
 
+	@Override
+	public String toString() {
+		
+		return "Manutencao [codigo= " + codigo + ", descricao=" + descricao + ", descProblema=" + descProblema
+				+ ", observacoes=" + observacoes + ", prioridade=" + prioridade + ", dtAgendamento=" + dtAgendamento
+				+ ", dtExecucao=" + dtExecucao + ", baixa=" + baixa + ", codigoCliente=" + codigoCliente
+				+ ", codigoFuncionario=" + codigoFuncionario + "]";
+	}
+	
+	
+	
+
 }

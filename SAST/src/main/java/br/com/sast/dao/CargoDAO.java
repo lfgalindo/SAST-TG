@@ -2,6 +2,7 @@ package br.com.sast.dao;
 
 import java.util.List;
 
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
@@ -79,7 +80,7 @@ public class CargoDAO {
 		Cargo cargo = null;
 		
 		try{
-			
+
 			Criteria consulta = sessao.createCriteria(Cargo.class);
 			consulta.add(Restrictions.eq("codigo", codCargo));
 			

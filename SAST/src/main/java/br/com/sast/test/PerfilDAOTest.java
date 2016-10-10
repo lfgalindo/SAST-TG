@@ -21,14 +21,12 @@ public class PerfilDAOTest {
 		Integer dado = 1;
 		
 		perfil.setCodigo(dado);
-		perfil.setGerenciarCaixas(dado);
 		perfil.setNomePerfil("TesteQuatro");
 		perfil.setGerenciarCargos(dado);
 		perfil.setGerenciarConfiguracoes(dado);
-		perfil.setGerenciarFaturas(dado);
 		perfil.setGerenciarManutencoes(dado);
-		perfil.setGerenciarMovimentacoes(dado);
-		perfil.setGerenciarPessoas(dado);
+		perfil.setGerenciarClientes(dado);
+		perfil.setGerenciarFuncionarios(dado);
 		perfil.setGerenciarPlanos(dado);
 		
 		PerfilDAO perf = new PerfilDAO();

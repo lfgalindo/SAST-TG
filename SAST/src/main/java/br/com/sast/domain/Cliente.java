@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -76,7 +77,7 @@ public class Cliente {
 	@Column(length = 10, nullable = false)
 	private String senha;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(nullable = false, unique = false)
 	private Perfil codigoPerfil;
 	
@@ -193,7 +194,7 @@ public class Cliente {
 		this.senha = senha;
 	}
 	public String toString(){
-		return "O cliente " + codigo + "é o resultado";
+		return "O cliente " + codigo + " é o resultado";
 	}
 	
 }

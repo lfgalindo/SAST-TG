@@ -18,7 +18,7 @@ import br.com.sast.domain.Perfil;
 
 public class CargoDAOTest {
 	
-	@Ignore
+
 	@Test
 	public void inserir(){
 		
