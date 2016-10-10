@@ -12,7 +12,7 @@ import br.com.sast.util.HibernateUtil;
 
 
 /**
- * Classe definida para realizar a persistência na entidade "tb_pessoa".
+ * Classe definida para realizar a persistência na entidade "tb_cliente".
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 31/08/2016
  */
@@ -23,25 +23,23 @@ public class ClienteDAO {
 	public void inserir(Cliente cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		
-		try{
-			
-			sessao.beginTransaction();
-			sessao.save(cliente);
-			sessao.beginTransaction().commit();
-			
-		}catch(RuntimeException erro){
-			
-			sessao.getTransaction().rollback();
-			erro.getMessage();
-			
-		}finally{
-			
-			sessao.close();
-			
-		}
-		
-	}//Fim do método inserir
+	
+        try {
+        	sessao.beginTransaction();
+
+            sessao.save(cliente);
+
+            sessao.getTransaction().commit();
+
+        } catch (RuntimeException erro) {
+        	sessao.getTransaction().rollback();
+            erro.getMessage();
+            
+        } finally {
+            sessao.close();
+        }
+				
+	} // Fim do método inserir
 	
 	
 	//Método para listar os registros do banco

@@ -15,11 +15,10 @@ import br.com.sast.domain.Perfil;
 public class PerfilDAOTest {
 
 	@Test
-    @Ignore
 	public void inserir(){
 		
 		Perfil perfil = new Perfil();
-		Integer dado = 4;
+		Integer dado = 1;
 		
 		perfil.setCodigo(dado);
 		perfil.setGerenciarCaixas(dado);

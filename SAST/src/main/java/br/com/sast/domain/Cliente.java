@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
 /**
  * Classe definida para mapear a entidade "tb_cliente" e seus atributos.
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
