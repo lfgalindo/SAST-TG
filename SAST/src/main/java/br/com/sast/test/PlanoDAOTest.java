@@ -16,13 +16,11 @@ import br.com.sast.domain.Plano;
 public class PlanoDAOTest {
 
 	@Test
-    @Ignore
 	public void inserir(){
 		
 		Plano plano = new Plano();
 		
 		plano.seDescricao("testetres");
-		plano.setCodigo(22);
 		plano.setGarantia(70);
 		plano.setTipoConexao("Fumaça");
 		plano.setValor(99.90);

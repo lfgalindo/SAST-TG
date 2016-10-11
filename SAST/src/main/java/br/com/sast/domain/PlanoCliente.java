@@ -54,7 +54,12 @@ public class PlanoCliente {
 	public void setCodigoPlano(Plano codigoPlano) {
 		this.codigoPlano = codigoPlano;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "PlanoCliente [codigo= " + codigo + ", codigoCliente=" + codigoCliente + ", codigoPlano=" + codigoPlano
+				+ "]";
+	}
 	
 	
 }

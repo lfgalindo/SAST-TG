@@ -27,7 +27,7 @@ public class ManutencaoDAO {
 			
 			sessao.beginTransaction();
 			sessao.save(manutencao);
-			sessao.beginTransaction().commit();
+			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
 			

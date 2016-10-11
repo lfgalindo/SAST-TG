@@ -34,7 +34,7 @@ public class ClienteDAOTest {
 		cliente.setBairro("Vila Santa Tereza");
 		cliente.setCidade("Chavantes");
 		cliente.setComplemento("Casa");
-		cliente.setCpf("44568786818");
+		cliente.setCpf("44568786819");
 		cliente.setEmail("guihms1@gmail.com");
 		cliente.setEndereco("Rua José de Souza Carvalho");
 		cliente.setEstadoCivil("Solteiro");
@@ -42,7 +42,7 @@ public class ClienteDAOTest {
 		cliente.setLogin("guihms1");
 		cliente.setNascimento(new Date());
 		cliente.setNumero("06");
-		cliente.setRg("469823733");
+		cliente.setRg("469823734");
 		cliente.setSenha("senha");
 		cliente.setTelefone("996440052");
 		cliente.setNome("Luís Guilherme Fernandes Ferreira");
