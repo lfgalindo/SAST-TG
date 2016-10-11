@@ -141,5 +141,15 @@ public class Empresa {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+	@Override
+	public String toString() {
+		return "Empresa [codigoEmpresa= " + codigoEmpresa + ", nomeEmpresa=" + nomeEmpresa + ", razaoSocial="
+				+ razaoSocial + ", cnpj=" + cnpj + ", endereco=" + endereco + ", bairro=" + bairro + ", numero="
+				+ numero + ", cidade=" + cidade + ", estado=" + estado + ", email=" + email + ", telefone=" + telefone
+				+ "]";
+	}
+	
+	
 	
 }
