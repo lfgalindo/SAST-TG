@@ -27,7 +27,7 @@ public class ClienteDAOTest {
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
 		
-		Perfil perfil = perfilDAO.buscar(1);
+		Perfil perfil = perfilDAO.buscar(2);
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		

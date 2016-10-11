@@ -21,7 +21,7 @@ import br.com.sast.domain.Perfil;
 
 public class FuncionarioDAOTest {
 		
-		@Ignore
+		
 		@Test
 		public void inserir(){
 			
@@ -29,11 +29,11 @@ public class FuncionarioDAOTest {
 			
 			PerfilDAO perfilDAO = new PerfilDAO();
 			
-			Perfil perfil = perfilDAO.buscar(1);
+			Perfil perfil = perfilDAO.buscar(2);
 			
 			CargoDAO cargoDAO = new CargoDAO();
 			
-			Cargo cargo = cargoDAO.consultar(2);
+			Cargo cargo = cargoDAO.consultar(1);
 			
 			FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 			
@@ -87,6 +87,7 @@ public class FuncionarioDAOTest {
 	        }
 	    }
 		
+		@Ignore
 		@Test
 	    public void editar(){
 
@@ -103,6 +104,22 @@ public class FuncionarioDAOTest {
 	        funcionarioDAO.editar(resultado);
 	        
 	        System.out.println("Funcionario Editado: " + resultado);
+	    }
+		
+		@Ignore
+	    @Test
+	    public void excluir(){
+	        
+			Integer codigo = 7;
+
+	        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+	        
+	        Funcionario resultado = funcionarioDAO.consultar(codigo);
+	        
+	        funcionarioDAO.excluir(resultado);
+	        
+	        System.out.println("Funcionário excluído " + resultado);
+	        
 	    }
 		
 }
