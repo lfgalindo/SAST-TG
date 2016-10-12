@@ -1,16 +1,17 @@
 package br.com.sast.bean;
 
-import br.com.sast.dao.FuncionarioDAO;
-import br.com.sast.domain.Funcionario;
-import java.io.IOException;
-import java.util.Date;
+/*import java.io.IOException;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.Logger;*/
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.omnifaces.util.Faces;
-import org.omnifaces.util.Messages;
+
+//import org.omnifaces.util.Faces;
+
+import br.com.sast.dao.FuncionarioDAO;
+import br.com.sast.domain.Funcionario;
 
 /**
  * Classe definida para controlar a autenticação de Usuários
@@ -47,11 +48,11 @@ public class AutenticacaoBean {
 
     public void autenticar() {
         
-        try {
+       /* try {
             Faces.redirect("index.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(AutenticacaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
     }
 

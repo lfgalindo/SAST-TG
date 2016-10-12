@@ -1,10 +1,12 @@
 package br.com.sast.dao;
 
 import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+
 import br.com.sast.domain.Perfil;
 import br.com.sast.util.HibernateUtil;
 
@@ -63,7 +65,8 @@ public class PerfilDAO {
     } // Fim do método listar
 	
 	// Método que fará a persistência no banco para buscar um determinado perfil
-	@SuppressWarnings({"deprecation", "unchecked"})
+
+	@SuppressWarnings("deprecation")
 	public Perfil buscar(Integer codigo){
 		
         Session sessao = HibernateUtil.getSessionFactory().openSession();

@@ -6,9 +6,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.sast.dao.CargoDAO;
-import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Cargo;
-import br.com.sast.domain.Perfil;
 
 /**
  * Classe definida para para testar os métodos da classe CargoDAO.

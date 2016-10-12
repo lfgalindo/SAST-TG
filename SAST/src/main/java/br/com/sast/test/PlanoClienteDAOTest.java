@@ -1,17 +1,14 @@
 package br.com.sast.test;
 
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.sast.dao.ClienteDAO;
-import br.com.sast.dao.ManutencaoDAO;
 import br.com.sast.dao.PlanoClienteDAO;
 import br.com.sast.dao.PlanoDAO;
 import br.com.sast.domain.Cliente;
-import br.com.sast.domain.Manutencao;
 import br.com.sast.domain.Plano;
 import br.com.sast.domain.PlanoCliente;
 
