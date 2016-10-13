@@ -1,7 +1,10 @@
 package br.com.sast.dao;
 
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.sast.domain.Empresa;
@@ -46,7 +49,7 @@ public class EmpresaDAO {
 		try {
 			Criteria consulta = sessao.createCriteria(Empresa.class);
 
-			consulta.add(Restrictions.eq("codigo", codigo));
+			consulta.add(Restrictions.eq("codigoEmpresa", codigo));
 
 			Empresa resultado = (Empresa) consulta.uniqueResult();
 
@@ -60,6 +63,35 @@ public class EmpresaDAO {
 
 		}
 	} // Fim do método buscar
+	
+	
+	//Método para listar todos os registros de cargos do banco.
+		@SuppressWarnings({"deprecation", "unchecked"})
+		public List<Empresa> listar(){
+			
+			Session sessao = HibernateUtil.getSessionFactory().openSession();
+			
+			try{
+				
+				Criteria consulta = sessao.createCriteria(Empresa.class);
+				
+				consulta.addOrder(Order.asc("codigoEmpresa"));
+				
+				List<Empresa> resultado = consulta.list();
+				
+				return resultado;
+				
+			}catch(RuntimeException erro){
+				
+				throw erro;
+				
+			}finally{
+				
+				sessao.close();
+				
+			}
+			
+		}//Fim do método listar
 
 	public void excluir(Empresa empresa) {
 
