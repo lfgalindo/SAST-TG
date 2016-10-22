@@ -48,11 +48,11 @@ public class AutenticacaoBean {
 
     public void autenticar() {
         
-       /* try {
+        try {
             Faces.redirect("index.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(AutenticacaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
     }
 
