@@ -18,23 +18,23 @@
             <div class="login" id="back">
             </div>
             <div class="login" id="container">
-            	<i class="fa fa-camera-retro fa-5x"></i>
                 <p:growl id="msg2"/>
                     <h:form>
                             <h:panelGrid columns="1" class="entrar">
-                            	<div id="user"></div>
-                            	<p:inputText id="txtLogin" styleClass="txt"
+                            	<div id="linha">
+                            	
+                            		<div id="user"></div>
+                            		<p:inputText id="txtLogin" styleClass="txt"
                                              required="true"
                                              requiredMessage="O campo Login é obrigatório"
-                                             value="#{AutenticacaoBean.funcionario.login}" />
-                                
-                                
+                                             value="" />
+                                </div>
                                 <p:password id="txtSenha" styleClass="txt" 
                                              required="true"
                                              requiredMessage="O campo Senha é obrigatório"
-                                             value="#{AutenticacaoBean.funcionario.senha}"/>
+                                             value=""/>
                                 <p:commandButton value="Entrar" styleClass="btn" update=":msg2"
-                                                 action="#{AutenticacaoBean.autenticar()}"/>
+                                                 action="#"/>
                             </h:panelGrid>
                     </h:form>
                 </div>     
