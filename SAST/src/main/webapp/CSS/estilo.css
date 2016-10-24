@@ -73,3 +73,13 @@ input:focus {
     background: #fff;
     color:#2F4F4F;
 } 
+#user{
+   float:left;
+   margin:3px 0px 0px -20px;
+   cursor:pointer
+}
+#user:after{
+   font-family:FontAwesome;
+   font-size:14px;
+   content:"\f002"
+}
