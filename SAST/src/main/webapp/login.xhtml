@@ -20,22 +20,33 @@
             <div class="login" id="container">
                 <p:growl id="msg2"/>
                     <h:form>
-                            <h:panelGrid columns="1" class="entrar">
-                            	<div id="linha">
-                            	
-                            		<div id="user"></div>
+                            <div class="entrar">
+                            	<div class="linha" id="txt">
+                            		<div class="icon">
+                            			<i class="fa fa-user" aria-hidden="true"></i>
+                            		</div>
                             		<p:inputText id="txtLogin" styleClass="txt"
-                                             required="true"
+                            				 placeholder="Login" required="true"
                                              requiredMessage="O campo Login é obrigatório"
                                              value="" />
                                 </div>
-                                <p:password id="txtSenha" styleClass="txt" 
-                                             required="true"
+                                
+                                <div class="linha" id="txt">
+                                	<div class="icon">
+                            			<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                            		</div>
+                                	<p:password id="txtSenha" styleClass="txt" 
+                                             placeholder="Senha" required="true"
                                              requiredMessage="O campo Senha é obrigatório"
                                              value=""/>
-                                <p:commandButton value="Entrar" styleClass="btn" update=":msg2"
+                                </div>
+                                
+                                <div class="linha" id="btn">
+                                	<p:commandButton value="Entrar" styleClass="btn" update=":msg2"
                                                  action="#"/>
-                            </h:panelGrid>
+                                	<a href="url">Esqueceu sua senha?</a>
+                                </div>
+                            </div>
                     </h:form>
                 </div>     
 	</h:body>
