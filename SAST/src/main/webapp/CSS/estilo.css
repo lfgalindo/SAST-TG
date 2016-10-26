@@ -116,21 +116,77 @@ a:hover{
 }
 
 /* Menu */
-
-div.logo{
-	margin-top: 10px;
-	width: 100%;
-}
 form.menu{
 	height:100%
-}
-div.menu{
-	width: 20%;
-    height: 100%;
-    display: table;
-    background-color: #313b3f;
 }
 .ui-menu{
 	width: 99%!important;
     padding: 0!important;
+    height:100%;
+    overflow-x: hidden;
 }
+.ui-widget-content {
+    border: none;
+    background: #fff;
+    padding:0px;
+}
+.ui-layout-north .ui-layout-unit-content{
+	width:100%!important;
+	height:100%!important;
+	background-color: #eff3f6!important;
+}
+.ui-layout-west .ui-layout-unit-content{
+	width:100%!important;
+	height:100%!important;
+	background-color: #313b3f!important;
+}
+.ui-menu .ui-menu-list .ui-widget-header {
+    float: left;
+    width: 100%;
+    margin: -1px 0px;
+    padding: 10px 0px;
+    letter-spacing: 1px;
+    font-family: arial;
+    font-size: 18px;
+    font-weight: normal;
+    background: #313b3f;
+    color: #889597;
+    text-shadow: none;
+    border-radius: 0;
+    border:none;
+    border: solid 1px #20282b;
+}
+.ui-menu .ui-menu-list .ui-widget-header:hover {
+    background: #20282b;
+    color: #4d90fe;
+    box-shadow: none;
+}
+.ui-menu .ui-menu-list .ui-widget-header:focus {
+    outline:none
+}
+.ui-menu .ui-menuitem-link {
+    display: block;
+    width: 100%;
+    outline: none;
+    text-decoration: none;
+    font-weight: 400;
+    border: solid 1px transparent;
+    float: left;
+    line-height: 16px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 0;
+    color:#889597;
+}
+.ui-menu .ui-menuitem-link:hover {
+    width: 100%;
+	background: #20282b;
+    color: #4d90fe;
+    box-shadow: none;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+    background: #313b3f;
+}
+
+
