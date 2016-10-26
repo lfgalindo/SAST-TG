@@ -126,14 +126,14 @@ public class ClienteDAO {
 	}//Fim do método editar
 	
 	//Método para excluir um registro do banco
-	public void excluir(Cliente pessoa){
+	public void excluir(Cliente cliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.delete(pessoa);
+			sessao.delete(cliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){

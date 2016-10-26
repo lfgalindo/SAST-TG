@@ -5,9 +5,7 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.sast.dao.CargoDAO;
 import br.com.sast.dao.EmpresaDAO;
-import br.com.sast.domain.Cargo;
 import br.com.sast.domain.Empresa;
 
 
