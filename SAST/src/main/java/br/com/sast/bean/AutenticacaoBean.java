@@ -2,9 +2,8 @@ package br.com.sast.bean;
 
 /*import java.io.IOException;
 import java.util.logging.Level;
-import java.util.logging.Logger;*/
+import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -18,9 +17,10 @@ import br.com.sast.domain.Funcionario;
  * @author Luiz Felipe Magalhães Galindo <lfgalindo@live.com>
  * @since 04/10/2016
  */
-@ManagedBean
-@SessionScoped
+
 public class AutenticacaoBean {
+	
+	/**
     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     private Funcionario funcionario;
     private Funcionario funcionarioLogado;
@@ -56,5 +56,5 @@ public class AutenticacaoBean {
         
     }
 
-    
+  */
 }

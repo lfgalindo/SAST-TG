@@ -11,77 +11,182 @@ body{
     height: 100%;
     margin: 0px;
 }
-form {
-    width: 100%;
+form.login {
+	width: 100%; 
     height: 100%;
-    display: table;
-    margin: 0px;
-}
-.login#back {
-    width: 50%;
-    height: 100%;
-    margin: 0px;
-    display: block;
-    float: left;
-    background-image: url("../imagens/suporte.png");
+  	min-height: 100%;
+  	display: -webkit-flex;
+  	display: flex;
+  	-webkit-align-items: center;
+  	align-items: center;
+  	-webkit-justify-content: center;
+  	justify-content: center;
 }
 .login#container {
     display: block;
     float: right;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    background-color: #2F4F4F;
+    background-color: #313b3f;
+    background-image: url("src/main/webapp/imagens/back.jpg");
 }
 .entrar{
     border: none;
-    margin: 200px auto;
+    margin: 0px auto;
     padding: 5px;
     text-align: center;
     vertical-align: middle;
-    width: 60%;
+    width: 30%;
+}
+div.logo{
+	color:#4d90fe;
+	font-size:100px !important;
+	margin-bottom:35px;
+}
+div#txt.linha {
+	display:table;
+	width:100%;
+	border-bottom: solid 1px #4d90fe;
+	font-size:14px;
+	margin: 5px 0px;
+}
+div.icon{
+	width: 12%;
+    float: left;
+    margin-top: 13px;
+    color: #4d90fe;
 }
 input.txt {
-    width: 95% !important;
-    margin: 5px 0px;
+    width: 85% !important;
+    margin: 0px;
     float: left;
-    padding: 10px 0px !important;
+    padding: 13px 0px !important;
     background: transparent;
     border: none !important;
-    border-bottom: solid 1px #aba5a5!important;
     box-shadow: none;
-    color: #fff;
+    color: #879496;
     text-shadow: none;
 }
 input:focus {
     box-shadow: 0 0 0 0 !important;
     border: 0 none !important;
     outline: 0 !important;
-    border-bottom: solid 1px #aba5a5!important;
-} 
-.btn {
+}
+div#btn.linha {
+	display: table;
     width: 100%;
-    margin: 20px auto;
-    padding: 15px;
-    background: #b3b3b3;
-    color: #fff;
+    margin: 40px 0px;
+}
+.btn {
+	font-size: 14px!important;
+    font-weight: normal!important;
+    letter-spacing: 1px!important;
+	float: left;
+    width: 40%;
+    padding: 5px 0px;
+    background: #20272a;
+    color: #4d90fe;
     border: none;
+    border-radius:30px;
+    text-shadow: none!important;
 }
 .btn:hover {
     box-shadow: 0 0 0 0 !important;
     border: 0 none !important;
     outline: 0 !important;
     border-bottom: solid 1px #aba5a5!important;
+    background: #4d90fe;
+    color:#20272a;
+}
+.btn:focus {
+    box-shadow: 0 0 0 0 !important;
+    border: 0 none !important;
+    outline: 0 !important;
+}
+a {
+    color: #7f9ea9;
+    font-size: 14px;
+    float: right;
+    padding: 10px 0px;
+    text-decoration: none;
+    opacity: 0.5;
+}
+a:hover{
+	opacity: 1;
+}
+
+/* Menu */
+form.menu{
+	height:100%
+}
+.ui-menu{
+	width: 99%!important;
+    padding: 0!important;
+    height:100%;
+    overflow-x: hidden;
+}
+.ui-widget-content {
+    border: none;
     background: #fff;
-    color:#2F4F4F;
-} 
-#user{
-   width:5%;
-   float:left;
-   margin:3px 0px 0px -20px;
-   cursor:pointer
+    padding:0px;
 }
-#user:before{
-   font-family:FontAwesome;
-   font-size:14px;
-   content:"\f007"
+.ui-layout-north .ui-layout-unit-content{
+	width:100%!important;
+	height:100%!important;
+	background-color: #eff3f6!important;
 }
+.ui-layout-west .ui-layout-unit-content{
+	width:100%!important;
+	height:100%!important;
+	background-color: #313b3f!important;
+}
+.ui-menu .ui-menu-list .ui-widget-header {
+    float: left;
+    width: 100%;
+    margin: -1px 0px;
+    padding: 10px 0px;
+    letter-spacing: 1px;
+    font-family: arial;
+    font-size: 18px;
+    font-weight: normal;
+    background: #313b3f;
+    color: #889597;
+    text-shadow: none;
+    border-radius: 0;
+    border:none;
+    border: solid 1px #20282b;
+}
+.ui-menu .ui-menu-list .ui-widget-header:hover {
+    background: #20282b;
+    color: #4d90fe;
+    box-shadow: none;
+}
+.ui-menu .ui-menu-list .ui-widget-header:focus {
+    outline:none
+}
+.ui-menu .ui-menuitem-link {
+    display: block;
+    width: 100%;
+    outline: none;
+    text-decoration: none;
+    font-weight: 400;
+    border: solid 1px transparent;
+    float: left;
+    line-height: 16px;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 0;
+    color:#889597;
+}
+.ui-menu .ui-menuitem-link:hover {
+    width: 100%;
+	background: #20282b;
+    color: #4d90fe;
+    box-shadow: none;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+    background: #313b3f;
+}
+
+
