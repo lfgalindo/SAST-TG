@@ -62,9 +62,13 @@ public class ClienteBean {
 		cliente = new Cliente();
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
+		
+		//chave estrangeira.
 		PerfilDAO perfilDAO = new PerfilDAO();
 		
 		clientes = clienteDAO.listar();
+		
+		//chave estrangeira.
 		perfis = perfilDAO.listar();
 		
 	}//fim do método novo
