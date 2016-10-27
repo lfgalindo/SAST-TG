@@ -15,10 +15,18 @@
 
 <h:body>
 	<p:layout fullPage="true">
-		<p:layoutUnit position="north" size="18%" resizable="false"
+		<p:layoutUnit position="north" size="15%" resizable="false"
 			collapsible="false" closable="false" gutter="0">
                     <div class="logo-menu">
                         <i class="fa fa-area-chart" aria-hidden="true"></i>     
+                    </div>
+                    
+                    <div class="header">
+
+                    </div>
+                    
+                    <div class="logout">
+                        <p:commandButton value="Sair" styleClass="btn-sair" action="#"/>     
                     </div>
 		</p:layoutUnit>
 
@@ -26,22 +34,34 @@
                               collapsible="false" closable="false" gutter="0">
 			<h:form class="menu">
 				<p:menu toggleable="true">
-					<p:submenu label="Teste 1">
-						<p:menuitem value="Listar" />
-						<p:menuitem value="Editar" />
-						<p:menuitem value="Excluir" />
+					<p:submenu label="Início">
+						<p:menuitem value="Principal" outcome="principal.xhtml"/>
+					</p:submenu>
+					<p:submenu label="Consultas">
+						<p:menuitem value="Manutenções" outcome="manutencaoListar" />
+						<p:menuitem value="Clientes" outcome="clienteListar" />
+						<p:menuitem value="Funcionários" outcome="funcionarioListar" />
+						<p:menuitem value="Cargos" outcome="cargoListar" />
+						<p:menuitem value="Perfis" outcome="perfilListar" />
+						<p:menuitem value="Planos" outcome="planoListar" />
 					</p:submenu>
 
-					<p:submenu label="Teste 2">
-						<p:menuitem value="Listar" />
-						<p:menuitem value="Editar" />
-						<p:menuitem value="Excluir" />
+					<p:submenu label="Cadastros">
+						<p:menuitem value="Manutenções" />
+						<p:menuitem value="Clientes" />
+						<p:menuitem value="Funcionários" />
+						<p:menuitem value="Cargos" />
+						<p:menuitem value="Perfis" />
+						<p:menuitem value="Planos" />
 					</p:submenu>
 
-					<p:submenu label="Teste 3">
-						<p:menuitem value="Listar" />
-						<p:menuitem value="Editar" />
-						<p:menuitem value="Excluir" />
+					<p:submenu label="Relatórios">
+						<p:menuitem value="Gerar relatórios" />
+					</p:submenu>
+						
+					<p:submenu label="Empresa">
+						<p:menuitem value="Visualizar Dados" />
+						<p:menuitem value="Alterar Dados" />
 					</p:submenu>
 				</p:menu>
 			</h:form>

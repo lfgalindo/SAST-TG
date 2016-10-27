@@ -159,7 +159,7 @@ form.menu{
     padding: 10px 0px;
     letter-spacing: 1px;
     font-family: arial;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: normal;
     background: #313b3f;
     color: #889597;
@@ -167,10 +167,11 @@ form.menu{
     border-radius: 0;
     border:none;
     border: solid 1px #20282b;
+    text-transform: uppercase!important;
 }
 .ui-menu .ui-menu-list .ui-widget-header:hover {
     background: #20282b;
-    color: #4d90fe;
+    color: #fe4d4d;
     box-shadow: none;
 }
 .ui-menu .ui-menu-list .ui-widget-header:focus {
@@ -193,7 +194,7 @@ form.menu{
 .ui-menu .ui-menuitem-link:hover {
     width: 100%;
     background: #20282b;
-    color: #4d90fe;
+    color: #fe4d4d;
     box-shadow: none;
 }
 .ui-widget .ui-widget {
@@ -204,10 +205,29 @@ form.menu{
 div.logo-menu{
     width: 20%;
     height: 100%;
-    color: #4d90fe;
+    color: #fe4d4d;
     font-size: 100px !important;
     margin-bottom: 35px;
     background: #313b3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+div.header{
+    float: left;
+    width: 60%;
+    height: 100%;
+    font-size: 10px !important;
+    background: #eff3f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.logout{
+    width: 20%;
+    height: 100%;
+    background: #eff3f6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -216,4 +236,31 @@ ui-layout-resizer{
     display:none!important;
 }
 
-
+.btn-sair{
+	display:inline-flex;
+	box-shadow: none!important;
+    border-top: none!important;
+    text-shadow: none!important;
+    color: #fff!important;
+    background: #fe4d4d!important;
+    border-radius: 50px;
+    font-size: 14px!important;
+    font-weight: normal!important;
+    text-transform: uppercase!important;
+    letter-spacing: 3px!important;
+    padding: 5px 15px!important;
+    outline:none;
+}
+.btn-sair:after{
+	align-self:center;
+	font-family:FontAwesome;
+    font-size:18px;
+    content:"\f08b"
+}
+div.container-table{
+	position: relative;
+    width: 80%;
+}
+div.table{
+	margin: 15px;
+}
