@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+/** #00abe0 **/
+
 html{
     height: 100%;
 }
@@ -27,8 +29,7 @@ form.login {
     float: right;
     width: 100%;
     height: 100%;
-    background-color: #313b3f;
-    background-image: url("src/main/webapp/imagens/back.jpg");
+    background-color: #20272a;
 }
 .entrar{
     border: none;
@@ -36,25 +37,26 @@ form.login {
     padding: 5px;
     text-align: center;
     vertical-align: middle;
-    width: 30%;
+    width: 20%;
 }
 div.logo{
-	color:#4d90fe;
-	font-size:100px !important;
-	margin-bottom:35px;
+    color: #fe4d4d;
+    font-size: 100px;
+    margin-bottom: 35px;
 }
 div#txt.linha {
 	display:table;
 	width:100%;
-	border-bottom: solid 1px #4d90fe;
+	border-bottom: solid 1px #323d42;
 	font-size:14px;
 	margin: 5px 0px;
 }
 div.icon{
-	width: 12%;
+    width: 7%;
+    padding-right: 10px;
     float: left;
     margin-top: 13px;
-    color: #4d90fe;
+    color: #fe4d4d;
 }
 input.txt {
     width: 85% !important;
@@ -66,6 +68,8 @@ input.txt {
     box-shadow: none;
     color: #879496;
     text-shadow: none;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 input:focus {
     box-shadow: 0 0 0 0 !important;
@@ -73,30 +77,29 @@ input:focus {
     outline: 0 !important;
 }
 div#btn.linha {
-	display: table;
+    display: table;
     width: 100%;
     margin: 40px 0px;
 }
 .btn {
-	font-size: 14px!important;
-    font-weight: normal!important;
-    letter-spacing: 1px!important;
-	float: left;
-    width: 40%;
-    padding: 5px 0px;
+    float: left;
+    width: 50%;
+    padding: 8px 0px;
     background: #20272a;
-    color: #4d90fe;
-    border: none;
-    border-radius:30px;
-    text-shadow: none!important;
+    border: 2px solid #fe4d4d;
+    color: #fe4d4d;
+    border-radius: 30px;
+    box-shadow: none;
+    text-transform: uppercase;
+    text-shadow: none;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
 }
 .btn:hover {
-    box-shadow: 0 0 0 0 !important;
-    border: 0 none !important;
     outline: 0 !important;
-    border-bottom: solid 1px #aba5a5!important;
-    background: #4d90fe;
-    color:#20272a;
+    background: #fe4d4d;
+    color:#fff;
 }
 .btn:focus {
     box-shadow: 0 0 0 0 !important;
@@ -104,8 +107,8 @@ div#btn.linha {
     outline: 0 !important;
 }
 a {
-    color: #7f9ea9;
-    font-size: 14px;
+    color: #f7f7f7;
+    font-size: 12px;
     float: right;
     padding: 10px 0px;
     text-decoration: none;
@@ -120,25 +123,34 @@ form.menu{
 	height:100%
 }
 .ui-menu{
-	width: 99%!important;
+    width: 99%!important;
     padding: 0!important;
     height:100%;
     overflow-x: hidden;
 }
 .ui-widget-content {
     border: none;
-    background: #fff;
+    background: #eff3f6;
     padding:0px;
 }
 .ui-layout-north .ui-layout-unit-content{
 	width:100%!important;
 	height:100%!important;
 	background-color: #eff3f6!important;
+        padding:0px;
+        margin: 0px;
+        overflow-y: hidden;
 }
 .ui-layout-west .ui-layout-unit-content{
 	width:100%!important;
 	height:100%!important;
 	background-color: #313b3f!important;
+}
+.ui-layout-center{
+    width:100%!important;
+    height:100%!important;
+    border-top: solid 1px #bcc7cf;
+    background: #eff3f6;
 }
 .ui-menu .ui-menu-list .ui-widget-header {
     float: left;
@@ -180,13 +192,28 @@ form.menu{
 }
 .ui-menu .ui-menuitem-link:hover {
     width: 100%;
-	background: #20282b;
+    background: #20282b;
     color: #4d90fe;
     box-shadow: none;
 }
 .ui-widget .ui-widget {
     font-size: 1em;
+    /*background: #313b3f;*/
+    background: #20282b;
+}
+div.logo-menu{
+    width: 20%;
+    height: 100%;
+    color: #4d90fe;
+    font-size: 100px !important;
+    margin-bottom: 35px;
     background: #313b3f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ui-layout-resizer{
+    display:none!important;
 }
 
 

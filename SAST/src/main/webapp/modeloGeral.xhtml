@@ -8,7 +8,7 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="StyleSheet" type="text/css" href="../CSS/estilo.css" media="screen" />
+	<link rel="StyleSheet" type="text/css" href="CSS/estilo.css" media="screen" />
 	<h:outputStylesheet library="webjars" name="font-awesome/4.6.3/css/font-awesome-jsf.css" />
 	<title>SAST</title>
 </h:head>
@@ -16,12 +16,14 @@
 <h:body>
 	<p:layout fullPage="true">
 		<p:layoutUnit position="north" size="18%" resizable="false"
-			collapsible="false" closable="false">
-			<ui:insert name="topo" />
+			collapsible="false" closable="false" gutter="0">
+                    <div class="logo-menu">
+                        <i class="fa fa-area-chart" aria-hidden="true"></i>     
+                    </div>
 		</p:layoutUnit>
 
 		<p:layoutUnit position="west" size="20%" resizable="false"
-			collapsible="false" closable="false">
+                              collapsible="false" closable="false" gutter="0">
 			<h:form class="menu">
 				<p:menu toggleable="true">
 					<p:submenu label="Teste 1">
@@ -46,7 +48,7 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center" resizable="false" collapsible="false"
-			closable="false">
+			closable="false" gutter="0">
 			<ui:insert name="conteudo" />
 		</p:layoutUnit>
 
