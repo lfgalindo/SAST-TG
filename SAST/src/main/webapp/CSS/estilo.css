@@ -426,3 +426,14 @@ button.excluir:hover{
     font-size:18px;
     content:"\f055"
 }
+
+/* Incluir */
+
+div.container-center{
+    position: relative;
+    width: 85%;
+}
+div.container-incluir{
+	margin: 15px;
+        padding: 0 35px;
+}
