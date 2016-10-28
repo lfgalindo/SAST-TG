@@ -21,7 +21,7 @@ public class PerfilDAOTest {
 		Integer dado = 1;
 		
 		perfil.setCodigo(dado);
-		perfil.setNomePerfil("TesteQuatro");
+		perfil.setNomePerfil("TesteUm");
 		perfil.setGerenciarCargos(dado);
 		perfil.setGerenciarConfiguracoes(dado);
 		perfil.setGerenciarManutencoes(dado);
@@ -35,6 +35,7 @@ public class PerfilDAOTest {
 	}
 	
 	@Test
+        @Ignore
     public void listar(){
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
