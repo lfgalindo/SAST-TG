@@ -5,6 +5,9 @@
 html{
     height: 100%;
 }
+.conteudo{
+    overflow: auto;
+}
 body{
     background-color: #fff;
     font-family: arial;
@@ -14,15 +17,15 @@ body{
     margin: 0px;
 }
 form.login {
-	width: 100%; 
+    width: 100%; 
     height: 100%;
-  	min-height: 100%;
-  	display: -webkit-flex;
-  	display: flex;
-  	-webkit-align-items: center;
-  	align-items: center;
-  	-webkit-justify-content: center;
-  	justify-content: center;
+    min-height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 .login#container {
     display: block;
@@ -45,11 +48,11 @@ div.logo{
     margin-bottom: 35px;
 }
 div#txt.linha {
-	display:table;
-	width:100%;
-	border-bottom: solid 1px #323d42;
-	font-size:14px;
-	margin: 5px 0px;
+    display:table;
+    width:100%;
+    border-bottom: solid 1px #323d42;
+    font-size:14px;
+    margin: 5px 0px;
 }
 div.icon{
     width: 7%;
@@ -115,12 +118,12 @@ a {
     opacity: 0.5;
 }
 a:hover{
-	opacity: 1;
+    opacity: 1;
 }
 
 /* Menu */
 form.menu{
-	height:100%
+    height:100%
 }
 .ui-menu{
     width: 99%!important;
@@ -134,21 +137,21 @@ form.menu{
     padding:0px;
 }
 .ui-layout-north .ui-layout-unit-content{
-	width:100%!important;
-	height:100%!important;
-	background-color: #eff3f6!important;
-        padding:0px;
-        margin: 0px;
-        overflow-y: hidden;
-}
-.ui-layout-west .ui-layout-unit-content{
-	width:100%!important;
-	height:100%!important;
-	background-color: #313b3f!important;
-}
-.ui-layout-center{
     width:100%!important;
     height:100%!important;
+    background-color: #eff3f6!important;
+    padding:0px;
+    margin: 0px;
+    overflow-y: hidden;
+}
+.ui-layout-west .ui-layout-unit-content{
+    width:100%!important;
+    height:100%!important;
+    background-color: #313b3f!important;
+}
+.ui-layout-center{
+    width:85%!important;
+    height:85%!important;
     border-top: solid 1px #bcc7cf;
     background: #eff3f6;
 }
@@ -187,7 +190,7 @@ form.menu{
 }
 .ui-menu .ui-menuitem-link {
     display: block;
-    width: 100%;
+    width: 98%;
     outline: none;
     text-decoration: none;
     font-weight: 400;
@@ -204,7 +207,7 @@ form.menu{
     margin: 2px 0;
 }
 .ui-menu .ui-menuitem-link:hover {
-    width: 100%;
+    width: 98%;
     background: #20282b;
     color: #fe4d4d;
     box-shadow: none;
@@ -319,7 +322,7 @@ div.title{
     padding: 6px 10px !important;
 }
 .ui-datatable-tablewrapper{
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 .ui-datatable thead th, .ui-datatable tfoot td{
     font-weight: bold;
@@ -338,14 +341,14 @@ div.title{
     border-color: #dcdcdc;
 }
 div.options{
-	width: 100%;
+    width: 100%;
     height: 100%;
     display: flex;
     background-color: #eff3f6;
     justify-content: space-around;
 }
 button.visualizar{
-	background: #eff3f6!important;
+    background: #eff3f6!important;
     border-radius: 5px;
     padding: 3px 1px 11px 1px;
     border: solid 1px #dcdcdc!important;
@@ -358,12 +361,12 @@ button.visualizar:after{
     content: "\f002";
 }
 button.visualizar:hover{
-	border: solid 1px #fe4d4d!important;
+    border: solid 1px #fe4d4d!important;
     box-shadow: none;
     color: #fe4d4d!important;
 }
 button.editar{
-	background: #eff3f6!important;
+    background: #eff3f6!important;
     border-radius: 5px;
     padding: 3px 1px 11px 1px;
     border: solid 1px #dcdcdc!important;
@@ -372,16 +375,16 @@ button.editar{
     outline: none;
 }
 button.editar:after{
-	font-family: FontAwesome;
+    font-family: FontAwesome;
     content: "\f040";
 }
 button.editar:hover{
-	border: solid 1px #fe4d4d!important;
+    border: solid 1px #fe4d4d!important;
     box-shadow: none;
     color: #fe4d4d!important;
 }
 button.excluir{
-	background: #eff3f6!important;
+    background: #eff3f6!important;
     border-radius: 5px;
     padding: 3px 1px 11px 1px;
     border: solid 1px #dcdcdc!important;
@@ -390,11 +393,11 @@ button.excluir{
     outline: none;
 }
 button.excluir:after{
-	font-family: FontAwesome;
+    font-family: FontAwesome;
     content: "\f014";
 }
 button.excluir:hover{
-	border: solid 1px #fe4d4d!important;
+    border: solid 1px #fe4d4d!important;
     box-shadow: none;
     color: #fe4d4d!important;
 }
@@ -436,4 +439,17 @@ div.container-center{
 div.container-incluir{
 	margin: 15px;
         padding: 0 35px;
+}
+input.cadastro{
+    background: #eff3f6!important;
+    padding: 11px;
+    border: solid 1px #bcc7cf!important;
+    box-shadow: none!important;
+    border-radius: 0;
+    width: 100%;
+}
+label.cadastro{
+    background: #eff3f6!important;
+    color: #313b3f;
+    font-size: 13px!important;
 }
