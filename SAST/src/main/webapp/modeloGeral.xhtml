@@ -30,7 +30,7 @@
                     </div>
 		</p:layoutUnit>
 
-		<p:layoutUnit position="west" size="13%" resizable="false"
+		<p:layoutUnit position="west" size="15%" resizable="false"
                               collapsible="false" closable="false" gutter="0">
 			<h:form class="menu">
 				<p:menu toggleable="true">
@@ -44,15 +44,6 @@
 						<p:menuitem value="Cargos" outcome="cargoListar" />
 						<p:menuitem value="Perfis" outcome="perfilListar" />
 						<p:menuitem value="Planos" outcome="planoListar" />
-					</p:submenu>
-
-					<p:submenu label="Cadastros">
-						<p:menuitem value="Manutenções" />
-						<p:menuitem value="Clientes" />
-						<p:menuitem value="Funcionários" />
-						<p:menuitem value="Cargos" />
-						<p:menuitem value="Perfis" />
-						<p:menuitem value="Planos" />
 					</p:submenu>
 
 					<p:submenu label="Relatórios">
@@ -71,7 +62,7 @@
 			closable="false" gutter="0">
                         
                         <div class="title">
-                            <span>Consulta de Clientes</span>
+                            <span><ui:insert name="titulo" /></span>
                         </div>
 			<ui:insert name="conteudo" />
 		</p:layoutUnit>

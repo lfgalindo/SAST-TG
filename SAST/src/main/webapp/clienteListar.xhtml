@@ -7,6 +7,10 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <ui:composition template="modeloGeral.xhtml">
+	<ui:define name="titulo">
+		Consulta de Clientes
+	</ui:define>
+	
 	<ui:define name="conteudo">
 		<h:form>
 			<div class="container-table">
@@ -35,21 +39,24 @@
 						</p:column>
 
 						<p:column headerText="Opções">
-							<p:button icon="ui-icon-search" outcome="clienteVisualizar.xhtml">
-								<f:param name="codigo" value="#" />
-							</p:button>
+							<div class="options">
+								<p:button class="visualizar" value="" outcome="clienteVisualizar.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
 
-							<p:button icon="ui-icon-pencil" outcome="clienteEditar.xhtml">
-								<f:param name="codigo" value="#" />
-							</p:button>
+								<p:button class="editar" value="" outcome="clienteEditar.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
 
-							<p:button icon="ui-icon-trash" outcome="clienteExcluir.xhtml"
-								rendered="#">
-								<f:param name="codigo" value="#" />
-							</p:button>
+								<p:button styleClass="excluir" value="" outcome="clienteExcluir.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
+							</div>
 						</p:column>
-
 					</p:dataTable>
+				</div>
+				<div class="add">
+					<p:button styleClass="incluir" value="Novo Cliente" outcome="clienteIncluir.xhtml"/>
 				</div>
 			</div>
 		</h:form>

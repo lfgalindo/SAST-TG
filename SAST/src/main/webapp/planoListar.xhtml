@@ -5,12 +5,62 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
-	<ui:composition template="modeloGeral.xhtml">
-		<ui:define name="conteudo">
-			
-			<label>Hello World!!!!</label>
-		
-		</ui:define>
-	</ui:composition>
+
+<ui:composition template="modeloGeral.xhtml">
+	<ui:define name="titulo">
+		Consulta de Planos
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+			<div class="container-table">
+				<div class="table">
+					<p:dataTable emptyMessage="Nenhum registro encontrao." value="#"
+						var="Plano" paginator="true" rows="10">
+
+						<p:column headerText="Velocidade" sortBy="#" filterBy="#"
+							filterMatchMode="contains">
+							<h:outputText value="#" />
+						</p:column>
+
+						<p:column headerText="Garantia de Banda" sortBy="#" filterBy="#"
+							filterMatchMode="contains">
+							<h:outputText value="#" />
+						</p:column>
+						
+						<p:column headerText="Tipo de Conexão" sortBy="#" filterBy="#"
+							filterMatchMode="contains">
+							<h:outputText value="#" />
+						</p:column>
+						
+						<p:column headerText="Valor" sortBy="#" filterBy="#"
+							filterMatchMode="contains">
+							<h:outputText value="#" />
+						</p:column>
+
+						<p:column headerText="Opções">
+							<div class="options">
+								<p:button class="visualizar" value="" outcome="planoVisualizar.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
+
+								<p:button class="editar" value="" outcome="planoEditar.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
+
+								<p:button styleClass="excluir" value="" outcome="planoExcluir.xhtml">
+									<f:param name="codigo" value="#" />
+								</p:button>
+							</div>
+						</p:column>
+					</p:dataTable>
+				</div>
+				<div class="add">
+					<p:button styleClass="incluir" value="Novo Plano"
+						outcome="planoIncluir.xhtml" />
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
 </html>
