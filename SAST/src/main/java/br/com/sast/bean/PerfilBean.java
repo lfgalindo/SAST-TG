@@ -14,6 +14,10 @@ import javax.faces.bean.ViewScoped;
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Perfil;
 
+/**
+ *
+ * @author mstzao
+ */
 @ManagedBean
 @ViewScoped
 public class PerfilBean {
