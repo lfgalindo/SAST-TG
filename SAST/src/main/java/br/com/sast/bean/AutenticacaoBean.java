@@ -1,11 +1,16 @@
 package br.com.sast.bean;
 
-/*import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+
+import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
+
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //import org.omnifaces.util.Faces;
 
@@ -14,14 +19,17 @@ import br.com.sast.domain.Funcionario;
 
 /**
  * Classe definida para controlar a autenticação de Usuários
- * @author Luiz Felipe Magalhães Galindo <lfgalindo@live.com>
- * @since 04/10/2016
+ * @author Luis Claudio Gonçalves Sanches <luis.cgs@hotmail.com.com>
+ * @since 28/10/2016
  */
 
-public class AutenticacaoBean {
+@ManagedBean(name="autenticacaoBean")
+@SessionScoped
+public class AutenticacaoBean implements Serializable{
 	
-	/**
-    FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+	private static final long serialVersionUID = 6020394081393590995L;
+	
+	FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     private Funcionario funcionario;
     private Funcionario funcionarioLogado;
     
@@ -43,18 +51,28 @@ public class AutenticacaoBean {
        
     @PostConstruct
     public void iniciar() {
-        funcionario = new Funcionario();
+    	AutenticacaoBean autenticacaoBean = new AutenticacaoBean();
+        setFuncionario(new Funcionario());
     }
 
     public void autenticar() {
-        
-        //try {
-         //   Faces.redirect("index.xhtml");
-        //} catch (IOException ex) {
-          //  Logger.getLogger(AutenticacaoBean.class.getName()).log(Level.SEVERE, null, ex);
-        //}
+        try {
+        System.out.println("teste");
+           Faces.redirect("index.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(AutenticacaoBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
-  */
+   /* public void logout(){
+        Faces.getSession().invalidate();
+        try{
+            Faces.redirect("autenticacao.xhtml");
+        } catch (IOException e){
+            Messages.addGlobalError(e.getMessage());
+        }
+    }*/
+  
+    
 }

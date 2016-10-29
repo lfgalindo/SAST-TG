@@ -65,7 +65,7 @@ public class EmpresaDAO {
 	} // Fim do método buscar
 	
 	
-	//Método para listar todos os registros de cargos do banco.
+	//Método para listar todos os registros de empresas do banco.
 		@SuppressWarnings({"deprecation", "unchecked"})
 		public List<Empresa> listar(){
 			
@@ -132,5 +132,34 @@ public class EmpresaDAO {
 			sessao.close();
 		}
 	} // Fim do método Editar
+	
+	//Método para consultar um registro no banco
+	@SuppressWarnings("deprecation")
+	public Empresa consultar(int codEmpresa){
+		
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		Empresa empresa = null;
+		
+		try{
+
+			Criteria consulta = sessao.createCriteria(Empresa.class);
+			consulta.add(Restrictions.eq("codigo", codEmpresa));
+			
+			empresa = (Empresa)consulta.uniqueResult();
+			
+		}catch(RuntimeException erro){
+			
+			erro.getMessage();
+			
+		}finally{
+			
+			sessao.close();
+			
+		}
+		
+		return empresa;
+		
+	}//Fim da classe consultar
 
 }
