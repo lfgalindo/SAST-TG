@@ -1,16 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
-	<ui:composition template="modeloGeral.xhtml">
-		<ui:define name="conteudo">
-			
-			<label>Hello World!!!!</label>
-		
-		</ui:define>
-	</ui:composition>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
+            Visualizar Manutenção
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <h:form>
+                <div class="container-center">
+                    <div class="container-visualizar">
+                        <p:growl id="mensagem" globalOnly="true"/>
+
+                        <h:panelGrid id="pnlDados" columns="2">
+
+                            <p:outputLabel class="cadastro" value="Cliente "/>
+                            <h:outputText value="Bruce Wayne" />
+
+                            <p:outputLabel value="Problema" class="cadastro" />
+                            <h:outputText value="Sem conexão" />
+
+                            <p:outputLabel value="Descrição" class="cadastro" />
+                            <h:outputText value="A bat-nave derrubou o rádio" />
+
+                            <p:outputLabel value="Observações" class="cadastro" />
+                            <h:outputText value="E quando entrou com o bat-móvel na sala o router foi danificado" />
+
+                            <p:outputLabel value="Prioridade" class="cadastro" />
+                            <h:outputText value="Alta" />
+
+                            <p:outputLabel class="cadastro" value="Data de Agendamento"/>
+                            <h:outputText value="29/10/2016" />
+
+                            <p:outputLabel class="cadastro" value="Data de Execução"/>
+                            <h:outputText value="Ontem, pq é o batman" />
+                            
+                            <p:outputLabel class="cadastro" value="Manutenção Baixada"/>
+                            <h:outputText value="Sim" />
+
+                            <p:outputLabel class="cadastro" value="Funcionário Responsável "/>
+                            <h:outputText value="O próprio Batman" />
+
+                        </h:panelGrid>
+                    </div>
+
+                    <div class="add-incluir">
+                        <p:button class="btn-voltar" value="Voltar" outcome="manutencaoListar.xhtml" />
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
