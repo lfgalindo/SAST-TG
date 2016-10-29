@@ -52,8 +52,6 @@ public class Empresa {
 	@Column(name = "telefone", nullable = false)
 	private String telefone;
 	
-	
-	//GETS & SETS
 	public Integer getCodigoEmpresa() {
 		return codigoEmpresa;
 	}
@@ -61,7 +59,6 @@ public class Empresa {
 	public void setCodigoEmpresa(Integer codigoEmpresa) {
 		this.codigoEmpresa = codigoEmpresa;
 	}
-
 	public String getNomeEmpresa() {
 		return nomeEmpresa;
 	}
