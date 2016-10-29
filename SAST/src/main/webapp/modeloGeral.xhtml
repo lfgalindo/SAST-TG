@@ -22,7 +22,7 @@
                     </div>
                     
                     <div class="header">
-
+                            <span><ui:insert name="titulo" /></span>
                     </div>
                     
                     <div class="logout">
@@ -58,12 +58,9 @@
 			</h:form>
 		</p:layoutUnit>
 
-            <p:layoutUnit styleClass="conteudo" position="center" resizable="false" collapsible="false"
+       <p:layoutUnit styleClass="conteudo" position="center" resizable="false" collapsible="false"
 			closable="false" gutter="0">
-                        
-                        <div class="title">
-                            <span><ui:insert name="titulo" /></span>
-                        </div>
+
 			<ui:insert name="conteudo" />
 		</p:layoutUnit>
 

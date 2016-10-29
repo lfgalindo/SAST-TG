@@ -18,10 +18,10 @@ public class PerfilDAOTest {
 	public void inserir(){
 		
 		Perfil perfil = new Perfil();
-		Integer dado = 1;
+		Integer dado = 2;
 		
 		perfil.setCodigo(dado);
-		perfil.setNomePerfil("TesteUm");
+		perfil.setNomePerfil("TesteDois");
 		perfil.setGerenciarCargos(dado);
 		perfil.setGerenciarConfiguracoes(dado);
 		perfil.setGerenciarManutencoes(dado);

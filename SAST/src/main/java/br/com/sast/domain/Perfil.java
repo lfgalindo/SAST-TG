@@ -36,7 +36,6 @@ public class Perfil {
 	@Column(nullable = false)
 	private Integer gerenciarPlanos;
 	
-	
 	@Column(nullable = false)
 	private Integer gerenciarManutencoes;
 	
