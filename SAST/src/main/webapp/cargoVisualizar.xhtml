@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
-	<ui:composition template="modeloGeral.xhtml">
-		<ui:define name="conteudo">
-			
-			<label>Hello World!!!!</label>
-		
-		</ui:define>
-	</ui:composition>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
+            Visualizar Cargo
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <h:form>
+                <div class="container-center">
+                    <div class="container-visualizar">
+                        <p:growl id="mensagem" globalOnly="true"/>
+
+                        <h:panelGrid id="pnlDados" columns="2">
+
+                            <p:outputLabel value="Nome do Cargo" class="cadastro"/>
+                            <h:outputText value="Geral" />
+
+                            <p:outputLabel value="Descrição do Cargo" class="cadastro" />
+                            <h:outputText value="Fazer Tudo" />
+
+                        </h:panelGrid>
+                    </div>
+
+                    <div class="add-incluir">
+                        <p:button class="btn-voltar" value="Voltar" outcome="cargoListar.xhtml" />
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
