@@ -516,6 +516,9 @@ table{
 	padding: 20px 0px;
 	border-bottom: solid 1px #dcdcdc!important;
 }
+.container-visualizar .ui-outputlabel.ui-widget.cadastro{
+	font-weight: bold;
+}
 .ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
 	    background: #eff3f6;
 }

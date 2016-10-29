@@ -1,16 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	
-	<ui:composition template="modeloGeral.xhtml">
-		<ui:define name="conteudo">
-			
-			<label>Hello World!!!!</label>
-		
-		</ui:define>
-	</ui:composition>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
+            Excluir Cliente
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <h:form>
+                <div class="container-center">
+                    <div class="container-visualizar">
+                        <p:growl id="mensagem" globalOnly="true"/>
+
+                        <h:panelGrid id="pnlDados" columns="2">
+
+                            <p:outputLabel class="cadastro" value="Nome" />
+                            <h:outputText value="Bruce Wayne" />
+
+                            <p:outputLabel class="cadastro" value="Razão Social" />
+                            <h:outputText value="Bruce Wayne" />
+
+                            <p:outputLabel class="cadastro" value="RG"/>
+                            <h:outputText value="46.859.851.6" />
+
+                            <p:outputLabel class="cadastro" value="CPF" />
+                            <h:outputText value="462.356.346-15" />
+
+                            <p:outputLabel class="cadastro" value="Telefone"/>
+                            <h:outputText value="9 9999-9999" />
+
+                            <p:outputLabel class="cadastro" value="Data de Nascimento"/>
+                            <h:outputText value="23/12/1996" />
+
+                            <p:outputLabel class="cadastro" value="Estado Civil"/>
+                            <h:outputText value="Batman" />
+
+                            <p:outputLabel class="cadastro" value="Endereço"  />
+                            <h:outputText value="Gothan" />
+
+                            <p:outputLabel class="cadastro" value="Número"  />
+                            <h:outputText value="88" />
+
+                            <p:outputLabel class="cadastro" value="Complemento"  />
+                            <h:outputText value="Caverna" />
+
+                            <p:outputLabel class="cadastro" value="Bairro" />
+                            <h:outputText value="BatCaverna" />
+
+                            <p:outputLabel class="cadastro" value="Cidade" />
+                            <h:outputText value="Gotham" />
+
+                            <p:outputLabel class="cadastro" value="Estado "/>
+                            <h:outputText value="São Paulo" />
+
+                            <p:outputLabel class="cadastro" value="E-mail"/>
+                            <h:outputText value="batman@sast.com.br" />
+
+                            <p:outputLabel class="cadastro" value="Login"/>
+                            <h:outputText value="batman" />
+
+                            <p:outputLabel class="cadastro" value="Senha"/>
+                            <h:outputText value="só q n" />
+
+                            <p:outputLabel class="cadastro" value="Perfil"/>
+                            <h:outputText value="Chuck Norris" />
+
+                        </h:panelGrid>
+                    </div>
+
+                    <div class="add-incluir">
+                        <p:button class="btn-voltar" value="Voltar" outcome="clienteListar.xhtml" />
+                        <p:commandButton class="btn-cancelar" type="submit" value="Excluir" update="pnlDados mensagem"
+                                         actionListener="#"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
