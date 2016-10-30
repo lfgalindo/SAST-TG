@@ -667,7 +667,7 @@ div.container-incluir .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-but
     font-family:FontAwesome;
     content:"\f00c"
 }
-.ui-button.ui-widget.ui-state-default.ui-button-text-only{
+div.ui-button.ui-widget.ui-state-default.ui-button-text-only{
     margin: 15px;
     padding: 4px 7px!important;
     border: solid 2px #fe4d4d;
@@ -677,7 +677,7 @@ div.container-incluir .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-but
     text-shadow: none;
     background: #eff3f6;
 }
-.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
+div.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
     color: #eff3f6;
     background: #fe4d4d;
 }
