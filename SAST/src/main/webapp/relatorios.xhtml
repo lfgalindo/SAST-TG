@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
+            Relatórios de manutenções
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <h:form>
+            	<h:panelGrid id="pnlDados" columns="1">
+            		<div class="relatorio">
+            			<label>Selecione os filtros desejados:</label>
+            		</div>
+            			
+            		<div>
+            			<p:selectBooleanCheckbox class="checkbox" value="funcionario" />
+            			<h:outputText value="  Técnico Responsável" />
+            		</div>
+            		
+            		<div>
+            			<p:selectBooleanCheckbox class="checkbox" value="cliente" />
+            			<h:outputText value="  cliente" />
+            		</div>
+            		
+            		<div>
+            			<p:selectBooleanCheckbox class="checkbox" value="cidade" />
+            			<h:outputText value="  Cidade" />
+            		</div>
+            		
+            		<div>
+            			<p:selectBooleanCheckbox class="checkbox" value="data" />
+            			<h:outputText value="  Data de agendamento" />
+            		</div>
+            	
+            	</h:panelGrid>
+                <div class="container-center">
+                    <div class="add-incluir">
+                        <p:button class="btn-voltar" value="Voltar" outcome="principal.xhtml" />
+                        <p:commandButton class="btn-incluir" type="submit" value="Gerar Relatório" update="pnlDados"
+                                         actionListener="#"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

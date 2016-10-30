@@ -702,3 +702,9 @@ div.container-principal label{
     align-self: inherit;
     margin-top: 50px;
 }
+.checkbox{
+	background:#eff3f6!important;
+}
+.checkbox .ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default{
+	background:#eff3f6!important;
+}
