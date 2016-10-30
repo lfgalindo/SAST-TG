@@ -684,3 +684,21 @@ div.ui-button.ui-widget.ui-state-default.ui-button-text-only.ui-state-active{
 .ui-selectonebutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-3{
     background: #eff3f6;
 }
+div.container-principal{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 200px;
+    color: #fe4d4d;
+}
+div.container-principal label{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 40px;
+    align-self: inherit;
+    margin-top: 50px;
+}
