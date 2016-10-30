@@ -702,9 +702,41 @@ div.container-principal label{
     align-self: inherit;
     margin-top: 50px;
 }
+div.relatorio{
+	width: 100%;
+	display: flex;
+	justify-content:center;
+	align-itens:center;
+	align-items: center;
+    flex-direction: column;
+}
+table.relatorio{
+	width: 90%;
+}
 .checkbox{
 	background:#eff3f6!important;
 }
+.checkbox .ui-chkbox-icon.ui-icon{
+	display:none;
+}
 .checkbox .ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default{
 	background:#eff3f6!important;
+	padding: 3px!important;
+    border: solid 1px #fe4d4d;
+    box-shadow: none;
+    border-radius: 15px;
+}
+.checkbox .ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active{
+	background:#fe4d4d!important;
+	padding: 3px!important;
+}
+.checkbox .ui-chkbox-box.ui-widget.ui-corner-all.ui-state-default.ui-state-active:before{
+	align-self:center;
+    font-family:FontAwesome;
+    content:"\f00c";
+    
+}
+td.checkbox{
+	text-align: right;
+	width: 7%;
 }
