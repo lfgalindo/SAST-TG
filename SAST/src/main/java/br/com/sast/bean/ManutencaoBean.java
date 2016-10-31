@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import org.omnifaces.util.Messages;
 
 import br.com.sast.dao.ClienteDAO;
 import br.com.sast.dao.FuncionarioDAO;
@@ -86,8 +87,7 @@ public class ManutencaoBean {
 		ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
 		manutencaoDAO.inserir(manutencao);
 		
-		//FIXME: Classe ManutencaoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Manutenção inserida com sucesso!");
+		Messages.addGlobalInfo("Manutenção inserida com sucesso!");
 		
 	}//fim do método salvar.
 	
@@ -120,8 +120,7 @@ public class ManutencaoBean {
 		ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
 		manutencaoDAO.editar(manutencao);
 		
-		//FIXME: Classe ManutencaoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Manutenção editada com sucesso!");
+		Messages.addGlobalInfo("Manutenção editada com sucesso!");
 		
 	}//fim do método editar.
 	
@@ -131,8 +130,7 @@ public class ManutencaoBean {
 		ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
 		manutencaoDAO.excluir(manutencao);
 		
-		//FIXME: Classe ManutencaoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Manutenção excluída com sucesso!");
+		Messages.addGlobalInfo("Manutenção excluída com sucesso!");
 		
 	}//fim do método excluir.
 	

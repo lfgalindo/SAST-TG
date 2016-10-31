@@ -6,9 +6,9 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 	
-        <!--  <f:metadata>
-            <f:viewAction action="" />
-        </f:metadata> -->
+        <f:metadata>
+            <f:viewAction action="#{perfilBean.listar()}" /> 
+        </f:metadata>
     
 	<ui:composition template="modeloGeral.xhtml">
 	<ui:define name="titulo">
@@ -19,17 +19,17 @@
 		<h:form>
 			<div class="container-table">
 				<div class="table">
-                                    <p:dataTable emptyMessage="Nenhum registro encontrado." value="#"
+                                    <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{perfilBean.perfis}"
 						var="Perfil" paginator="true" rows="10">
 
-                                        <p:column headerText="Código" sortBy="" filterBy="#"
+                                        <p:column headerText="Código" sortBy="" filterBy="#{Perfil.codigo}"
 							filterMatchMode="contains">
-							<h:outputText value="#" />
+							<h:outputText value="#{Perfil.codigo}" />
 						</p:column>
 
-                                        <p:column headerText="Nome do perfil" sortBy="" filterBy=""
+                                        <p:column headerText="Nome do perfil" sortBy="" filterBy="#{Perfil.nomePerfil}"
 							filterMatchMode="contains">
-							<h:outputText value="#" />
+                                            <h:outputText value="#{Perfil.nomePerfil}" />
 						</p:column>
 
 						<p:column headerText="Opções">

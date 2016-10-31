@@ -11,6 +11,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.omnifaces.util.Messages;
 import br.com.sast.dao.ClienteDAO;
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Cliente;
@@ -79,8 +80,7 @@ public class ClienteBean {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.inserir(cliente);
 		
-		//FIXME: Classe ClienteBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Cliente inserido com sucesso!");
+		Messages.addGlobalInfo("Cliente inserido com sucesso!");
 		
 	}//fim do método salvar
 	
@@ -109,8 +109,7 @@ public class ClienteBean {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.editar(cliente);
 		
-		//FIXME: Classe ClienteBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Cliente editado com sucesso!");
+		Messages.addGlobalInfo("Cliente editado com sucesso!");
 		
 	}//fim do método editar
 	
@@ -120,8 +119,7 @@ public class ClienteBean {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.excluir(cliente);
 		
-		//FIXME: Classe ClienteBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Cliente deletado com sucesso!");
+		Messages.addGlobalInfo("Cliente deletado com sucesso!");
 		
 	}//fim do método excluir
 	

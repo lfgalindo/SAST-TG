@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//import org.omnifaces.util.Faces;
+import org.omnifaces.util.Faces;
 
 import br.com.sast.dao.FuncionarioDAO;
 import br.com.sast.domain.Funcionario;
@@ -65,14 +65,15 @@ public class AutenticacaoBean implements Serializable{
         
     }
 
-   /* public void logout(){
-        Faces.getSession().invalidate();
+   public void logout(){
+        /*Faces.getSession().invalidate();
         try{
             Faces.redirect("autenticacao.xhtml");
         } catch (IOException e){
             Messages.addGlobalError(e.getMessage());
         }
-    }*/
+        */
+    }
   
     
 }

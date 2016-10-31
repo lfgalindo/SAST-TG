@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import org.omnifaces.util.Messages;
 
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Perfil;
@@ -62,7 +63,6 @@ public class PerfilBean {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		perfilDAO.inserir(perfil);
 		
-		//FIXME: Classe PerfilBean: Erro omnifaces, comando Messages.addGlobalInfo
 		//Messages.addGlobalInfo("Perfil inserido com sucesso!");
 		
 		novo();
@@ -91,8 +91,7 @@ public class PerfilBean {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		perfilDAO.editar(perfil);
 		
-		//FIXME: Classe PerfilBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Perfil editado com sucesso!");
+		Messages.addGlobalInfo("Perfil editado com sucesso!");
 	
 	}//fim do método editar
 	
@@ -102,8 +101,7 @@ public class PerfilBean {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		perfilDAO.excluir(perfil);
 		
-		//FIXME: Classe PerfilBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Perfil excluído com sucesso!");
+		Messages.addGlobalInfo("Perfil excluído com sucesso!");
 		
 	}//fim do método excluir
 	

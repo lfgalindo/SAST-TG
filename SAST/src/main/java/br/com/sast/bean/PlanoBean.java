@@ -11,6 +11,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.omnifaces.util.Messages;
+
 import br.com.sast.dao.PlanoDAO;
 import br.com.sast.domain.Plano;
 
@@ -59,8 +61,7 @@ public class PlanoBean {
 		PlanoDAO planoDAO = new PlanoDAO();
 		planoDAO.inserir(plano);
 		
-		//FIXME: Classe PlanoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Plano inserido com sucesso!");
+		Messages.addGlobalInfo("Plano inserido com sucesso!");
 		
 		novo();
 		
@@ -88,8 +89,7 @@ public class PlanoBean {
 		PlanoDAO planoDAO = new PlanoDAO();
 		planoDAO.editar(plano);
 		
-		//FIXME: Classe PlanoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Plano editado com sucesso!");
+		Messages.addGlobalInfo("Plano editado com sucesso!");
 		
 	}//fim do método editar
 	
@@ -99,8 +99,7 @@ public class PlanoBean {
 		PlanoDAO planoDAO = new PlanoDAO();
 		planoDAO.excluir(plano);
 		
-		//FIXME: Classe PlanoBean: Erro omnifaces, comando Messages.addGlobalInfo
-		//Messages.addGlobalInfo("Plano excluído com sucesso!");
+		Messages.addGlobalInfo("Plano excluído com sucesso!");
 		
 	}//fim do método excluir.
 }
