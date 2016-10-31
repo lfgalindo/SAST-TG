@@ -15,52 +15,90 @@
 		<h:form>
 			<div class="relatorio">
 				<p:panelGrid class="relatorio" id="pnlDados">
+
 					<p:row>
-						<p:column colspan="3">
-							<h:outputText value="Selecione os filtros desejados:" />
+						<p:column class="checkbox">
+							<p:selectBooleanCheckbox class="checkbox" id="func" value="funcionario" />
+						</p:column>
+
+						<p:column colspan="2" class="filtro titulo">
+							<h:outputLabel for="func" value="Filtrar Relatório por Técnico Responsável" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column colspan="3" class="filtro margem">
+							<p:selectOneMenu class="cadastro" id="funcionario" filter="true"
+								filterMatchMode="contains" value="#">
+								<f:selectItem itemLabel="Selecione um Funcionário ..."
+									noSelectionOption="true" />
+								<f:selectItems value="#" var="funcionario" itemValue="" itemLabel="" />
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>					
+
+					<p:row>
+						<p:column class="checkbox">
+							<p:selectBooleanCheckbox class="checkbox" value="cliente" />
+						</p:column>
+
+						<p:column colspan="2" class="filtro titulo">
+							<h:outputText value="Filtrar Relatório por Cliente" />
+						</p:column>
+					</p:row>
+
+					<p:row>
+						<p:column colspan="3" class="filtro margem">
+							<p:selectOneMenu class="cadastro" id="cliente" filter="true"
+								filterMatchMode="contains" value="#">
+								<f:selectItem itemLabel="Selecione um Cliente ..."
+									noSelectionOption="true" />
+								<f:selectItems value="#" var="cliente" itemValue="" itemLabel="" />
+							</p:selectOneMenu>
 						</p:column>
 					</p:row>
 
 					<p:row>
 						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="funcionario" />
+							<p:selectBooleanCheckbox class="checkbox" value="cidade" />
 						</p:column>
 
-						<p:column colspan="2">
-							<h:outputText value="  Técnico Responsável" />
-						</p:column>
-					</p:row>
-					<h:outputText value="" />
-
-					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="cliente" />							
-						</p:column>
-						
-						<p:column colspan="2">
-							<h:outputText value="Cliente" />							
+						<p:column colspan="2" class="filtro titulo">
+							<h:outputText value="Filtrar Relatório por Cidade" />
 						</p:column>
 					</p:row>
 					
 					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="cidade" />							
+						<p:column colspan="3" class="filtro margem" >
+							<p:selectOneMenu class="cadastro" id="cidade" filter="true"
+								filterMatchMode="contains" value="#">
+								<f:selectItem itemLabel="Selecione uma Cidade ..."
+									noSelectionOption="true" />
+								<f:selectItems value="#" var="cidade" itemValue="" itemLabel="" />
+							</p:selectOneMenu>
 						</p:column>
-						
-						<p:column colspan="2">
-							<h:outputText value="  Cidade" />							
+					</p:row>	
+
+					<p:row>
+						<p:column class="checkbox">
+							<p:selectBooleanCheckbox class="checkbox" value="data" />
+						</p:column>
+
+						<p:column colspan="2" class="filtro titulo">
+							<h:outputText value="Filtrar Relatório por Data de agendamento" />
 						</p:column>
 					</p:row>
 					
 					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="data" />							
+						<p:column colspan="3" class="filtro margem">
+							<p:inputText class="cadastro" maxlength="11"
+                                         placeholder="01/01/2016"
+                                         validatorMessage="Tamanho inválido (9-11)"
+                                         value="">
+                                         <f:validateLength minimum="9" maximum="11"/>
+                            </p:inputText>
 						</p:column>
-						
-						<p:column colspan="2">
-							<h:outputText value="  Data de agendamento" />							
-						</p:column>
-					</p:row>
+					</p:row>	
 
 				</p:panelGrid>
 			</div>

@@ -19,16 +19,6 @@
 
                         <h:panelGrid id="pnlDados" columns="3">
 
-                            <p:outputLabel value="Descrição do Cargo" class="cadastro" for="descricao" />
-                            <p:inputText class="cadastro" id="descricao" maxlength="45" required = "true"
-                                         placeholder="Digite aqui a descrição do cargo ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="45"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="descricao"/>
-
                             <p:outputLabel value="Velocidade" class="cadastro" for="velocidade" />
                             <p:inputText class="cadastro" id="velocidade" maxlength="20" required = "true"
                                          placeholder="Digite aqui a velocidade do plano ..."

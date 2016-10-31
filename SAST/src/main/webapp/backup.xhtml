@@ -8,68 +8,34 @@
 
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
-            Cadastrar Perfil
+            Realizar Backup
         </ui:define>
 
         <ui:define name="conteudo">
             <h:form>
                 <div class="container-center">
-                    <div class="container-incluir">
+                    <div class="container-backup add-incluir">
                         <p:growl id="mensagem" globalOnly="true"/>
 
-                        <h:panelGrid id="pnlDados" columns="3">
-
-                            <p:outputLabel value="Nome do Pefil" class="cadastro" for="nome" />
-                            <p:inputText class="cadastro" id="nome" maxlength="45" required = "true"
-                                         placeholder="Digite aqui o nome do perfil ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="45"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="nome"/>
-
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2">
-
-                            <p:outputLabel value="Gerenciar Clientes" class="cadastro" for="clientes" />
-                            <p:selectBooleanButton id="clientes" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                            <p:outputLabel value="Gerenciar Funcionários" class="cadastro" for="funcionarios" />
-                            <p:selectBooleanButton id="funcionarios" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                            <p:outputLabel value="Gerenciar Cargos" class="cadastro" for="cargos" />
-                            <p:selectBooleanButton id="cargos" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                            <p:outputLabel value="Gerenciar Planos" class="cadastro" for="planos" />
-                            <p:selectBooleanButton id="planos" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                            <p:outputLabel value="Gerenciar Manutenções" class="cadastro" for="manutencoes" />
-                            <p:selectBooleanButton id="manutencoes" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                            <p:outputLabel value="Modificar Configurações" class="cadastro" for="configuracoes" />
-                            <p:selectBooleanButton id="configuracoes" value="#" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
-
-                        </h:panelGrid>
-                    </div>
-
-                    <div class="add-incluir">
-                        <p:button class="btn-cancelar" value="Cancelar" outcome="perfilListar.xhtml" />
-                        <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
+						<div class="backup">
+							<label>Clique no botão abaixo, para realizar um Backup de todos 
+							os dados gravados no seu banco, para um local externo.</label>
+							
+							<p:commandButton class="btn-incluir" type="submit" value="Gerar Backup"
                                          actionListener="#"/>
+						
+						</div>
+
+						<div class="backup">
+							<label>Clique no botão abaixo, para realizar a restauração de algum Backup 
+							externo préviamente gerado para o banco de dados atual.</label>
+							
+							
+							<p:commandButton class="btn-incluir" type="submit" value="Restaurar Backup"
+                                         actionListener="#"/>
+						
+						</div>
+						
                     </div>
                 </div>
             </h:form>
