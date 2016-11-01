@@ -9,6 +9,10 @@ import org.omnifaces.util.Messages;
 
 import br.com.sast.dao.CargoDAO;
 import br.com.sast.domain.Cargo;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omnifaces.util.Faces;
 
 @ManagedBean
 @ViewScoped
@@ -48,7 +52,14 @@ public class CargoBean {
 	public void excluir(){
 		CargoDAO cargoDAO = new CargoDAO();
 		cargoDAO.excluir(cargo);
-		Messages.addGlobalInfo("Cargo excluída com sucesso!");
+		Messages.addGlobalInfo("Cargo excluído com sucesso!");
+                
+            try {
+                Faces.redirect("cargoListar.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(PerfilBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
 	}
 	
 	public Cargo getCargo() {

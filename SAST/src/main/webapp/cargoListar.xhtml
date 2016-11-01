@@ -41,16 +41,16 @@
                                 <div class="options">
                                     <p:button class="visualizar" value=""
                                               outcome="cargoVisualizar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Cargo.codigo}" />
                                     </p:button>
 
                                     <p:button class="editar" value="" outcome="cargoEditar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Cargo.codigo}" />
                                     </p:button>
 
                                     <p:button styleClass="excluir" value=""
                                               outcome="cargoExcluir.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Cargo.codigo}" />
                                     </p:button>
                                 </div>
                             </p:column>
