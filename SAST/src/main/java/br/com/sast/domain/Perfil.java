@@ -155,45 +155,87 @@ public class Perfil {
 	}
 	
 	
-	public void setGerenciarCargos(Integer gerenciarCargos){
-		this.gerenciarCargos = gerenciarCargos;
+	public void setGerenciarCargos(boolean gerenciarCargos){
+		
+                Integer op = 0;
+                
+                if (gerenciarCargos == true){
+                    op = 1;
+                }
+                
+                this.gerenciarCargos = op;
 	}
 	public Integer getGerenciarCargos(){
 		return gerenciarCargos;
 	}
 	
-	public void setGerenciarPlanos(Integer gerenciarPlanos){
-		this.gerenciarPlanos = gerenciarPlanos;
+	public void setGerenciarPlanos(boolean gerenciarPlanos){
+		
+                Integer op = 0;
+                
+                if (gerenciarPlanos == true){
+                    op = 1;
+                }
+                
+                this.gerenciarPlanos = op;
 	}
 	public Integer getGerenciarPlanos(){
 		return gerenciarPlanos;
 	}
 	
-	public void setGerenciarManutencoes(Integer gerenciarManutencoes){
-		this.gerenciarManutencoes = gerenciarManutencoes;
+	public void setGerenciarManutencoes(boolean gerenciarManutencoes){
+		
+                Integer op = 0;
+                
+                if (gerenciarManutencoes == true){
+                    op = 1;
+                }
+                
+                this.gerenciarManutencoes = op;
 	}
 	public Integer getGerenciarManutencoes(){
 		return gerenciarManutencoes;
 	}
 	
-	public void setGerenciarConfiguracoes(Integer gerenciarConfiguracoes){
-		this.gerenciarConfiguracoes = gerenciarConfiguracoes;
+	public void setGerenciarConfiguracoes(boolean gerenciarConfiguracoes){
+		
+                Integer op = 0;
+                
+                if (gerenciarConfiguracoes == true){
+                    op = 1;
+                }
+                
+                this.gerenciarConfiguracoes = op;
 	}
 	public Integer getGerenciarConficuracoes(){
 		return gerenciarConfiguracoes;
 	}
 	
-    public Integer getGerenciarClientes() {
+        public Integer getGerenciarClientes() {
 		return gerenciarClientes;
 	}
-	public void setGerenciarClientes(Integer gerenciarClientes) {
-		this.gerenciarClientes = gerenciarClientes;
+	public void setGerenciarClientes(boolean gerenciarClientes) {
+		
+                Integer op = 0;
+                
+                if (gerenciarClientes == true){
+                    op = 1;
+                }
+                
+                this.gerenciarClientes = op;
 	}
 	public Integer getGerenciarFuncionarios() {
 		return gerenciarFuncionarios;
 	}
-	public void setGerenciarFuncionarios(Integer gerenciarFuncionarios) {
-		this.gerenciarFuncionarios = gerenciarFuncionarios;
+	public void setGerenciarFuncionarios(boolean gerenciarFuncionarios) {
+		
+                Integer op = 0;
+                
+                if (gerenciarFuncionarios == true){
+                    op = 1;
+                }
+                
+                this.gerenciarFuncionarios = op;
 	}
 	public Integer getGerenciarConfiguracoes() {
 		return gerenciarConfiguracoes;

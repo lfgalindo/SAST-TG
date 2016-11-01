@@ -30,6 +30,7 @@ public class CargoBean {
 		CargoDAO cargoDAO = new CargoDAO();
 		cargoDAO.inserir(cargo);
 		Messages.addGlobalInfo("Cargo inserida com sucesso!");
+                novo();
 	}
 	
 	public void listar(){
@@ -46,6 +47,7 @@ public class CargoBean {
 		CargoDAO cargoDAO = new CargoDAO();
 		cargoDAO.editar(cargo);
 		Messages.addGlobalInfo("Cargo editada com sucesso!");
+                buscar();
 		
 	}
 	
