@@ -29,7 +29,7 @@ public class CargoBean {
 	public void salvar(){
 		CargoDAO cargoDAO = new CargoDAO();
 		cargoDAO.inserir(cargo);
-		//Messages.addGlobalInfo("Cargo inserida com sucesso!");
+		Messages.addGlobalInfo("Cargo inserida com sucesso!");
 	}
 	
 	public void listar(){
