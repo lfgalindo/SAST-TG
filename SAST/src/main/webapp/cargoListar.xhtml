@@ -5,7 +5,11 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+    
+    
+    <f:metadata>
+        <f:viewAction action="#{cargoBean.listar()}" /> 
+    </f:metadata>
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Consultar Cargos
@@ -15,22 +19,22 @@
             <h:form>
                 <div class="container-table">
                     <div class="table">
-                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#"
+                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{cargoBean.cargos}"
                                      var="Cargo" paginator="true" rows="10">
 
-                            <p:column headerText="Código" sortBy="#" filterBy="#"
+                            <p:column headerText="Código" sortBy="#{Cargo.codigo}" filterBy="#{Cargo.codigo}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Cargo.codigo}" />
                             </p:column>
 
-                            <p:column headerText="Nome" sortBy="#" filterBy="#"
+                            <p:column headerText="Nome" sortBy="#{Cargo.nome}" filterBy="#{Cargo.nome}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Cargo.nome}" />
                             </p:column>
 
-                            <p:column headerText="Descrição" sortBy="#" filterBy="#"
+                            <p:column headerText="Descrição" sortBy="#{Cargo.descricao}" filterBy="#{Cargo.descricao}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Cargo.descricao}" />
                             </p:column>
 
                             <p:column headerText="Opções">

@@ -18,7 +18,7 @@ public class PerfilDAOTest {
 	public void inserir(){
 		
 		Perfil perfil = new Perfil();
-		boolean dado = true;
+		int dado = 1;
 		
                 //perfil.setCodigo(dado);
 		perfil.setNomePerfil("TesteDois");

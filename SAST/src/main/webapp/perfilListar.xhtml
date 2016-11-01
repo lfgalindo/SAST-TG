@@ -22,12 +22,12 @@
                                     <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{perfilBean.perfis}"
 						var="Perfil" paginator="true" rows="10">
 
-                                        <p:column headerText="Código" sortBy="" filterBy="#{Perfil.codigo}"
+                                        <p:column headerText="Código" sortBy="#{Perfil.codigo}" filterBy="#{Perfil.codigo}"
 							filterMatchMode="contains">
 							<h:outputText value="#{Perfil.codigo}" />
 						</p:column>
 
-                                        <p:column headerText="Nome do perfil" sortBy="" filterBy="#{Perfil.nomePerfil}"
+                                        <p:column headerText="Nome do perfil" sortBy="#{Perfil.nomePerfil}" filterBy="#{Perfil.nomePerfil}"
 							filterMatchMode="contains">
                                             <h:outputText value="#{Perfil.nomePerfil}" />
 						</p:column>
