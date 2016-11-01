@@ -5,7 +5,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+    
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{perfilBean.codigo}" />
+        <f:viewAction action="#{perfilBean.buscar()}" />
+    </f:metadata>
+    
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Excluir Perfil
@@ -20,25 +25,25 @@
                         <h:panelGrid id="pnlDados" columns="2">
                             
                             <p:outputLabel value="Nome do Pefil" class="cadastro"/>
-                            <h:outputText value="Chuck Norris" />
+                            <h:outputText value="#{perfilBean.perfil.nomePerfil}" />
 
                             <p:outputLabel value="Gerenciar Clientes" class="cadastro" />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerCliInt}" />
 
                             <p:outputLabel value="Gerenciar Funcionários" class="cadastro" />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerFuncInt}" />
 
                             <p:outputLabel value="Gerenciar Cargos" class="cadastro" />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerCargInt}" />
 
                             <p:outputLabel value="Gerenciar Planos" class="cadastro" />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerPlanInt}" />
 
                             <p:outputLabel value="Gerenciar Manutenções" class="cadastro"  />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerManInt}" />
 
                             <p:outputLabel value="Modificar Configurações" class="cadastro" />
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{perfilBean.perfil.gerConfigInt}" />
                             
                         </h:panelGrid>
                     </div>
@@ -46,7 +51,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-voltar" value="Voltar" outcome="perfilListar.xhtml" />
                         <p:commandButton class="btn-cancelar" type="submit" value="Excluir" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{perfilBean.excluir()}"/>
                     </div>
                 </div>
             </h:form>

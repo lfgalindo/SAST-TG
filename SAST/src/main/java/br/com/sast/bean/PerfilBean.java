@@ -14,6 +14,10 @@ import org.omnifaces.util.Messages;
 
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Perfil;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omnifaces.util.Faces;
 
 /**
  *
@@ -63,7 +67,7 @@ public class PerfilBean {
 		PerfilDAO perfilDAO = new PerfilDAO();
 		perfilDAO.inserir(perfil);
 		
-		//Messages.addGlobalInfo("Perfil inserido com sucesso!");
+		Messages.addGlobalInfo("Perfil inserido com sucesso!");
 		
 		novo();
 		
@@ -102,8 +106,13 @@ public class PerfilBean {
 		perfilDAO.excluir(perfil);
 		
 		Messages.addGlobalInfo("Perfil excluído com sucesso!");
+                
+            try {
+                Faces.redirect("perfilListar.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(PerfilBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
 		
 	}//fim do método excluir
-	
-	
+        	
 }

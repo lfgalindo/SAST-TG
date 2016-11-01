@@ -1,5 +1,7 @@
 package br.com.sast.domain;
 
+import java.lang.reflect.Array;
+import java.sql.ResultSet;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Classe definida para mapear a entidade "tb_perfil" e seus atributos.
@@ -42,6 +45,98 @@ public class Perfil {
 	
 	@Column(nullable = false)
 	private Integer gerenciarConfiguracoes;
+        
+        //Exibit 'sim' e 'nao' na visualização de perfis
+        @Transient
+        private String gerCli;
+        
+        @Transient
+        private String gerFunc;
+        
+        @Transient
+        private String gerCargo;
+        
+        @Transient
+        private String gerPlan;
+        
+        @Transient
+        private String gerMan;
+        
+        @Transient
+        private String GerConfig;
+        
+        public String getGerCliInt() {
+                
+            if (gerenciarClientes == 1 ){
+                gerCli = "Sim";
+            }
+            else{
+                gerCli = "Não";
+            }
+            
+            return gerCli;
+        }
+        
+        public String getGerFuncInt() {
+
+            if (gerenciarFuncionarios == 1 ){
+                gerFunc = "Sim";
+            }
+            else{
+                gerFunc = "Não";
+            }
+            
+            return gerFunc;
+        }
+        
+        public String getGerCargInt() {
+
+            if (gerenciarCargos == 1 ){
+                gerCargo = "Sim";
+            }
+            else{
+                gerCargo = "Não";
+            }
+            
+            return gerCargo;
+        }
+        
+        public String getGerPlanInt() {
+
+            if (gerenciarPlanos == 1 ){
+                gerPlan = "Sim";
+            }
+            else{
+                gerPlan = "Não";
+            }
+            
+            return gerPlan;
+        }
+        
+        public String getGerManInt() {
+
+            if (gerenciarManutencoes == 1 ){
+                gerMan = "Sim";
+            }
+            else{
+                gerMan = "Não";
+            }
+            
+            return gerMan;
+        }
+        
+        public String getGerConfigInt() {
+
+            if (gerenciarConfiguracoes == 1 ){
+                GerConfig = "Sim";
+            }
+            else{
+                GerConfig = "Não";
+            }
+            
+            return GerConfig;
+        }
+        
 	
 	/** Setters e Getters **/
 	
