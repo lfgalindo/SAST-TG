@@ -8,6 +8,7 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.sast.domain.Funcionario;
 import br.com.sast.util.HibernateUtil;
+import org.apache.shiro.crypto.hash.SimpleHash;
 
 
 /**
@@ -22,15 +23,19 @@ public class FuncionarioDAO {
 	public void inserir(Funcionario funcionario){
 	
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		
+		String senhaSemCriptografia = funcionario.getSenha();
+                
 		try{
 			
-			sessao.beginTransaction();
-			sessao.save(funcionario);
-			sessao.getTransaction().commit();
+                    sessao.beginTransaction();
+                    // Criptografando senha
+                    SimpleHash hash = new SimpleHash("md5", funcionario.getSenha());
+                    funcionario.setSenha(hash.toHex());
+                    sessao.save(funcionario);
+                    sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
-			
+			funcionario.setSenha(senhaSemCriptografia);
 			sessao.getTransaction().rollback();
 			erro.getMessage();
 			
@@ -107,16 +112,20 @@ public class FuncionarioDAO {
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
+		String senhaSemCriptografia = funcionario.getSenha();
+                
 		try{
-			
-			sessao.beginTransaction();
-			sessao.update(funcionario);
-			sessao.getTransaction().commit();
+                    sessao.beginTransaction();
+                    // Criptografando senha
+                    SimpleHash hash = new SimpleHash("md5", funcionario.getSenha());
+                    funcionario.setSenha(hash.toHex());
+                    sessao.update(funcionario);
+                    sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
-			
-			sessao.getTransaction().rollback();
-			erro.getMessage();
+                    funcionario.setSenha(senhaSemCriptografia);
+                    sessao.getTransaction().rollback();
+                    erro.getMessage();
 			
 		}finally{
 			
@@ -161,7 +170,8 @@ public class FuncionarioDAO {
                 Criteria consulta = sessao.createCriteria(Funcionario.class);
 
                 consulta.add(Restrictions.eq("login", login));
-                consulta.add(Restrictions.eq("senha", senha));
+                SimpleHash hash = new SimpleHash("md5", senha);
+                consulta.add(Restrictions.eq("senha", hash.toHex()));
             
                 Funcionario resultado = (Funcionario) consulta.uniqueResult(); 
             

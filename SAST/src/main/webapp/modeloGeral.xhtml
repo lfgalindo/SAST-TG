@@ -34,10 +34,11 @@
                               collapsible="false" closable="false" gutter="0">
 			<h:form class="menu">
 				<p:menu toggleable="true">
-					<p:submenu label="Início">
+                                    <p:submenu label="Início" expanded="false" >
 						<p:menuitem value="Principal" outcome="principal.xhtml"/>
 					</p:submenu>
-					<p:submenu label="Consultas">
+                                        
+					<p:submenu label="Consultas" expanded="false">
 						<p:menuitem value="Manutenções" outcome="manutencaoListar.xhtml" />
 						<p:menuitem value="Clientes" outcome="clienteListar.xhtml" />
 						<p:menuitem value="Funcionários" outcome="funcionarioListar.xhtml" />
@@ -46,12 +47,12 @@
 						<p:menuitem value="Planos" outcome="planoListar.xhtml" />
 					</p:submenu>
 
-					<p:submenu label="Sistema">
+					<p:submenu label="Sistema" expanded="false">
 						<p:menuitem value="Relatórios" outcome="relatorios.xhtml" />
 						<p:menuitem value="Backup" outcome="backup.xhtml" />
 					</p:submenu>
 						
-					<p:submenu label="Empresa">
+					<p:submenu label="Empresa" expanded="false">
 						<p:menuitem value="Visualizar Dados" outcome="empresaVisualizar.xhtml" />
 						<p:menuitem value="Alterar Dados" outcome="empresaEditar.xhtml" />
 					</p:submenu>

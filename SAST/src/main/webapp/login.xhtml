@@ -30,7 +30,7 @@
                             		<p:inputText id="txtLogin" styleClass="txt"
                             				 placeholder="Login" required="true"
                                              requiredMessage="O campo Login é obrigatório"
-                                             value="" />
+                                             value="#{autenticacaoBean.funcionario.login}" />
                                 </div>
                                 
                                 <div class="linha" id="txt">
@@ -40,12 +40,12 @@
                                 	<p:password id="txtSenha" styleClass="txt" 
                                              placeholder="Senha" required="true"
                                              requiredMessage="O campo Senha é obrigatório"
-                                             value="#"/>
+                                             value="#{autenticacaoBean.funcionario.senha}"/>
                                 </div>
                                 
                                 <div class="linha" id="btn">
                                 	<p:commandButton value="Entrar" styleClass="btn" update=":msg2"
-                                                 action=" "/>
+                                                         action="#{autenticacaoBean.autenticar()}"/>
                                 	<a href="url">Esqueceu sua senha?</a>
                                 </div>
                             </div>

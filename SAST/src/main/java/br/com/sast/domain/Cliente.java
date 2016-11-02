@@ -74,7 +74,7 @@ public class Cliente {
 	@Column(length = 20, nullable = false)
 	private String login;
 	
-	@Column(length = 10, nullable = false)
+	@Column(length = 32, nullable = false)
 	private String senha;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
