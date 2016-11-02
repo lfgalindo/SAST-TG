@@ -11,7 +11,7 @@ import org.omnifaces.util.Faces;
 @SuppressWarnings("serial")
 public class AutenticacaoListener implements PhaseListener{
     
-    private static final String PAGINA_AUTENTICACAO = "autenticacao.xhtml";
+    private static final String PAGINA_AUTENTICACAO = "login.xhtml";
 
     @Override
     public void afterPhase(PhaseEvent pe) {

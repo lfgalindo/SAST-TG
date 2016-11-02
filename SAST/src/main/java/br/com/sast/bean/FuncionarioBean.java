@@ -8,10 +8,11 @@ import javax.faces.bean.ViewScoped;
 import br.com.sast.domain.Cargo;
 import br.com.sast.domain.Funcionario;
 import br.com.sast.domain.Perfil;
+import java.io.Serializable;
 
 @ManagedBean
 @ViewScoped
-public class FuncionarioBean {
+public class FuncionarioBean implements Serializable{
 
 	private Funcionario funcionario;
 	private List<Funcionario> funcionarios;
@@ -20,8 +21,6 @@ public class FuncionarioBean {
 	// Chaves estrangeiras
 	private List<Perfil> perfis;
 	private List<Cargo> cargos;
-	
-	
 	
 	public Funcionario getFuncionario() {
 		return funcionario;
