@@ -25,7 +25,7 @@ import javax.faces.application.FacesMessage;
  * @since 28/10/2016
  */
 
-@ManagedBean(name="autenticacaoBean")
+@ManagedBean
 @SessionScoped
 public class AutenticacaoBean {
     
@@ -65,6 +65,7 @@ public class AutenticacaoBean {
                return;
            }
            
+           Faces.setSessionAttribute(PAGINA_AUTENTICACAO, this);
            Faces.redirect(PAGINA_PRINCIPAL);
         } catch (IOException ex) {
             Logger.getLogger(AutenticacaoBean.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,7 +74,8 @@ public class AutenticacaoBean {
     }
 
    public void logout(){
-       //Faces.getSession().invalidate();
+       Faces.getSession().invalidate();
+       Faces.setSessionAttribute("login.xhtml", null);
        
         try{
             

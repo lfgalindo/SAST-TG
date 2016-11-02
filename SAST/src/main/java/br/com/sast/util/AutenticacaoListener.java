@@ -2,6 +2,7 @@
 package br.com.sast.util;
 
 import br.com.sast.bean.AutenticacaoBean;
+import br.com.sast.domain.Cliente;
 import br.com.sast.domain.Funcionario;
 import javax.faces.event.PhaseEvent;
 import javax.faces.event.PhaseId;
@@ -22,12 +23,15 @@ public class AutenticacaoListener implements PhaseListener{
        if(!paginaDeAutenticacao){
            AutenticacaoBean autenticacaoBean = Faces.getSessionAttribute(PAGINA_AUTENTICACAO);
            
-           if(autenticacaoBean == null){
+           
+           if(Util.isNull(autenticacaoBean)){
                Faces.navigate(PAGINA_AUTENTICACAO);
                return;
            }
+           
+           Cliente cliente = autenticacaoBean.getClienteLogado();
            Funcionario funcionario = autenticacaoBean.getFuncionarioLogado();
-           if(funcionario == null){
+           if(Util.isNull(funcionario) && Util.isNull(cliente)){
                Faces.navigate(PAGINA_AUTENTICACAO);
                return;
            }
