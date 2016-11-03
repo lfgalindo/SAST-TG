@@ -47,6 +47,9 @@ div.logo{
     font-size: 100px;
     margin-bottom: 35px;
 }
+div.logo img{
+    width: 85%;
+}
 div#txt.linha {
     display:table;
     width:100%;
@@ -71,7 +74,6 @@ input.txt {
     box-shadow: none;
     color: #879496;
     text-shadow: none;
-    text-transform: uppercase;
     font-size: 10px;
 }
 input:focus {
@@ -227,6 +229,8 @@ div.logo-menu{
     justify-content: center;
     align-items: center;
     float: left;
+}div.logo-menu img{
+    width: 85%;
 }
 div.header{
     float: left;

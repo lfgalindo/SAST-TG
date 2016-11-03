@@ -8,6 +8,7 @@
 
 	<h:head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <link rel="shortcut icon" href="imagens/favicon.png" type="image/ico"/>
                 <intercept-url pattern="/favicon.ico" access="ROLE_ANONYMOUS" />
 		<link rel="StyleSheet" type="text/css" href="CSS/estilo.css" media="screen" />
 		<h:outputStylesheet library="webjars" name="font-awesome/4.6.3/css/font-awesome-jsf.css" />
@@ -20,7 +21,7 @@
                     <h:form class="login">
                             <div class="entrar">
                             	<div class="logo">
-					<i class="fa fa-spinner" aria-hidden="true"></i>
+                                    <img src="imagens/logo-login.png"/>
 				</div>
                             
                             	<div class="linha" id="txt">
@@ -28,7 +29,7 @@
                             			<i class="fa fa-user" aria-hidden="true"></i>
                             		</div>
                             		<p:inputText id="txtLogin" styleClass="txt"
-                            				 placeholder="Login" required="true"
+                            				 placeholder="LOGIN" required="true"
                                              requiredMessage="O campo Login é obrigatório"
                                              value="#{autenticacaoBean.funcionario.login}" />
                                 </div>
@@ -38,7 +39,7 @@
                             			<i class="fa fa-unlock-alt" aria-hidden="true"></i>
                             		</div>
                                 	<p:password id="txtSenha" styleClass="txt" 
-                                             placeholder="Senha" required="true"
+                                             placeholder="SENHA" required="true"
                                              requiredMessage="O campo Senha é obrigatório"
                                              value="#{autenticacaoBean.funcionario.senha}"/>
                                 </div>
