@@ -6,6 +6,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{planoBean.novo()}" />
+    </f:metadata>
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Cadastrar Plano
@@ -19,13 +22,23 @@
 
                         <h:panelGrid id="pnlDados" columns="3">
 
+                            <p:outputLabel value="Descrição" class="cadastro" for="descricao" />
+                            <p:inputText class="cadastro" id="descricao" maxlength="45" required = "true"
+                                         placeholder="Digite aqui a descrição do plano ..."
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-45)"
+                                         value="#{planoBean.plano.descricao}">
+                                <f:validateLength minimum="5" maximum="45"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="descricao"/>
+
                             <p:outputLabel value="Velocidade" class="cadastro" for="velocidade" />
                             <p:inputText class="cadastro" id="velocidade" maxlength="20" required = "true"
                                          placeholder="Digite aqui a velocidade do plano ..."
                                          requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-20)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="20"/>
+                                         validatorMessage="Tamanho inválido (3-11)"
+                                         value="#{planoBean.plano.velocidade}">
+                                <f:validateLength minimum="3" maximum="11"/>
                             </p:inputText>
                             <p:message class="cadastro" for="velocidade"/>
 
@@ -33,9 +46,9 @@
                             <p:inputText class="cadastro" id="garantia" maxlength="20" required = "true"
                                          placeholder="Digite aqui a garantia de banda ..."
                                          requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-20)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="20"/>
+                                         validatorMessage="Tamanho inválido (1-3)"
+                                         value="#{planoBean.plano.garantia}">
+                                <f:validateLength minimum="1" maximum="3"/>
                             </p:inputText>
                             <p:message class="cadastro" for="garantia"/>
 
@@ -44,7 +57,7 @@
                                          placeholder="Digite aqui o tipo de conexão ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{planoBean.plano.tipoConexao}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="tipo"/>
@@ -53,9 +66,9 @@
                             <p:inputText class="cadastro" id="valor" maxlength="20" required = "true"
                                          placeholder="Digite aqui o valor do plano ..."
                                          requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-20)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="20"/>
+                                         validatorMessage="Tamanho inválido (5-10)"
+                                         value="#{planoBean.plano.valor}">
+                                <f:validateLength minimum="2" maximum="10"/>
                             </p:inputText>
                             <p:message class="cadastro" for="valor"/>
 
@@ -65,7 +78,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="planoListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{planoBean.salvar()}"/>
                     </div>
                 </div>
             </h:form>

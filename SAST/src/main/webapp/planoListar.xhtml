@@ -6,6 +6,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{planoBean.listar()}" /> 
+    </f:metadata>
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Consultar Planos
@@ -15,41 +18,46 @@
             <h:form>
                 <div class="container-table">
                     <div class="table">
-                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#"
+                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{planoBean.planos}"
                                      var="Plano" paginator="true" rows="10">
-
-                            <p:column headerText="Velocidade" sortBy="#" filterBy="#"
+                            
+                            <p:column headerText="Descrição" sortBy="#{Plano.descricao}" filterBy="#{Plano.descricao}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Plano.descricao}" />
+                            </p:column>
+                            
+                            <p:column headerText="Velocidade" sortBy="#{Plano.velocidade}" filterBy="#{Plano.velocidade}"
+                                      filterMatchMode="contains">
+                                <h:outputText value="#{Plano.velocidade} Kbps" />
                             </p:column>
 
-                            <p:column headerText="Garantia de Banda" sortBy="#" filterBy="#"
+                            <p:column headerText="Garantia de Banda" sortBy="#{Plano.garantia}" filterBy="#{Plano.garantia}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Plano.garantia}%" />
                             </p:column>
 
-                            <p:column headerText="Tipo de Conexão" sortBy="#" filterBy="#"
+                            <p:column headerText="Tipo de Conexão" sortBy="#{Plano.tipoConexao}" filterBy="#{Plano.tipoConexao}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="#{Plano.tipoConexao}" />
                             </p:column>
 
-                            <p:column headerText="Valor" sortBy="#" filterBy="#"
+                            <p:column headerText="Valor" sortBy="#{Plano.valor}" filterBy="#{Plano.valor}"
                                       filterMatchMode="contains">
-                                <h:outputText value="#" />
+                                <h:outputText value="R$ #{Plano.valor}" />
                             </p:column>
 
                             <p:column headerText="Opções">
                                 <div class="options">
                                     <p:button class="visualizar" value="" outcome="planoVisualizar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Plano.codigo}" />
                                     </p:button>
 
                                     <p:button class="editar" value="" outcome="planoEditar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Plano.codigo}" />
                                     </p:button>
 
                                     <p:button styleClass="excluir" value="" outcome="planoExcluir.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Plano.codigo}" />
                                     </p:button>
                                 </div>
                             </p:column>

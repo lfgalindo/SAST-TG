@@ -5,7 +5,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+    
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{planoBean.codigo}" />
+        <f:viewAction action="#{planoBean.buscar()}" />
+    </f:metadata>
+    
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Visualizar Plano
@@ -18,18 +23,21 @@
                         <p:growl id="mensagem" globalOnly="true"/>
 
                         <h:panelGrid id="pnlDados" columns="2">
-
+                            
+                            <p:outputLabel value="Descrição" class="cadastro" />
+                            <h:outputText value="#{planoBean.plano.descricao}" />
+                            
                             <p:outputLabel value="Velocidade" class="cadastro" />
-                            <h:outputText value="99999999999999999999999999999" />
+                            <h:outputText value="#{planoBean.plano.velocidade} Kbps" />
 
                             <p:outputLabel value="Garantia de Banda" class="cadastro" />
-                            <h:outputText value="999999999999%" />
+                            <h:outputText value="#{planoBean.plano.garantia}%" />
 
                             <p:outputLabel value="Tipo de Conexão" class="cadastro" />
-                            <h:outputText value="Fibra, Rádio e Cabo" />
+                            <h:outputText value="#{planoBean.plano.tipoConexao}" />
 
                             <p:outputLabel value="Valor" class="cadastro" />
-                            <h:outputText value="- R$ 99.999,99" />
+                            <h:outputText value="R$ #{planoBean.plano.valor}" />
 
                         </h:panelGrid>
                     </div>

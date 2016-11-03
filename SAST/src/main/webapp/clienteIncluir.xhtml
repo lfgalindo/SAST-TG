@@ -73,10 +73,11 @@
                             <p:message class="cadastro" for="telefone"/>
                             
                             
-                            <p:outputLabel class="cadastro" value="nascimento" for="nascimento"/>
+                            <p:outputLabel class="cadastro" for="nascimento" value="Data de Nascimento: " />
                             <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/mm/yyyy" 
-                                        readonlyInput="true" 
-                                        required = "true" 
+                                        readonlyInput="false" 
+                                        required = "true"
+                                        yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
                                         value="#{clienteBean.cliente.nascimento}"/>
                             <p:message class="cadastro" for="nascimento"/>
