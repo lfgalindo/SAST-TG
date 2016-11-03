@@ -20,7 +20,7 @@ public class PlanoDAOTest {
 		
 		Plano plano = new Plano();
 		
-		plano.seDescricao("testetres");
+		plano.setDescricao("testetres");
 		plano.setGarantia(70);
 		plano.setTipoConexao("Fumaça");
 		plano.setValor(99.90);

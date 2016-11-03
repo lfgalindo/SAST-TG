@@ -98,7 +98,9 @@ public class PlanoBean {
         planoDAO.editar(plano);
 
         Messages.addGlobalInfo("Plano editado com sucesso!");
-
+        
+        buscar();
+        
     }//fim do método editar
 
     //método para excluir um registro específico no banco.

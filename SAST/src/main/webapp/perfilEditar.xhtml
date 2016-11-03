@@ -19,49 +19,53 @@
 
                         <h:panelGrid id="pnlDados" columns="3">
 
-                            <p:outputLabel value="Nome do Pefil" class="cadastro" for="nome" />
-                            <p:inputText class="cadastro" id="nome" maxlength="45" required = "true"
-                                         placeholder="Digite aqui o nome do perfil ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
-                                <f:validateLength minimum="5" maximum="45"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="nome"/>
-
-                        </h:panelGrid>
-
-                        <h:panelGrid columns="2">
-
                             <p:outputLabel value="Gerenciar Clientes" class="cadastro" for="clientes" />
-                            <p:selectBooleanButton id="clientes" value="#" 
+                            <p:selectBooleanButton id="clientes" value="#{perfilBean.perfil.gerenciarClientes}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                             <p:outputLabel value="Gerenciar Funcionários" class="cadastro" for="funcionarios" />
-                            <p:selectBooleanButton id="funcionarios" value="#" 
+                            <p:selectBooleanButton id="funcionarios" value="#{perfilBean.perfil.gerenciarFuncionarios}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                  <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                             <p:outputLabel value="Gerenciar Cargos" class="cadastro" for="cargos" />
-                            <p:selectBooleanButton id="cargos" value="#" 
+                            <p:selectBooleanButton id="cargos" value="#{perfilBean.perfil.gerenciarCargos}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                             <p:outputLabel value="Gerenciar Planos" class="cadastro" for="planos" />
-                            <p:selectBooleanButton id="planos" value="#" 
+                            <p:selectBooleanButton id="planos" value="#{perfilBean.perfil.gerenciarPlanos}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                   <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                             <p:outputLabel value="Gerenciar Manutenções" class="cadastro" for="manutencoes" />
-                            <p:selectBooleanButton id="manutencoes" value="#" 
+                            <p:selectBooleanButton id="manutencoes" value="#{perfilBean.perfil.gerenciarManutencoes}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                          <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                             <p:outputLabel value="Modificar Configurações" class="cadastro" for="configuracoes" />
-                            <p:selectBooleanButton id="configuracoes" value="#" 
+                            <p:selectBooleanButton id="configuracoes" value="#{perfilBean.perfil.gerenciarConfiguracoes}" 
                                                    onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px" />
+                                                   style="width:70px">
+                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
+                                    <f:selectItem itemLabel="Não" itemValue="False"/-->
+                            </p:selectBooleanButton>
 
                         </h:panelGrid>
                     </div>
@@ -69,7 +73,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="perfilListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{planoBean.editar()}"/>
                     </div>
                 </div>
             </h:form>
