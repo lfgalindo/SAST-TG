@@ -5,12 +5,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
+
     <f:metadata>
         <f:viewParam name="codigo" value="#{cargoBean.codigo}" />
         <f:viewAction action="#{cargoBean.buscar()}" />
     </f:metadata>
-    
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Excluir Cargo
@@ -23,7 +23,7 @@
                         <p:growl id="mensagem" globalOnly="true"/>
 
                         <h:panelGrid id="pnlDados" columns="2">
-                            
+
                             <p:outputLabel value="Nome do Cargo" class="cadastro"/>
                             <h:outputText value="#{cargoBean.cargo.nome}" />
 
@@ -36,7 +36,15 @@
                     <div class="add-incluir">
                         <p:button class="btn-voltar" value="Voltar" outcome="cargoListar.xhtml" />
                         <p:commandButton class="btn-cancelar" type="submit" value="Excluir" update="pnlDados mensagem"
-                                         actionListener="#{cargoBean.excluir()}"/>
+                                         actionListener="#{cargoBean.excluir()}">
+                            <p:confirm header="Confirmar exclusão" message="Deseja realmente excluir este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                        
                     </div>
                 </div>
             </h:form>

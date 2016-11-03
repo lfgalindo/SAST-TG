@@ -19,14 +19,14 @@ import br.com.sast.util.HibernateUtil;
 public class PlanoClienteDAO {
 	
 	//Função para inserir dados no banco
-	public void inserir(PlanoCliente planopessoa){
+	public void inserir(PlanoCliente planocliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.save(planopessoa);
+			sessao.save(planocliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -71,7 +71,7 @@ public class PlanoClienteDAO {
 	}//Fim do método listar
 	
 	//Função para buscar um registro no banco
-	@SuppressWarnings("deprecation")
+	 @SuppressWarnings({"deprecation", "unchecked"})
 	public PlanoCliente consultar(int codPlanoPessoa){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();

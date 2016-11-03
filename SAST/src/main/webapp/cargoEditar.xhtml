@@ -5,13 +5,13 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    
-    
-     <f:metadata>
-         <f:viewParam name="codigo" value="#{cargoBean.codigo}" />
-         <f:viewAction action="#{cargoBean.buscar()}" />
+
+
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{cargoBean.codigo}" />
+        <f:viewAction action="#{cargoBean.buscar()}" />
     </f:metadata>
-    
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Editar Cargo
@@ -51,7 +51,15 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="cargoListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{cargoBean.editar()}"/>
+                                         actionListener="#{cargoBean.editar()}">
+                            <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>
