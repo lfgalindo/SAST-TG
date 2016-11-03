@@ -16,6 +16,10 @@ import br.com.sast.dao.ClienteDAO;
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Cliente;
 import br.com.sast.domain.Perfil;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omnifaces.util.Faces;
 
 @ManagedBean
 @ViewScoped
@@ -82,6 +86,8 @@ public class ClienteBean {
 		
 		Messages.addGlobalInfo("Cliente inserido com sucesso!");
 		
+                novo();
+                
 	}//fim do método salvar
 	
 	//método para listar todos os registros do banco.
@@ -110,7 +116,8 @@ public class ClienteBean {
 		clienteDAO.editar(cliente);
 		
 		Messages.addGlobalInfo("Cliente editado com sucesso!");
-		
+		buscar();
+                
 	}//fim do método editar
 	
 	//método para excluir um registro específico no banco.
@@ -120,6 +127,12 @@ public class ClienteBean {
 		clienteDAO.excluir(cliente);
 		
 		Messages.addGlobalInfo("Cliente deletado com sucesso!");
+                
+                try {
+                Faces.redirect("clienteListar.xhtml");
+                } catch (IOException ex) {
+                Logger.getLogger(PerfilBean.class.getName()).log(Level.SEVERE, null, ex);
+                }
 		
 	}//fim do método excluir
 	

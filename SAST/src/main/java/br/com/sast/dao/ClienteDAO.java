@@ -78,7 +78,7 @@ public class ClienteDAO {
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 
-        Cliente pessoa = null;
+        Cliente cliente = null;
 
         try {
 
@@ -86,7 +86,8 @@ public class ClienteDAO {
 
             consulta.add(Restrictions.eq("codigo", codCli));
 
-            pessoa = (Cliente) consulta.uniqueResult();
+            cliente = (Cliente) consulta.uniqueResult();
+            
 
         } catch (RuntimeException erro) {
 
@@ -98,7 +99,7 @@ public class ClienteDAO {
 
         }
 
-        return pessoa;
+        return cliente;
 
     }// Fim da classe consultar
 

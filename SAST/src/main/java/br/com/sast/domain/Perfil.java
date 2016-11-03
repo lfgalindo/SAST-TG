@@ -247,12 +247,7 @@ public class Perfil {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.gerenciarClientes);
-        hash = 83 * hash + Objects.hashCode(this.gerenciarFuncionarios);
-        hash = 83 * hash + Objects.hashCode(this.gerenciarCargos);
-        hash = 83 * hash + Objects.hashCode(this.gerenciarPlanos);
-        hash = 83 * hash + Objects.hashCode(this.gerenciarManutencoes);
-        hash = 83 * hash + Objects.hashCode(this.gerenciarConfiguracoes);
+        hash = 97 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -268,27 +263,10 @@ public class Perfil {
             return false;
         }
         final Perfil other = (Perfil) obj;
-        if (!Objects.equals(this.gerenciarClientes, other.gerenciarClientes)) {
-            return false;
-        }
-        if (!Objects.equals(this.gerenciarFuncionarios, other.gerenciarFuncionarios)) {
-            return false;
-        }
-        if (!Objects.equals(this.gerenciarCargos, other.gerenciarCargos)) {
-            return false;
-        }
-        if (!Objects.equals(this.gerenciarPlanos, other.gerenciarPlanos)) {
-            return false;
-        }
-        if (!Objects.equals(this.gerenciarManutencoes, other.gerenciarManutencoes)) {
-            return false;
-        }
-        if (!Objects.equals(this.gerenciarConfiguracoes, other.gerenciarConfiguracoes)) {
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
     }
-        
-        
     
 }
