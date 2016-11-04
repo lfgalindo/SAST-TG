@@ -20,17 +20,16 @@ import br.com.sast.domain.PlanoCliente;
  */
 public class PlanoClienteDAOTest {
 
-    @Ignore
     @Test
     public void inserir() {
 
         ClienteDAO clienteDAO = new ClienteDAO();
 
-        Cliente cliente = clienteDAO.consultar(3);
+        Cliente cliente = clienteDAO.consultar(27);
 
         PlanoDAO planDAO = new PlanoDAO();
 
-        Plano plan = planDAO.buscar(7);
+        Plano plan = planDAO.buscar(41);
 
         PlanoCliente planCli = new PlanoCliente();
 

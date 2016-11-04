@@ -37,7 +37,11 @@ public class Plano {
 
     @Column(nullable = false)
     private Double valor;
-
+    
+    public Plano(){
+        
+    }
+    
     public Integer getCodigo() {
         return codigo;
     }

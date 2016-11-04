@@ -19,53 +19,57 @@
 
                         <h:panelGrid id="pnlDados" columns="3">
 
+                            <p:outputLabel value="Nome do Pefil" class="cadastro" for="nome" />
+                            <p:inputText class="cadastro" id="nome" maxlength="45" required = "true"
+                                         placeholder="Digite aqui o nome do perfil ..."
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-45)"
+                                         value="#{perfilBean.perfil.nomePerfil}">
+                                <f:validateLength minimum="5" maximum="45"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="nome"/>
+
                             <p:outputLabel value="Gerenciar Clientes" class="cadastro" for="clientes" />
-                            <p:selectBooleanButton id="clientes" value="#{perfilBean.perfil.gerenciarClientes}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                            <p:selectOneButton id="clientes" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="clientes"/>
 
                             <p:outputLabel value="Gerenciar Funcionários" class="cadastro" for="funcionarios" />
-                            <p:selectBooleanButton id="funcionarios" value="#{perfilBean.perfil.gerenciarFuncionarios}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                  <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                            <p:selectOneButton id="funcionarios" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="funcionarios"/>
 
                             <p:outputLabel value="Gerenciar Cargos" class="cadastro" for="cargos" />
-                            <p:selectBooleanButton id="cargos" value="#{perfilBean.perfil.gerenciarCargos}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                            <p:selectOneButton id="cargos" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="cargos"/>
 
                             <p:outputLabel value="Gerenciar Planos" class="cadastro" for="planos" />
-                            <p:selectBooleanButton id="planos" value="#{perfilBean.perfil.gerenciarPlanos}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                   <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                              <p:selectOneButton id="planos" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="planos"/>
 
                             <p:outputLabel value="Gerenciar Manutenções" class="cadastro" for="manutencoes" />
-                            <p:selectBooleanButton id="manutencoes" value="#{perfilBean.perfil.gerenciarManutencoes}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                          <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                            <p:selectOneButton id="manutencoes" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="manutencoes"/>
 
                             <p:outputLabel value="Modificar Configurações" class="cadastro" for="configuracoes" />
-                            <p:selectBooleanButton id="configuracoes" value="#{perfilBean.perfil.gerenciarConfiguracoes}" 
-                                                   onLabel="Sim" offLabel="Não" 
-                                                   style="width:70px">
-                                <!--f:selectItem itemLabel="Sim" itemValue="True"/>
-                                    <f:selectItem itemLabel="Não" itemValue="False"/-->
-                            </p:selectBooleanButton>
+                            <p:selectOneButton id="configuracoes" value="#">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="configuracoes"/>
 
                         </h:panelGrid>
                     </div>

@@ -849,3 +849,6 @@ div.backup .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-on
     background: #eff3f6;
     border: none;
 }
+.ui-selectonebutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-2{
+    background: #eff3f6;
+}

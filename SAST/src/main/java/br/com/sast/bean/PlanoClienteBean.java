@@ -47,17 +47,18 @@ public class PlanoClienteBean {
 	public void novo(){
 		
                 planocliente = new PlanoCliente();
-		
-		PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
-		
+                
+                PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
                 planoclientes = planoclienteDAO.listar();
                 
 		//chave estrangeira.
 		PlanoDAO planoDAO = new PlanoDAO();
 		
+                ClienteDAO clienteDAO = new ClienteDAO();
+                
 		//chave estrangeira.
 		planos = planoDAO.listar();
-                
+                clientes = clienteDAO.listar();
 		
 	}//fim do método novo
     

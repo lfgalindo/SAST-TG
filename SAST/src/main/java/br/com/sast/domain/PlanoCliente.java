@@ -84,7 +84,7 @@ public class PlanoCliente {
         }
         return true;
     }
-
+    
     @Override
     public String toString() {
         return "PlanoCliente [codigo= " + codigo + ", codigoCliente=" + codigoCliente + ", codigoPlano=" + codigoPlano

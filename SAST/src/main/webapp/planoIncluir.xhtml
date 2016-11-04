@@ -43,7 +43,7 @@
                             <p:message class="cadastro" for="velocidade"/>
 
                             <p:outputLabel value="Garantia de Banda" class="cadastro" for="garantia" />
-                            <p:inputText class="cadastro" id="garantia" maxlength="20" required = "true"
+                            <p:inputText class="cadastro" id="garantia" maxlength="2" required = "true"
                                          placeholder="Digite aqui a garantia de banda ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (1-3)"
@@ -53,13 +53,14 @@
                             <p:message class="cadastro" for="garantia"/>
 
                             <p:outputLabel value="Tipo de Conexão" class="cadastro" for="tipo" />
-                            <p:inputText class="cadastro" id="tipo" maxlength="45" required = "true"
-                                         placeholder="Digite aqui o tipo de conexão ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-45)"
-                                         value="#{planoBean.plano.tipoConexao}">
-                                <f:validateLength minimum="5" maximum="45"/>
-                            </p:inputText>
+                            <p:selectOneMenu class="cadastro" id="tipo" filter="true" filterMatchMode="contain" required="true" 
+                                             value="#{planoBean.plano.tipoConexao}"
+                                             requiredMessage="Campo obrigatório">
+                                <f:selectItem itemLabel="Selecione o tipo de conexão" noSelectionOption="true" />
+                                <f:selectItem itemLabel="Fibra" itemValue="Fibra" />
+                                <f:selectItem itemLabel="Rádio" itemValue="Radio" />
+
+                            </p:selectOneMenu>
                             <p:message class="cadastro" for="tipo"/>
 
                             <p:outputLabel value="Valor" class="cadastro" for="valor" />
