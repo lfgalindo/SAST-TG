@@ -42,7 +42,7 @@
 					<p:submenu label="Consultas" expanded="false">
 						<p:menuitem value="Manutenções" outcome="manutencaoListar.xhtml" />
 						<p:menuitem value="Clientes" outcome="clienteListar.xhtml" />
-						<p:menuitem value="Funcionários" outcome="funcionarioListar.xhtml" />
+                                                <p:menuitem value="Funcionários" action="#{funcionarioBean.iniciarProcesso()}"/>
 						<p:menuitem value="Cargos" outcome="cargoListar.xhtml" />
 						<p:menuitem value="Perfis" outcome="perfilListar.xhtml" />
 						<p:menuitem value="Planos" outcome="planoListar.xhtml" />

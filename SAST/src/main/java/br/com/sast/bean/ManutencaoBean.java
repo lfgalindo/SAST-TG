@@ -77,7 +77,8 @@ public class ManutencaoBean {
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		
 		clientes = clienteDAO.listar();
-		funcionarios = funcionarioDAO.listar();
+                //FIXME: Me arrume
+		//funcionarios = funcionarioDAO.listar();
 		
 	}//fim do método novo.
 	
@@ -110,7 +111,8 @@ public class ManutencaoBean {
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 		
 		clientes = clienteDAO.listar();
-		funcionarios = funcionarioDAO.listar();
+                //FIXME: Me arrume
+		//funcionarios = funcionarioDAO.listar();
 		
 	}//fim do método buscar
 	

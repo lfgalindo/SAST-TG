@@ -124,14 +124,14 @@ public class PlanoClienteDAO {
 	}//Fim do método editar
 	
 	//Função para excluir um registro
-	public void excluir(PlanoCliente planopessoa){
+	public void excluir(PlanoCliente planocliente){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			sessao.beginTransaction();
-			sessao.delete(planopessoa);
+			sessao.delete(planocliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
