@@ -103,7 +103,10 @@ public class PlanoClienteBean {
 
     //método para editar um registro específico no banco.
     public void editar() {
-
+        
+        PlanoDAO planoDAO = new PlanoDAO();
+        planos = planoDAO.listar();
+        
         PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
         planoclienteDAO.editar(planocliente);
 

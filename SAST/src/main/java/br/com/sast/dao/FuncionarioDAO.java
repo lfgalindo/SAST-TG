@@ -56,11 +56,12 @@ public class FuncionarioDAO {
         try {
 
             Criteria consulta = sessao.createCriteria(Funcionario.class);
-                        
             consulta.addOrder(Order.asc("codigo"));
 
-            return consulta.list();
-
+            List<Funcionario> resultado = consulta.list();
+            
+            return resultado;
+            
         } catch (RuntimeException erro) {
 
             throw erro;

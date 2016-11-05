@@ -6,6 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{funcionarioBean.listar()}" /> 
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Consultar Funcionários
@@ -15,59 +19,52 @@
             <h:form>
                 <div class="container-table">
                     <div class="table">
-                        <p:dataTable emptyMessage="Nenhum registro encontrado." 
-                                     value="#{funcionarioBean.funcionarios}"
-                                     var="funcionario" 
+                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{funcionarioBean.funcionarios}"
+                                     var="Funcionario" 
+                                     paginator="true"
                                      paginatorPosition="bottom"
-                                     rows="10"
-                                     id="painel">
+                                     rows="10">
 
-                            <p:column headerText="Nome" 
-                                      sortBy="#{funcionario.nome}" 
-                                      styleClass=""
-                                      style="text-align: center">
-
-                                <h:outputText value="#{funcionario.nome}" />
+                            <p:column headerText="Nome" sortBy="#{Funcionario.nome}" filterBy="#{Funcionario.nome}"
+                                      filterMatchMode="contains">
+                                <h:outputText value="#{Funcionario.nome}" />
                             </p:column>
 
-                            <p:column headerText="Telefone" 
-                                      sortBy="#{funcionario.telefone}" 
-                                      styleClass="text-center">
-                                <h:outputText value="#{funcionario.telefone}">
-                                    <f:converter converterId="telefoneConverter"/>
-                                </h:outputText>
+                            <p:column headerText="Telefone" sortBy="#{Funcionario.telefone}" filterBy="#{Funcionario.telefone}"
+                                      filterMatchMode="contains">
+                                <h:outputText value="#{Funcionario.telefone}" />
                             </p:column>
 
-                            <p:column headerText="E-mail" 
-                                      sortBy="#{funcionario.email}" 
-                                      styleClass="text-center">
-                                <h:outputText value="#{funcionario.email}" />
+                            <p:column headerText="E-mail" sortBy="#{Funcionario.email}" filterBy="#{Funcionario.email}"
+                                      filterMatchMode="contains">
+                                <h:outputText value="#{Funcionario.email}" />
                             </p:column>
 
-                            <p:column headerText="Cidade" 
-                                      sortBy="#{funcionario.cidade}"
-                                      styleClass="text-center">
-                                <h:outputText value="#{funcionario.cidade}" />
+                            <p:column headerText="Cidade" sortBy="#{Funcionario.cidade}" filterBy="#{Funcionario.cidade}"
+                                      filterMatchMode="contains">
+                                <h:outputText value="#{Funcionario.cidade}" />
                             </p:column>
 
                             <p:column headerText="Opções">
                                 <div class="options">
-                                    <p:button class="visualizar" value=""
-                                              outcome="funcionarioVisualizar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                    <p:button class="visualizar" value="" outcome="funcionarioVisualizar.xhtml">
+                                        <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
 
                                     <p:button class="editar" value="" outcome="funcionarioEditar.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                        <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
 
-                                    <p:button styleClass="excluir" value=""
-                                              outcome="funcionarioExcluir.xhtml">
-                                        <f:param name="codigo" value="#" />
+                                    <p:button styleClass="excluir" value="" outcome="funcionarioExcluir.xhtml">
+                                        <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
+
                                 </div>
                             </p:column>
                         </p:dataTable>
+                    </div>
+                    <div class="add">
+                        <p:button styleClass="incluir" value="Novo Funcionário" outcome="funcionarioIncluir.xhtml"/>
                     </div>
                 </div>
             </h:form>

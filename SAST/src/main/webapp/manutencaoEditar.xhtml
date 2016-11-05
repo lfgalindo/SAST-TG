@@ -90,8 +90,10 @@
                             <p:message class="cadastro" for="execucao"/>
 
                             <p:outputLabel class="cadastro" value="Manutenção Baixada" for="baixa"/>
-                            <p:selectBooleanButton id="baixa" value="#" 
-                                                   onLabel="Sim" offLabel="Não" />
+                            <p:selectOneButton id="baixa" value="">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
                             <p:message class="cadastro" for="baixa"/>
 
 

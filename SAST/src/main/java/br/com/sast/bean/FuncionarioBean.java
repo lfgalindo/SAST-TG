@@ -1,72 +1,84 @@
 package br.com.sast.bean;
 
+import br.com.sast.dao.CargoDAO;
 import br.com.sast.dao.FuncionarioDAO;
-import java.util.List;
-
-import javax.faces.bean.ManagedBean;
-
+import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Cargo;
 import br.com.sast.domain.Funcionario;
-import br.com.sast.domain.Perfil;
-import br.com.sast.util.Util;
-import java.io.Serializable;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.SessionScoped;
+import java.util.List;
+
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
 import org.omnifaces.util.Messages;
+import br.com.sast.domain.Perfil;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omnifaces.util.Faces;
 
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class FuncionarioBean {
 
-    private static String PAGINA_FUNCIONARIO_LISTAR = "funcionarioListar.xhtml";
-    
-    private Funcionario funcionarioPesquisa;
-    private Funcionario funcionarioEdicao;
-    private FuncionarioDAO funcionarioDAO;
-    
+    private Funcionario funcionario;
     private List<Funcionario> funcionarios;
     private Integer codigo;
 
-    // Chaves estrangeiras
+    //Chaves estrangeiras
     private List<Perfil> perfis;
     private List<Cargo> cargos;
 
-    private Boolean exibirResultado;
+    //MÉTODOS CRUD
+    //método que prepara a tela para inserir novo registro.
+    public void novo() {
 
-    public String iniciarProcesso() {
-        inicializarPesquisa();
-        return PAGINA_FUNCIONARIO_LISTAR;
-    }
-    
-    public void pesquisar() {
-        if(getFuncionarioDAO().listar().isEmpty()){
-            Messages.addGlobalWarn("Nenhum registro encontrado.", FacesMessage.SEVERITY_WARN);
-        } 
-    }
+        funcionario = new Funcionario();
 
-    private void inicializarPesquisa() {
-        setFuncionarios(getFuncionarioDAO().listar());
-        setExibirResultado(Boolean.FALSE);
-        setFuncionarioPesquisa(new Funcionario());
-        setFuncionarioDAO(new FuncionarioDAO());
-    }
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
-    public Funcionario getFuncionarioPesquisa() {
-        return funcionarioPesquisa;
+        funcionarios = funcionarioDAO.listar();
+
+        //chave estrangeira.
+        PerfilDAO perfilDAO = new PerfilDAO();
+        CargoDAO cargoDAO = new CargoDAO();
+
+        //chave estrangeira.
+        perfis = perfilDAO.listar();
+        cargos = cargoDAO.listar();
+
     }
 
-    public void setFuncionarioPesquisa(Funcionario funcionarioPesquisa) {
-        this.funcionarioPesquisa = funcionarioPesquisa;
+    //método para inserir um novo registro no banco.
+    public void salvar() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarioDAO.inserir(funcionario);
+
+        Messages.addGlobalInfo("Funcionário inserido com sucesso!");
+
+        novo();
+
+    }//fim do método salvar
+
+    //método para listar todos os registros do banco.
+    public void listar() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarios = funcionarioDAO.listar();
+
+    }//fim do método listar.
+
+    //GETS & SETS
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public Funcionario getFuncionarioEdicao() {
-        return funcionarioEdicao;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
-    public void setFuncionarioEdicao(Funcionario funcionarioEdicao) {
-        this.funcionarioEdicao = funcionarioEdicao;
-    }
-    
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
@@ -97,22 +109,6 @@ public class FuncionarioBean {
 
     public void setCargos(List<Cargo> cargos) {
         this.cargos = cargos;
-    }
-
-    public Boolean getExibirResultado() {
-        return exibirResultado;
-    }
-
-    public void setExibirResultado(Boolean exibirResultado) {
-        this.exibirResultado = exibirResultado;
-    }
-
-    public FuncionarioDAO getFuncionarioDAO() {
-        return funcionarioDAO;
-    }
-
-    public void setFuncionarioDAO(FuncionarioDAO funcionarioDAO) {
-        this.funcionarioDAO = funcionarioDAO;
     }
 
 }
