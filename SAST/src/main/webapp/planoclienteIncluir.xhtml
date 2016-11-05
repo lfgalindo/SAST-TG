@@ -7,6 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
+        <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
         <f:viewAction action="#{planoClienteBean.novo()}" />
 
     </f:metadata>
@@ -25,16 +26,8 @@
                         <h:panelGrid id="pnlDados" columns="2">
 
                             <p:outputLabel value="Cliente" class="cadastro"/>
-                            <p:selectOneMenu class="cadastro" id="cliente" filter="true" filterMatchMode="contains" required = "true" 
-                                             requiredMessage="Campo Obrigatório"
-                                             value="#{planoClienteBean.planocliente.codigoCliente}"
-                                             converter="omnifaces.SelectItemsConverter">
-                                <f:selectItem itemLabel="Selecione um Cliente" noSelectionOption="true"/>
-                                <f:selectItems value="#{planoClienteBean.clientes}"
-                                               var="cli"
-                                               itemValue="#{cli}"
-                                               itemLabel="#{cli.nome}"/>
-                            </p:selectOneMenu>
+                    
+                            <p:inputText class="cadastro" readonly="true" value="#{planoClienteBean.planocliente.codigoCliente.nome}" />
 
                             <p:outputLabel class="cadastro" for="plano" value="Plano "/>
                             <p:selectOneMenu class="cadastro" id="plano" filter="true" filterMatchMode="contains" required = "true" 

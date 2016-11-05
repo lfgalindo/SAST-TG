@@ -20,7 +20,9 @@
 			<div class="container-table">
 				<div class="table">
                                     <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{clienteBean.clientes}"
-						var="Cliente" paginator="true" rows="10">
+						var="Cliente" 
+                                                paginatorPosition="bottom"
+                                                rows="10">
 
                                         <p:column headerText="Nome" sortBy="#{Cliente.nome}" filterBy="#{Cliente.nome}"
 							filterMatchMode="contains">
