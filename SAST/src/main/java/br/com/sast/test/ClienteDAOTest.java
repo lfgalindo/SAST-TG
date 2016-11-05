@@ -19,7 +19,6 @@ import br.com.sast.domain.Perfil;
 
 public class ClienteDAOTest {
 	
-	@Ignore
 	@Test
 	public void inserir(){
 		
@@ -27,7 +26,7 @@ public class ClienteDAOTest {
 		
 		PerfilDAO perfilDAO = new PerfilDAO();
 		
-		Perfil perfil = perfilDAO.buscar(2);
+		Perfil perfil = perfilDAO.buscar(3);
 		
 		ClienteDAO clienteDAO = new ClienteDAO();
 		
@@ -43,7 +42,7 @@ public class ClienteDAOTest {
 		cliente.setNascimento(new Date());
 		cliente.setNumero("06");
 		cliente.setRg("469823734");
-		cliente.setSenha("senha");
+		cliente.setSenha("123");
 		cliente.setTelefone("996440052");
 		cliente.setNome("Luís Guilherme Fernandes Ferreira");
 		cliente.setRazao("Luís Guilherme Fernandes Ferreira");

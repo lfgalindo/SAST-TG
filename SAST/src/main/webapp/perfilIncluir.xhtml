@@ -35,46 +35,54 @@
                             <p:message class="cadastro" for="nome"/>
 
                             <p:outputLabel value="Gerenciar Clientes" class="cadastro" for="clientes" />
-                            <p:selectOneButton id="clientes" value="#">
+                            <p:selectOneButton id="clientes" value="#{perfilBean.perfil.gerenciarClientes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="clientes"/>
 
                             <p:outputLabel value="Gerenciar Funcionários" class="cadastro" for="funcionarios" />
-                            <p:selectOneButton id="funcionarios" value="#">
+                            <p:selectOneButton id="funcionarios" value="#{perfilBean.perfil.gerenciarFuncionarios}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="funcionarios"/>
 
                             <p:outputLabel value="Gerenciar Cargos" class="cadastro" for="cargos" />
-                            <p:selectOneButton id="cargos" value="#">
+                            <p:selectOneButton id="cargos" value="#{perfilBean.perfil.gerenciarCargos}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="cargos"/>
 
                             <p:outputLabel value="Gerenciar Planos" class="cadastro" for="planos" />
-                              <p:selectOneButton id="planos" value="#">
+                            <p:selectOneButton id="planos" value="#{perfilBean.perfil.gerenciarPlanos}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="planos"/>
 
                             <p:outputLabel value="Gerenciar Manutenções" class="cadastro" for="manutencoes" />
-                            <p:selectOneButton id="manutencoes" value="#">
+                            <p:selectOneButton id="manutencoes" value="#{perfilBean.perfil.gerenciarManutencoes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="manutencoes"/>
 
+                            <p:outputLabel value="Modificar perfis" class="cadastro" for="perfis" />
+                            <p:selectOneButton id="perfis" value="#{perfilBean.perfil.gerenciarPerfis}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="perfis"/>
+
                             <p:outputLabel value="Modificar Configurações" class="cadastro" for="configuracoes" />
-                            <p:selectOneButton id="configuracoes" value="#">
+                            <p:selectOneButton id="configuracoes" value="#{perfilBean.perfil.gerenciarConfiguracoes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="configuracoes"/>
+
 
                         </h:panelGrid>
                     </div>
@@ -82,7 +90,9 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="perfilListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{perfilBean.salvar()}"/>
+                                         actionListener="#{perfilBean.salvar()}">
+                            <p:confirm header="Confirmar inclusão" message="Deseja realmente incluir este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
                     </div>
                 </div>
             </h:form>

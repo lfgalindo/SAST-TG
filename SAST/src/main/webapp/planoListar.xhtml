@@ -19,7 +19,7 @@
                 <div class="container-table">
                     <div class="table">
                         <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{planoBean.planos}"
-                                     var="Plano" paginator="true" rows="10">
+                                     var="Plano" paginator="true" paginatorPosition="bottom" rows="10">
                             
                             <p:column headerText="Descrição" sortBy="#{Plano.descricao}" filterBy="#{Plano.descricao}"
                                       filterMatchMode="contains">

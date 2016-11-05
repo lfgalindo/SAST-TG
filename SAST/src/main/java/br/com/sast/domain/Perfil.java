@@ -46,6 +46,9 @@ public class Perfil {
 	@Column(nullable = false)
 	private Integer gerenciarConfiguracoes;
         
+        @Column(nullable = false)
+	private Integer gerenciarPerfis;
+        
         //Exibit 'sim' e 'nao' na visualização de perfis
         @Transient
         private String gerCli;
@@ -64,6 +67,30 @@ public class Perfil {
         
         @Transient
         private String GerConfig;
+        
+        @Transient
+        private String GerPerfil;
+        
+        /**@Transient
+        private String prioridadeExtenso;
+
+        public String getPrioridadeExtenso() {
+            if(prioridade == 'A'){
+                prioridadeExtenso = "Alta";
+            }
+            else if (prioridade == 'B'){
+                prioridadeExtenso = "Baixa";
+            }
+            else{
+                prioridadeExtenso = "Média";
+            }
+            return prioridadeExtenso;
+        }
+
+        public void setPrioridadeExtenso(String prioridadeExtenso) {
+            this.prioridadeExtenso = prioridadeExtenso;
+        }**/
+    
         
         public String getGerCliInt() {
                 
@@ -137,6 +164,18 @@ public class Perfil {
             return GerConfig;
         }
         
+        public String getGerPerfilInt() {
+
+            if (gerenciarPerfis == 1 ){
+                GerPerfil = "Sim";
+            }
+            else{
+                GerPerfil = "Não";
+            }
+            
+            return GerPerfil;
+        }
+        
 	
 	/** Setters e Getters **/
 	
@@ -153,93 +192,63 @@ public class Perfil {
 	public String getNomePerfil(){
 		return nomePerfil;
 	}
-	
-	
-	public void setGerenciarCargos(boolean gerenciarCargos){
-		
-                Integer op = 0;
-                
-                if (gerenciarCargos == true){
-                    op = 1;
-                }
-                
-                this.gerenciarCargos = op;
-	}
-	public Integer getGerenciarCargos(){
-		return gerenciarCargos;
-	}
-	
-	public void setGerenciarPlanos(boolean gerenciarPlanos){
-		
-                Integer op = 0;
-                
-                if (gerenciarPlanos == true){
-                    op = 1;
-                }
-                
-                this.gerenciarPlanos = op;
-	}
-	public Integer getGerenciarPlanos(){
-		return gerenciarPlanos;
-	}
-	
-	public void setGerenciarManutencoes(boolean gerenciarManutencoes){
-		
-                Integer op = 0;
-                
-                if (gerenciarManutencoes == true){
-                    op = 1;
-                }
-                
-                this.gerenciarManutencoes = op;
-	}
-	public Integer getGerenciarManutencoes(){
-		return gerenciarManutencoes;
-	}
-	
-	public void setGerenciarConfiguracoes(boolean gerenciarConfiguracoes){
-		
-                Integer op = 0;
-                
-                if (gerenciarConfiguracoes == true){
-                    op = 1;
-                }
-                
-                this.gerenciarConfiguracoes = op;
-	}
-	public Integer getGerenciarConficuracoes(){
-		return gerenciarConfiguracoes;
-	}
-	
-        public Integer getGerenciarClientes() {
-		return gerenciarClientes;
-	}
-	public void setGerenciarClientes(boolean gerenciarClientes) {
-		
-                Integer op = 0;
-                
-                if (gerenciarClientes == true){
-                    op = 1;
-                }
-                
-                this.gerenciarClientes = op;
-	}
-	public Integer getGerenciarFuncionarios() {
-		return gerenciarFuncionarios;
-	}
-	public void setGerenciarFuncionarios(boolean gerenciarFuncionarios) {
-		
-                Integer op = 0;
-                
-                if (gerenciarFuncionarios == true){
-                    op = 1;
-                }
-                
-                this.gerenciarFuncionarios = op;
-	}
-	public Integer getGerenciarConfiguracoes() {
-		return gerenciarConfiguracoes;
-	}
+
+    public Integer getGerenciarClientes() {
+        return gerenciarClientes;
+    }
+
+    public void setGerenciarClientes(Integer gerenciarClientes) {
+        this.gerenciarClientes = gerenciarClientes;
+    }
+
+    public Integer getGerenciarFuncionarios() {
+        return gerenciarFuncionarios;
+    }
+
+    public void setGerenciarFuncionarios(Integer gerenciarFuncionarios) {
+        this.gerenciarFuncionarios = gerenciarFuncionarios;
+    }
+
+    public Integer getGerenciarCargos() {
+        return gerenciarCargos;
+    }
+
+    public void setGerenciarCargos(Integer gerenciarCargos) {
+        this.gerenciarCargos = gerenciarCargos;
+    }
+
+    public Integer getGerenciarPlanos() {
+        return gerenciarPlanos;
+    }
+
+    public void setGerenciarPlanos(Integer gerenciarPlanos) {
+        this.gerenciarPlanos = gerenciarPlanos;
+    }
+
+    public Integer getGerenciarManutencoes() {
+        return gerenciarManutencoes;
+    }
+
+    public void setGerenciarManutencoes(Integer gerenciarManutencoes) {
+        this.gerenciarManutencoes = gerenciarManutencoes;
+    }
+
+    public Integer getGerenciarConfiguracoes() {
+        return gerenciarConfiguracoes;
+    }
+
+    public void setGerenciarConfiguracoes(Integer gerenciarConfiguracoes) {
+        this.gerenciarConfiguracoes = gerenciarConfiguracoes;
+    }
+
+    public Integer getGerenciarPerfis() {
+        return gerenciarPerfis;
+    }
+
+    public void setGerenciarPerfis(Integer gerenciarPerfis) {
+        this.gerenciarPerfis = gerenciarPerfis;
+    }
+ 
 	public String toString(){
 		return "Perfil " + codigo + ": { " + nomePerfil + " }";
     }

@@ -18,7 +18,7 @@ import org.apache.shiro.crypto.hash.SimpleHash;
  * @since 31/08/2016
  */
 public class ClienteDAO {
-
+    
     //Método para inserir dados no banco
     public void inserir(Cliente cliente) {
 

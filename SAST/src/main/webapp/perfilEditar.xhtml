@@ -5,7 +5,12 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+    
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{perfilBean.codigo}" />
+        <f:viewAction action="#{perfilBean.buscar()}" />
+    </f:metadata>
+    
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Editar Perfil
@@ -30,42 +35,49 @@
                             <p:message class="cadastro" for="nome"/>
 
                             <p:outputLabel value="Gerenciar Clientes" class="cadastro" for="clientes" />
-                            <p:selectOneButton id="clientes" value="#">
+                            <p:selectOneButton id="clientes" value="#{perfilBean.perfil.gerenciarClientes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="clientes"/>
 
                             <p:outputLabel value="Gerenciar Funcionários" class="cadastro" for="funcionarios" />
-                            <p:selectOneButton id="funcionarios" value="#">
+                            <p:selectOneButton id="funcionarios" value="#{perfilBean.perfil.gerenciarFuncionarios}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="funcionarios"/>
 
                             <p:outputLabel value="Gerenciar Cargos" class="cadastro" for="cargos" />
-                            <p:selectOneButton id="cargos" value="#">
+                            <p:selectOneButton id="cargos" value="#{perfilBean.perfil.gerenciarCargos}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="cargos"/>
 
                             <p:outputLabel value="Gerenciar Planos" class="cadastro" for="planos" />
-                              <p:selectOneButton id="planos" value="#">
+                            <p:selectOneButton id="planos" value="#{perfilBean.perfil.gerenciarPlanos}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="planos"/>
 
                             <p:outputLabel value="Gerenciar Manutenções" class="cadastro" for="manutencoes" />
-                            <p:selectOneButton id="manutencoes" value="#">
+                            <p:selectOneButton id="manutencoes" value="#{perfilBean.perfil.gerenciarManutencoes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="manutencoes"/>
 
+                            <p:outputLabel value="Modificar perfis" class="cadastro" for="perfis" />
+                            <p:selectOneButton id="perfis" value="#{perfilBean.perfil.gerenciarPerfis}">
+                                <f:selectItem itemLabel="Sim" itemValue="1" />
+                                <f:selectItem itemLabel="Não" itemValue="0" />
+                            </p:selectOneButton>
+                            <p:message class="cadastro" for="perfis"/>
+
                             <p:outputLabel value="Modificar Configurações" class="cadastro" for="configuracoes" />
-                            <p:selectOneButton id="configuracoes" value="#">
+                            <p:selectOneButton id="configuracoes" value="#{perfilBean.perfil.gerenciarConfiguracoes}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
@@ -77,7 +89,16 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="perfilListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{planoBean.editar()}"/>
+                                         actionListener="#{perfilBean.editar()}">
+                            <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+                        
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+                        
                     </div>
                 </div>
             </h:form>
