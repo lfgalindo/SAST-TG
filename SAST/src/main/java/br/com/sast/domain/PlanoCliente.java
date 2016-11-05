@@ -2,6 +2,7 @@ package br.com.sast.domain;
 
 import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class PlanoCliente {
     private int codigo;
 
     @ManyToOne
-    @JoinColumn(nullable = false, unique = false)
+    @JoinColumn( nullable = false, unique = false)
     private Cliente codigoCliente;
 
     @ManyToOne

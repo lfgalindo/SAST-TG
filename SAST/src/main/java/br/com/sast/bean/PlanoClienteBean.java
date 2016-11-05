@@ -56,7 +56,7 @@ public class PlanoClienteBean {
         PlanoDAO planoDAO = new PlanoDAO();
 
         ClienteDAO clienteDAO = new ClienteDAO();
-        planocliente.setCodigoCliente(clienteDAO.consultar(codCli));
+        getPlanocliente().setCodigoCliente(clienteDAO.consultar(codCli));
 
         //chave estrangeira.
         planos = planoDAO.listar();
