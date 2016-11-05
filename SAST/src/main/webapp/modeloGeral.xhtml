@@ -50,7 +50,8 @@
                                                 <p:menuitem value="Meus Planos" outcome="meusPlanos.xhtml"/>
 					</p:submenu>
                                         
-					<p:submenu label="Consultas" expanded="false">
+					<p:submenu label="Consultas" expanded="false"
+                                                   rendered="#{autenticacaoBean.isFuncionario}">
 						<p:menuitem value="Manutenções" outcome="manutencaoListar.xhtml" />
 						<p:menuitem value="Clientes" outcome="clienteListar.xhtml" />
                                                 <p:menuitem value="Funcionários" action="#{funcionarioBean.iniciarProcesso()}"/>
@@ -59,12 +60,14 @@
 						<p:menuitem value="Planos" outcome="planoListar.xhtml" />
 					</p:submenu>
 
-					<p:submenu label="Sistema" expanded="false">
+					<p:submenu label="Sistema" expanded="false"
+                                                   rendered="#{autenticacaoBean.isFuncionario}">
 						<p:menuitem value="Relatórios" outcome="relatorios.xhtml" />
 						<p:menuitem value="Backup" outcome="backup.xhtml" />
 					</p:submenu>
 						
-					<p:submenu label="Empresa" expanded="false">
+					<p:submenu label="Empresa" expanded="false"
+                                                   rendered="#{autenticacaoBean.isFuncionario}">
 						<p:menuitem value="Visualizar Dados" outcome="empresaVisualizar.xhtml" />
 						<p:menuitem value="Alterar Dados" outcome="empresaEditar.xhtml" />
 					</p:submenu>

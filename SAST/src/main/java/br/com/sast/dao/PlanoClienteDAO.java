@@ -1,5 +1,6 @@
 package br.com.sast.dao;
 
+import br.com.sast.domain.Cliente;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -17,6 +18,8 @@ import br.com.sast.util.HibernateUtil;
  */
 
 public class PlanoClienteDAO {
+    
+    private static ClienteDAO clienteDAO;
 	
 	//Função para inserir dados no banco
 	public void inserir(PlanoCliente planocliente){
@@ -26,7 +29,14 @@ public class PlanoClienteDAO {
 		try{
 			
 			sessao.beginTransaction();
-			sessao.save(planocliente);
+                        Cliente cliente = clienteDAO.consultar(planocliente.getCodigoCliente().getCodigo());
+                        PlanoCliente planoClienteSalvar = new PlanoCliente();
+                        
+                        planoClienteSalvar.setCodigo(planocliente.getCodigo());
+                        planoClienteSalvar.setCodigoCliente(cliente);
+                        planoClienteSalvar.setCodigoPlano(planocliente.getCodigoPlano());
+                        
+			sessao.save(planoClienteSalvar);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
