@@ -49,20 +49,13 @@ public class FuncionarioDAO {
 
     //Método para listar os registros do banco
     @SuppressWarnings({"deprecation", "unchecked"})
-    public List<Funcionario> listar(Funcionario funcionario) {
+    public List<Funcionario> listar() {
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 
         try {
 
             Criteria consulta = sessao.createCriteria(Funcionario.class);
-
-            if(Util.isNotBlank(funcionario.getNome())){
-                consulta.add(Restrictions.ilike("nome", "%" + funcionario.getNome() + "%"));
-            }
-            if(Util.isNotBlank(funcionario.getCpf())){
-                consulta.add(Restrictions.eq("cpf", Util.soNumeros(funcionario.getCpf())));
-            }
                         
             consulta.addOrder(Order.asc("codigo"));
 

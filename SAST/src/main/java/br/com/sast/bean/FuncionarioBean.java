@@ -39,16 +39,13 @@ public class FuncionarioBean {
     }
     
     public void pesquisar() {
-        if(!(getFuncionarioDAO().listar(getFuncionarioPesquisa())).isEmpty()){
-            setFuncionarios(getFuncionarioDAO().listar(getFuncionarioPesquisa()));
-            setExibirResultado(Boolean.TRUE);
-        } else {
-            setExibirResultado(Boolean.FALSE);
+        if(getFuncionarioDAO().listar().isEmpty()){
             Messages.addGlobalWarn("Nenhum registro encontrado.", FacesMessage.SEVERITY_WARN);
-        }
+        } 
     }
 
     private void inicializarPesquisa() {
+        setFuncionarios(getFuncionarioDAO().listar());
         setExibirResultado(Boolean.FALSE);
         setFuncionarioPesquisa(new Funcionario());
         setFuncionarioDAO(new FuncionarioDAO());
