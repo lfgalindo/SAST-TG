@@ -852,3 +852,30 @@ div.backup .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-on
 .ui-selectonebutton.ui-buttonset.ui-widget.ui-corner-all.ui-buttonset-2{
     background: #eff3f6;
 }
+.ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top{
+    background: #fe4d4d;
+    color: #fff;
+    text-shadow: none;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left.ui-confirmdialog-no{
+    background: #eff3f6;
+    border: 2px solid #fe4d4d;
+    border-radius: 30px;
+    color: #fe4d4d;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left.ui-confirmdialog-yes{
+    background: #eff3f6;
+    border: 2px solid #fe4d4d;
+    border-radius: 30px;
+    color: #fe4d4d;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left.ui-confirmdialog-no.ui-state-active{
+    padding: 0!important;
+}
+.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-icon-left.ui-confirmdialog-yes.ui-state-active{
+    padding: 0!important;
+}
+.ui-dialog-buttonpane.ui-dialog-footer.ui-widget-content.ui-helper-clearfix{
+    display: flex;
+    justify-content: center;
+}
