@@ -6,6 +6,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{funcionarioBean.codigo}" />
+        <f:viewAction action="#{funcionarioBean.buscar()}" />
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Editar Funcionário
@@ -24,7 +29,7 @@
                                          placeholder="Digite aqui o nome ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.nome}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="nome"/>
@@ -34,7 +39,7 @@
                                          placeholder="Digite aqui o RG ..."
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (8-9)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.rg}">
                                 <f:validateLength minimum="8" maximum="9"/>
                             </p:inputText>
                             <p:message class="cadastro" for="rg"/>
@@ -44,7 +49,7 @@
                                          placeholder="Digite aqui o CPF ..." 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (10-11)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.cpf}">
                                 <f:validateLength minimum="10" maximum="11"/>
                             </p:inputText>
                             <p:message class="cadastro" for="cpf"/>
@@ -54,41 +59,41 @@
                                          placeholder="Digite aqui o telefone..." 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (10-13)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.telefone}">
                                 <f:validateLength minimum="10" maximum="13"/>
                             </p:inputText>
                             <p:message class="cadastro" for="telefone"/>
 
 
-                            <p:outputLabel class="cadastro" value="Data de Nascimento" for="nascimento"/>
+                            <p:outputLabel class="cadastro" value="Data de Nascimento: " />
                             <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
-                                        placeholder="01/01/1900"
+                                        readonlyInput="false"
                                         required = "true"
                                         yearRange="c-100:c+0"
+                                        placeholder="01/01/1990"
                                         requiredMessage="Campo Obrigatório"
-                                        value="#"/>
+                                        value="#{funcionarioBean.funcionario.nascimento}"/>
                             <p:message class="cadastro" for="nascimento"/>
 
                             <p:outputLabel class="cadastro" value="Estado Civil" for="estadocivil"/>
                             <p:selectOneMenu class="cadastro" id="estadocivil" filter="true" filterMatchMode="contain" required="true" 
-                                             value="#"
+                                             value="#{funcionarioBean.funcionario.estadoCivil}"
                                              requiredMessage="Campo obrigatório">
                                 <f:selectItem itemLabel="Selecione seu Estado Civil" noSelectionOption="true" />
                                 <f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro" />
                                 <f:selectItem itemLabel="Casado(a)" itemValue="Casado" />
                                 <f:selectItem itemLabel="Divorciado(a)" itemValue="Divorciado" />
                                 <f:selectItem itemLabel="Viúvo(a)" itemValue="Viuvo" />
+
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="estadocivil"/>
-
 
                             <p:outputLabel value="Formação" class="cadastro" for="formacao" />
                             <p:inputText class="cadastro" id="formacao" maxlength="45" required = "true"
                                          placeholder="Digite aqui a formação..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.formacao}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="formacao"/>
@@ -99,7 +104,7 @@
                                          placeholder="Digite aqui o endereço..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.endereco}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="endereco"/>
@@ -110,7 +115,7 @@
                                          placeholder="Digite aqui o número..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (1-5)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.numero}">
                                 <f:validateLength minimum="1" maximum="5"/>
                             </p:inputText>
                             <p:message class="cadastro" for="numero"/>
@@ -119,7 +124,7 @@
                             <p:inputText class="cadastro" id="complemento" maxlength="45"
                                          placeholder="Digite aqui o complemento (se houver)..."
                                          validatorMessage="Tamanho inválido (3-45)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.complemento}">
                                 <f:validateLength minimum="3" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="complemento"/>
@@ -130,7 +135,7 @@
                                          placeholder="Digite aqui o bairro..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.bairro}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="bairro"/>
@@ -141,14 +146,14 @@
                                          placeholder="Digite aqui a cidade..." 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (3-25)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.cidade}">
                                 <f:validateLength minimum="3" maximum="25"/>
                             </p:inputText>
                             <p:message class="cadastro" for="cidade"/>
 
                             <p:outputLabel class="cadastro" value="Estado " for="estado"/>
                             <p:selectOneMenu class="cadastro" id="estado" filter="true" filterMatchMode="contain" required="true" 
-                                             value=""
+                                             value="#{funcionarioBean.funcionario.estado}"
                                              requiredMessage="Campo obrigatório">
                                 <f:selectItem itemLabel="Selecione um Estado" noSelectionOption="true" />
                                 <f:selectItem itemLabel="AC - Acre" itemValue="AC" />
@@ -186,36 +191,39 @@
                                         readonlyInput="false" 
                                         required = "true"
                                         yearRange="c-100:c+0"
+                                        placeholder="01/01/1990"
                                         requiredMessage="Campo Obrigatório"
-                                        value=""/>
+                                        value="#{funcionarioBean.funcionario.dataAdmissao}"/>
                             <p:message class="cadastro" for="admissao"/>
 
                             <p:outputLabel class="cadastro" value="Data de Demissão" for="demissao"/>
                             <p:calendar id="demissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput="false" 
                                         required = "false"
+                                        placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
-                                        value=""/>
+                                        value="#{funcionarioBean.funcionario.dataDemissao}"/>
+                            <p:message class="cadastro" for="demissao"/>
 
                             <p:outputLabel class="cadastro" for="cargo" value="Cargo "/>
                             <p:selectOneMenu class="cadastro" id="cargo" filter="true" filterMatchMode="contains" required = "true" 
                                              requiredMessage="Campo Obrigatório"
-                                             value="#">
+                                             value="#{funcionarioBean.funcionario.codigoCargo}"
+                                             converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Selecione um Cargo" noSelectionOption="true"/>
-                                <f:selectItems value="#"
+                                <f:selectItems value="#{funcionarioBean.cargos}"
                                                var="cargo"
-                                               itemValue=""
-                                               itemLabel=""/>
+                                               itemValue="#{cargo}"
+                                               itemLabel="#{cargo.nome}"/>
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="cargo"/>
-
 
                             <p:outputLabel class="cadastro" value="E-mail" for="email"/>
                             <p:inputText class="cadastro" id="email" maxlength="30" required="true"
                                          placeholder="exemplo@sast.com.br"
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (8-30)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.email}">
                                 <f:validateLength minimum="8" maximum="30"/>
                             </p:inputText>
                             <p:message class="cadastro" for="email"/>
@@ -226,7 +234,7 @@
                                          placeholder="Digite aqui o login..."
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (4-20)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.login}">
                                 <f:validateLength minimum="4" maximum="20"/>
                             </p:inputText>
                             <p:message class="cadastro" for="login"/>
@@ -236,20 +244,21 @@
                                          placeholder="Digite aqui a senha..."
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (5-10)"
-                                         value="">
+                                         value="#{funcionarioBean.funcionario.senha}">
                                 <f:validateLength minimum="5" maximum="10"/>
                             </p:inputText>
                             <p:message class="cadastro" for="senha"/>
 
                             <p:outputLabel class="cadastro" for="perfil" value="Perfil "/>
-                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required = "true" 
+                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required="true" 
                                              requiredMessage="Campo Obrigatório"
-                                             value="#">
+                                             value="#{funcionarioBean.funcionario.codigoPerfil}"
+                                             converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Selecione um Perfil" noSelectionOption="true"/>
-                                <f:selectItems value="#"
+                                <f:selectItems value="#{funcionarioBean.perfis}"
                                                var="perfil"
-                                               itemValue=""
-                                               itemLabel=""/>
+                                               itemValue="#{perfil}"
+                                               itemLabel="#{perfil.nomePerfil}"/>
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="perfil"/>
 
@@ -259,7 +268,15 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="funcionarioListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{funcionarioBean.editar()}">
+                            <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" /> 
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>

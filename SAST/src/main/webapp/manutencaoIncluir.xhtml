@@ -6,6 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{manutencaoBean.novo()}" />
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Cadastrar Manutenção
@@ -22,12 +26,13 @@
                             <p:outputLabel class="cadastro" for="cliente" value="Cliente "/>
                             <p:selectOneMenu class="cadastro" id="cliente" filter="true" filterMatchMode="contains" required = "true" 
                                              requiredMessage="Campo Obrigatório"
-                                             value="#">
+                                             value="#{manutencaoBean.manutencao.codigoCliente}"
+                                             converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Selecione um Cliente" noSelectionOption="true"/>
-                                <f:selectItems value="#"
+                                <f:selectItems value="#{manutencaoBean.clientes}"
                                                var="cliente"
-                                               itemValue=""
-                                               itemLabel=""/>
+                                               itemValue="#{cliente}"
+                                               itemLabel="#{cliente.nome}"/>
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="cliente"/>
 
@@ -36,7 +41,7 @@
                                          placeholder="Digite aqui o problema ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{manutencaoBean.manutencao.descricao}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="descricao"/>
@@ -47,7 +52,7 @@
                                              placeholder="Digite aqui a descrição do problema ..."
                                              requiredMessage="Campo Obrigatório"
                                              validatorMessage="Tamanho inválido (5-255)"
-                                             value="" rows="6">
+                                             value="#{manutencaoBean.manutencao.descProblema}" rows="6">
                                 <f:validateLength minimum="5" maximum="255"/>
                             </p:inputTextarea>
                             <p:message class="cadastro" for="descProblema"/>
@@ -56,41 +61,39 @@
                             <p:inputTextarea class="cadastro" id="observacoes" maxlength="255" 
                                              placeholder="Digite aqui algumas observações sobre a manutenção ..."
                                              validatorMessage="Tamanho inválido (5-255)"
-                                             value="" rows="6">
+                                             value="#{manutencaoBean.manutencao.observacoes}" rows="6">
                                 <f:validateLength minimum="5" maximum="255"/>
                             </p:inputTextarea>
                             <p:message class="cadastro" for="observacoes"/>
 
                             <p:outputLabel value="Prioridade" class="cadastro" for="prioridade" />
-                            <p:selectOneButton id="prioridade" value="#">
-                                <f:selectItem itemLabel="Alta" itemValue="alta" />
-                                <f:selectItem itemLabel="Normal" itemValue="normal" />
-                                <f:selectItem itemLabel="Baixa" itemValue="baixa" />
+                            <p:selectOneButton id="prioridade" value="#{manutencaoBean.manutencao.prioridade}">
+                                <f:selectItem itemLabel="Alta" itemValue="ALTA" />
+                                <f:selectItem itemLabel="Normal" itemValue="NORMAL" />
+                                <f:selectItem itemLabel="Baixa" itemValue="BAIXA" />
                             </p:selectOneButton>
                             <p:message class="cadastro" for="prioridade"/>
 
                             <p:outputLabel class="cadastro" value="Data de Agendamento" for="agendamento"/>
-                            <p:inputText class="cadastro" id="agendamento" maxlength="11" required="true"
-                                         placeholder="01/01/2016"
-                                         requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (9-11)"
-                                         value="">
-                                <f:validateLength minimum="9" maximum="11"/>
-                            </p:inputText>
+                            <p:calendar id="agendamento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
+                                        readonlyInput="false" 
+                                        required = "true"
+                                        placeholder="01/01/1990"
+                                        yearRange="c-100:c+0"
+                                        requiredMessage="Campo Obrigatório"
+                                        value="#{manutencaoBean.manutencao.dtAgendamento}"/>
                             <p:message class="cadastro" for="agendamento"/>
 
                             <p:outputLabel class="cadastro" value="Data de Execução" for="execucao"/>
-                            <p:inputText class="cadastro" id="execucao" maxlength="11" required="true"
-                                         placeholder="01/01/2016"
-                                         requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (9-11)"
-                                         value="">
-                                <f:validateLength minimum="9" maximum="11"/>
-                            </p:inputText>
+                            <p:calendar id="execucao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
+                                        readonlyInput="false" 
+                                        placeholder="01/01/1990"
+                                        yearRange="c-100:c+0"
+                                        value="#{manutencaoBean.manutencao.dtExecucao}"/>
                             <p:message class="cadastro" for="execucao"/>
 
                             <p:outputLabel class="cadastro" value="Manutenção Baixada" for="baixa"/>
-                            <p:selectOneButton id="baixa" value="">
+                            <p:selectOneButton id="baixa" value="#{manutencaoBean.manutencao.baixa}">
                                 <f:selectItem itemLabel="Sim" itemValue="1" />
                                 <f:selectItem itemLabel="Não" itemValue="0" />
                             </p:selectOneButton>
@@ -100,12 +103,13 @@
                             <p:outputLabel class="cadastro" for="funcionario" value="Funcionário Responsável "/>
                             <p:selectOneMenu class="cadastro" id="funcionario" filter="true" filterMatchMode="contains" required = "true" 
                                              requiredMessage="Campo Obrigatório"
-                                             value="#">
+                                             value="#{manutencaoBean.manutencao.codigoFuncionario}"
+                                             converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Selecione um Funcionário " noSelectionOption="true"/>
-                                <f:selectItems value="#"
+                                <f:selectItems value="#{manutencaoBean.funcionarios}"
                                                var="funcionario"
-                                               itemValue=""
-                                               itemLabel=""/>
+                                               itemValue="#{funcionario}"
+                                               itemLabel="#{funcionario.nome}"/>
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="funcionario"/>
 
@@ -115,7 +119,16 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="manutencaoListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{manutencaoBean.salvar()}">
+
+                            <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>

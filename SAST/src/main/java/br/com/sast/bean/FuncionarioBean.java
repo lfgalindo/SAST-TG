@@ -7,7 +7,6 @@ import br.com.sast.domain.Cargo;
 import br.com.sast.domain.Funcionario;
 import java.util.List;
 
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -69,6 +68,47 @@ public class FuncionarioBean {
         funcionarios = funcionarioDAO.listar();
 
     }//fim do método listar.
+
+    //método para buscar um registro específico no banco.
+    public void buscar() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionario = funcionarioDAO.consultar(codigo);
+
+        PerfilDAO perfilDAO = new PerfilDAO();
+        perfis = perfilDAO.listar();
+
+        CargoDAO cargoDAO = new CargoDAO();
+        cargos = cargoDAO.listar();
+
+    }//fim do método buscar
+
+    //método para editar um registro específico no banco.
+    public void editar() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarioDAO.editar(funcionario);
+
+        Messages.addGlobalInfo("Funcionário editado com sucesso!");
+        buscar();
+
+    }//fim do método editar
+
+    //método para excluir um registro específico no banco.
+    public void excluir() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarioDAO.excluir(funcionario);
+
+        Messages.addGlobalInfo("Funcionário deletado com sucesso!");
+
+        try {
+            Faces.redirect("funcionarioListar.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//fim do método excluir
 
     //GETS & SETS
     public Funcionario getFuncionario() {

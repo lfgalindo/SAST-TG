@@ -12,18 +12,15 @@
 
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
-            Consultar Funcionários
+            Consulta de Funcionários
         </ui:define>
 
         <ui:define name="conteudo">
             <h:form>
                 <div class="container-table">
                     <div class="table">
-                        <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{funcionarioBean.funcionarios}"
-                                     var="Funcionario" 
-                                     paginator="true"
-                                     paginatorPosition="bottom"
-                                     rows="10">
+                        <p:dataTable emptyMessage="Nenhum registro encontrao." value="#{funcionarioBean.funcionarios}"
+                                     var="Funcionario" paginator="true" paginatorPosition="bottom" rows="10">
 
                             <p:column headerText="Nome" sortBy="#{Funcionario.nome}" filterBy="#{Funcionario.nome}"
                                       filterMatchMode="contains">
@@ -40,14 +37,15 @@
                                 <h:outputText value="#{Funcionario.email}" />
                             </p:column>
 
-                            <p:column headerText="Cidade" sortBy="#{Funcionario.cidade}" filterBy="#{Funcionario.cidade}"
+                            <p:column headerText="Cidade" sortBy="#{Funcionario.cidade}}" filterBy="#{Funcionario.cidade}"
                                       filterMatchMode="contains">
                                 <h:outputText value="#{Funcionario.cidade}" />
                             </p:column>
 
                             <p:column headerText="Opções">
                                 <div class="options">
-                                    <p:button class="visualizar" value="" outcome="funcionarioVisualizar.xhtml">
+                                    <p:button class="visualizar" value=""
+                                              outcome="funcionarioVisualizar.xhtml">
                                         <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
 
@@ -55,16 +53,17 @@
                                         <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
 
-                                    <p:button styleClass="excluir" value="" outcome="funcionarioExcluir.xhtml">
+                                    <p:button styleClass="excluir" value=""
+                                              outcome="funcionarioExcluir.xhtml">
                                         <f:param name="codigo" value="#{Funcionario.codigo}" />
                                     </p:button>
-
                                 </div>
                             </p:column>
                         </p:dataTable>
                     </div>
                     <div class="add">
-                        <p:button styleClass="incluir" value="Novo Funcionário" outcome="funcionarioIncluir.xhtml"/>
+                        <p:button styleClass="incluir" value="Novo Funcionário"
+                                  outcome="funcionarioIncluir.xhtml" />
                     </div>
                 </div>
             </h:form>
