@@ -6,6 +6,11 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewParam name="codigo" value="#{manutencaoBean.codigo}" />
+        <f:viewAction action="#{manutencaoBean.buscar()}" />
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Visualizar Manutenção
@@ -20,31 +25,35 @@
                         <h:panelGrid id="pnlDados" columns="2">
 
                             <p:outputLabel class="cadastro" value="Cliente "/>
-                            <h:outputText value="Bruce Wayne" />
+                            <h:outputText value="#{manutencaoBean.manutencao.codigoCliente.nome}" />
 
                             <p:outputLabel value="Problema" class="cadastro" />
-                            <h:outputText value="Sem conexão" />
+                            <h:outputText value="#{manutencaoBean.manutencao.descricao}" />
 
                             <p:outputLabel value="Descrição" class="cadastro" />
-                            <h:outputText value="A bat-nave derrubou o rádio" />
+                            <h:outputText value="#{manutencaoBean.manutencao.descProblema}" />
 
                             <p:outputLabel value="Observações" class="cadastro" />
-                            <h:outputText value="E quando entrou com o bat-móvel na sala o router foi danificado" />
+                            <h:outputText value="#{manutencaoBean.manutencao.observacoes}" />
 
                             <p:outputLabel value="Prioridade" class="cadastro" />
-                            <h:outputText value="Alta" />
+                            <h:outputText value="#{manutencaoBean.manutencao.prioridade}" />
 
                             <p:outputLabel class="cadastro" value="Data de Agendamento"/>
-                            <h:outputText value="29/10/2016" />
+                            <h:outputText value="#{manutencaoBean.manutencao.dtAgendamento}">
+                                <f:convertDateTime locale="pt_BR" />
+                            </h:outputText>
 
                             <p:outputLabel class="cadastro" value="Data de Execução"/>
-                            <h:outputText value="Ontem, pq é o batman" />
-                            
+                            <h:outputText value="#{manutencaoBean.manutencao.dtExecucao}">
+                                <f:convertDateTime locale="pt_BR" />
+                            </h:outputText>
+
                             <p:outputLabel class="cadastro" value="Manutenção Baixada"/>
-                            <h:outputText value="Sim" />
+                            <h:outputText value="#{manutencaoBean.manutencao.baixaMan}" />
 
                             <p:outputLabel class="cadastro" value="Funcionário Responsável "/>
-                            <h:outputText value="O próprio Batman" />
+                            <h:outputText value="#{manutencaoBean.manutencao.codigoFuncionario.nome}" />
 
                         </h:panelGrid>
                     </div>

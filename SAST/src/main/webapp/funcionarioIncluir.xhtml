@@ -6,6 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{funcionarioBean.novo()}"/>
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Cadastrar Funcionário
@@ -18,7 +22,6 @@
                         <p:growl id="mensagem" globalOnly="true"/>
 
                         <h:panelGrid id="pnlDados" columns="3">
-
                             <p:outputLabel value="Nome" class="cadastro" for="nome" />
                             <p:inputText class="cadastro" id="nome" maxlength="45" required = "true"
                                          placeholder="Digite aqui o nome ..."
@@ -65,6 +68,7 @@
                                         readonlyInput="false"
                                         required = "true"
                                         yearRange="c-100:c+0"
+                                        placeholder="01/01/1990"
                                         requiredMessage="Campo Obrigatório"
                                         value="#{funcionarioBean.funcionario.nascimento}"/>
                             <p:message class="cadastro" for="nascimento"/>
@@ -185,6 +189,7 @@
                                         readonlyInput="false" 
                                         required = "true"
                                         yearRange="c-100:c+0"
+                                        placeholder="01/01/1990"
                                         requiredMessage="Campo Obrigatório"
                                         value="#{funcionarioBean.funcionario.dataAdmissao}"/>
                             <p:message class="cadastro" for="admissao"/>
@@ -193,14 +198,16 @@
                             <p:calendar id="demissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput="false" 
                                         required = "false"
+                                        placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
                                         value="#{funcionarioBean.funcionario.dataDemissao}"/>
                             <p:message class="cadastro" for="demissao"/>
-                            
+
                             <p:outputLabel class="cadastro" for="cargo" value="Cargo "/>
                             <p:selectOneMenu class="cadastro" id="cargo" filter="true" filterMatchMode="contains" required = "true" 
                                              requiredMessage="Campo Obrigatório"
-                                             value="#{funcionarioBean.funcionario.codigoCargo.nome}">
+                                             value="#{funcionarioBean.funcionario.codigoCargo}"
+                                             converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Selecione um Cargo" noSelectionOption="true"/>
                                 <f:selectItems value="#{funcionarioBean.cargos}"
                                                var="cargo"
@@ -208,7 +215,6 @@
                                                itemLabel="#{cargo.nome}"/>
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="cargo"/>
-
 
                             <p:outputLabel class="cadastro" value="E-mail" for="email"/>
                             <p:inputText class="cadastro" id="email" maxlength="30" required="true"
@@ -254,13 +260,23 @@
                             </p:selectOneMenu>
                             <p:message class="cadastro" for="perfil"/>
 
+
+
                         </h:panelGrid>
                     </div>
 
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="funcionarioListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{funcionarioBean.salvar()}"/>
+                                         actionListener="#{funcionarioBean.salvar()}">
+                            <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>

@@ -71,27 +71,6 @@ public class Perfil {
         @Transient
         private String GerPerfil;
         
-        /**@Transient
-        private String prioridadeExtenso;
-
-        public String getPrioridadeExtenso() {
-            if(prioridade == 'A'){
-                prioridadeExtenso = "Alta";
-            }
-            else if (prioridade == 'B'){
-                prioridadeExtenso = "Baixa";
-            }
-            else{
-                prioridadeExtenso = "Média";
-            }
-            return prioridadeExtenso;
-        }
-
-        public void setPrioridadeExtenso(String prioridadeExtenso) {
-            this.prioridadeExtenso = prioridadeExtenso;
-        }**/
-    
-        
         public String getGerCliInt() {
                 
             if (gerenciarClientes == 1 ){
