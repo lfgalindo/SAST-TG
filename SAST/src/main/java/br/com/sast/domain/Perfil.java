@@ -46,9 +46,6 @@ public class Perfil {
 	@Column(nullable = false)
 	private Integer gerenciarConfiguracoes;
         
-        @Column(nullable = false)
-	private Integer gerenciarPerfis;
-        
         //Exibit 'sim' e 'nao' na visualização de perfis
         @Transient
         private String gerCli;
@@ -163,19 +160,6 @@ public class Perfil {
             
             return GerConfig;
         }
-        
-        public String getGerPerfilInt() {
-
-            if (gerenciarPerfis == 1 ){
-                GerPerfil = "Sim";
-            }
-            else{
-                GerPerfil = "Não";
-            }
-            
-            return GerPerfil;
-        }
-        
 	
 	/** Setters e Getters **/
 	
@@ -240,16 +224,8 @@ public class Perfil {
     public void setGerenciarConfiguracoes(Integer gerenciarConfiguracoes) {
         this.gerenciarConfiguracoes = gerenciarConfiguracoes;
     }
-
-    public Integer getGerenciarPerfis() {
-        return gerenciarPerfis;
-    }
-
-    public void setGerenciarPerfis(Integer gerenciarPerfis) {
-        this.gerenciarPerfis = gerenciarPerfis;
-    }
  
-	public String toString(){
+    public String toString(){
 		return "Perfil " + codigo + ": { " + nomePerfil + " }";
     }
 

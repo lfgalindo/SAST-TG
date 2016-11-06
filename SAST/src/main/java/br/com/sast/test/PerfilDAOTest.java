@@ -29,7 +29,6 @@ public class PerfilDAOTest {
 		perfil.setGerenciarFuncionarios(dado);
 		perfil.setGerenciarPlanos(dado);
                 perfil.setGerenciarPlanos(dado);
-                perfil.setGerenciarPerfis(dado);
 		
 		PerfilDAO perf = new PerfilDAO();
 		
