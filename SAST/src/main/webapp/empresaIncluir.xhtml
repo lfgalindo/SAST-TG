@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
+            Incluir os Dados da Empresa
+        </ui:define>
+
+        <ui:define name="conteudo">
+            <h:form>
+                <div class="container-center">
+                    <div class="container-incluir">
+                        <p:growl id="mensagem" globalOnly="true"/>
+
+                        <h:panelGrid id="pnlDados" columns="3">
+
+                            <p:outputLabel value="Nome" class="cadastro" for="nome" />
+                            <p:inputText class="cadastro" id="nome" maxlength="255" required = "true"
+                                         placeholder="Digite aqui o nome ..."
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-255)"
+                                         value="">
+                                <f:validateLength minimum="5" maximum="255"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="nome"/>
+
+                            <p:outputLabel value="Razão Social" class="cadastro" for="razao" />
+                            <p:inputText class="cadastro" id="razao" maxlength="255" required = "true"
+                                         placeholder="Digite aqui a razão social ..."
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-255)"
+                                         value="">
+                                <f:validateLength minimum="5" maximum="255"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="razao"/>
+
+                            <p:outputLabel class="cadastro" value="CNPJ" for="cnpj"/>
+                            <p:inputText class="cadastro" id="cnpj" required="true"
+                                         placeholder="Digite aqui o CNPJ ..."
+                                         requiredMessage="Campo obrigatório"
+                                         value="">
+                            </p:inputText>
+                            <p:message class="cadastro" for="cnpj"/>
+
+                            <p:outputLabel class="cadastro" value="Telefone" for="telefone"/>
+                            <p:inputText class="cadastro" id="telefone" maxlength="13" required="true"
+                                         placeholder="Digite aqui o telefone..." 
+                                         requiredMessage="Campo obrigatório"
+                                         validatorMessage="Tamanho inválido (10-13)"
+                                         value="">
+                                <f:validateLength minimum="10" maximum="13"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="telefone"/>
+
+                            <p:outputLabel value="Endereço" class="cadastro" for="endereco" />
+                            <p:inputText class="cadastro" id="endereco" maxlength="45" required = "true"
+                                         placeholder="Digite aqui o endereço..." 
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-45)"
+                                         value="">
+                                <f:validateLength minimum="5" maximum="45"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="endereco"/>
+
+
+                            <p:outputLabel value="Número" class="cadastro" for="numero" />
+                            <p:inputText class="cadastro" id="numero" maxlength="5" required = "true"
+                                         placeholder="Digite aqui o número..." 
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (1-5)"
+                                         value="">
+                                <f:validateLength minimum="1" maximum="5"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="numero"/>
+
+                            <p:outputLabel value="Complemento" class="cadastro" for="complemento" />
+                            <p:inputText class="cadastro" id="complemento" maxlength="45"
+                                         placeholder="Digite aqui o complemento (se houver)..."
+                                         validatorMessage="Tamanho inválido (3-45)"
+                                         value="">
+                                <f:validateLength minimum="3" maximum="45"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="complemento"/>
+
+
+                            <p:outputLabel value="Bairro" class="cadastro" for="bairro" />
+                            <p:inputText class="cadastro" id="bairro" maxlength="45" required = "true"
+                                         placeholder="Digite aqui o bairro..." 
+                                         requiredMessage="Campo Obrigatório"
+                                         validatorMessage="Tamanho inválido (5-45)"
+                                         value="">
+                                <f:validateLength minimum="5" maximum="45"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="bairro"/>
+
+
+                            <p:outputLabel class="cadastro" value="Cidade" for="cidade"/>
+                            <p:inputText class="cadastro" id="cidade" maxlength="25" required="true"
+                                         placeholder="Digite aqui a cidade..." 
+                                         requiredMessage="Campo obrigatório"
+                                         validatorMessage="Tamanho inválido (3-25)"
+                                         value="">
+                                <f:validateLength minimum="3" maximum="25"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="cidade"/>
+
+                            <p:outputLabel class="cadastro" value="Estado " for="estado"/>
+                            <p:selectOneMenu class="cadastro" id="estado" filter="true" filterMatchMode="contain" required="true" 
+                                             value=""
+                                             requiredMessage="Campo obrigatório">
+                                <f:selectItem itemLabel="Selecione um Estado" noSelectionOption="true" />
+                                <f:selectItem itemLabel="AC - Acre" itemValue="AC" />
+                                <f:selectItem itemLabel="AL - Alagoas" itemValue="AL" />
+                                <f:selectItem itemLabel="AP - Amapá" itemValue="AP" />
+                                <f:selectItem itemLabel="AM - Amazonas" itemValue="AM" />
+                                <f:selectItem itemLabel="BA - Bahia" itemValue="BA" />
+                                <f:selectItem itemLabel="CE - Ceará" itemValue="CE" />
+                                <f:selectItem itemLabel="DF - Distrito Federal" itemValue="DF" />
+                                <f:selectItem itemLabel="ES - Espirito Santo" itemValue="ES" />
+                                <f:selectItem itemLabel="GO - Goiás" itemValue="GO" />
+                                <f:selectItem itemLabel="MA - Maranhão" itemValue="MA" />
+                                <f:selectItem itemLabel="MT - Mato Grosso" itemValue="MT" />
+                                <f:selectItem itemLabel="MS - Mato Grosso do Sul" itemValue="MS" />
+                                <f:selectItem itemLabel="MG - Minas Gerais" itemValue="MG" />
+                                <f:selectItem itemLabel="PA - Pará" itemValue="PA" />
+                                <f:selectItem itemLabel="PB - Paraíba" itemValue="PB" />
+                                <f:selectItem itemLabel="PR - Paraná" itemValue="PR" />
+                                <f:selectItem itemLabel="PE - Pernambuco" itemValue="PE" />
+                                <f:selectItem itemLabel="PI - Piauí" itemValue="PI" />
+                                <f:selectItem itemLabel="RN - Rio Grande do Norte" itemValue="RN" />
+                                <f:selectItem itemLabel="RS - Rio Grande do Sul" itemValue="RS" />
+                                <f:selectItem itemLabel="RJ - Rio de Jnairo" itemValue="RJ" />
+                                <f:selectItem itemLabel="RR - Roraima" itemValue="RR" />
+                                <f:selectItem itemLabel="SC - Santa Catarina" itemValue="SC" />
+                                <f:selectItem itemLabel="SP - São Paulo" itemValue="SP" />
+                                <f:selectItem itemLabel="SE - Sergipe" itemValue="SE" />
+                                <f:selectItem itemLabel="TO - Tocantins" itemValue="TO" />
+
+                            </p:selectOneMenu>
+                            <p:message class="cadastro" for="estado"/>
+
+
+                            <p:outputLabel class="cadastro" value="E-mail" for="email"/>
+                            <p:inputText class="cadastro" id="email" maxlength="30" required="true"
+                                         placeholder="exemplo@sast.com.br"
+                                         requiredMessage="Campo obrigatório"
+                                         validatorMessage="Tamanho inválido (8-30)"
+                                         value="">
+                                <f:validateLength minimum="8" maximum="30"/>
+                            </p:inputText>
+                            <p:message class="cadastro" for="email"/>
+
+                        </h:panelGrid>
+                    </div>
+
+                    <div class="add-incluir">
+                        <p:button class="btn-cancelar" value="Cancelar" outcome="empresaVisualizar.xhtml" />
+                        <p:commandButton class="btn-incluir" type="submit" value="Incluir" update="pnlDados mensagem"
+                                         actionListener="#"/>
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

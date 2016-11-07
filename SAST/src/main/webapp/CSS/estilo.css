@@ -796,6 +796,11 @@ div.relatorio .ui-selectonemenu.ui-widget.ui-state-default.ui-corner-all.cadastr
     margin-left: 9%;
 
 }
+div.relatorio .ui-inputfield.ui-widget.ui-state-default.ui-corner-all.hasDatepicker{
+    width: 60%!important;	
+    margin-left: 9%;
+
+}
 div.relatorio .ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all.cadastro{
     width: 60%!important;	
     margin-left: 9%;
