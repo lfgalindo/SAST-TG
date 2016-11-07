@@ -1,116 +1,119 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<ui:composition template="modeloGeral.xhtml">
-	<ui:define name="titulo">
+    <f:metadata>
+        <f:viewAction action="#{relatorioBean.imprimir()}"/>
+    </f:metadata>
+    <ui:composition template="modeloGeral.xhtml">
+        <ui:define name="titulo">
             Relatórios de manutenções
         </ui:define>
 
-	<ui:define name="conteudo">
-		<h:form>
-			<div class="relatorio">
-				<p:panelGrid class="relatorio" id="pnlDados">
+        <ui:define name="conteudo">
+            <h:form>
+                <div class="relatorio">
+                    <p:panelGrid class="relatorio" id="pnlDados">
 
-					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" id="func" value="funcionario" />
-						</p:column>
+                        <p:row>
+                            <p:column class="checkbox">
+                                <p:selectBooleanCheckbox class="checkbox" id="func" value="#{relatorioBean.escolheuFuncionario}" />
+                            </p:column>
 
-						<p:column colspan="2" class="filtro titulo">
-							<h:outputLabel for="func" value="Filtrar Relatório por Técnico Responsável" />
-						</p:column>
-					</p:row>
+                            <p:column colspan="2" class="filtro titulo">
+                                <h:outputLabel for="func" value="Filtrar Relatório por Técnico Responsável" />
+                            </p:column>
+                        </p:row>
 
-					<p:row>
-						<p:column colspan="3" class="filtro margem">
-							<p:selectOneMenu class="cadastro" id="funcionario" filter="true"
-								filterMatchMode="contains" value="#">
-								<f:selectItem itemLabel="Selecione um Funcionário ..."
-									noSelectionOption="true" />
-								<f:selectItems value="#" var="funcionario" itemValue="" itemLabel="" />
-							</p:selectOneMenu>
-						</p:column>
-					</p:row>					
+                        <p:row>
+                            <p:column colspan="3" class="filtro margem">
+                                <p:selectOneMenu class="cadastro" id="funcionario" filter="true"
+                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario}">
+                                    <f:selectItem itemLabel="Selecione um Funcionário ..."
+                                                  noSelectionOption="true" 
+                                                  value="#{null}"/>
+                                    <f:selectItems value="#{relatorioBean.listaFuncionarios}" var="funcionario" itemValue="#{funcionario.nome}" itemLabel="#{funcionario.nome}" />
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>					
 
-					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="cliente" />
-						</p:column>
+                        <p:row>
+                            <p:column class="checkbox">
+                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuCliente}"/>
+                            </p:column>
 
-						<p:column colspan="2" class="filtro titulo">
-							<h:outputText value="Filtrar Relatório por Cliente" />
-						</p:column>
-					</p:row>
+                            <p:column colspan="2" class="filtro titulo">
+                                <h:outputText value="Filtrar Relatório por Cliente" />
+                            </p:column>
+                        </p:row>
 
-					<p:row>
-						<p:column colspan="3" class="filtro margem">
-							<p:selectOneMenu class="cadastro" id="cliente" filter="true"
-								filterMatchMode="contains" value="#">
-								<f:selectItem itemLabel="Selecione um Cliente ..."
-									noSelectionOption="true" />
-								<f:selectItems value="#" var="cliente" itemValue="" itemLabel="" />
-							</p:selectOneMenu>
-						</p:column>
-					</p:row>
+                        <p:row>
+                            <p:column colspan="3" class="filtro margem">
+                                <p:selectOneMenu class="cadastro" id="cliente" filter="true"
+                                                 filterMatchMode="contains" value="#{relatorioBean.cliente}">
+                                    <f:selectItem itemLabel="Selecione um Cliente ..."
+                                                  noSelectionOption="true" 
+                                                  value="#{null}"/>
+                                    <f:selectItems value="#{relatorioBean.listaClientes}" var="cliente" itemValue="#{cliente.nome}" itemLabel="#{cliente.nome}" />
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>
 
-					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="cidade" />
-						</p:column>
+                        <p:row>
+                            <p:column class="checkbox">
+                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuCidade}"/>
+                            </p:column>
 
-						<p:column colspan="2" class="filtro titulo">
-							<h:outputText value="Filtrar Relatório por Cidade" />
-						</p:column>
-					</p:row>
-					
-					<p:row>
-						<p:column colspan="3" class="filtro margem" >
-							<p:selectOneMenu class="cadastro" id="cidade" filter="true"
-								filterMatchMode="contains" value="#">
-								<f:selectItem itemLabel="Selecione uma Cidade ..."
-									noSelectionOption="true" />
-								<f:selectItems value="#" var="cidade" itemValue="" itemLabel="" />
-							</p:selectOneMenu>
-						</p:column>
-					</p:row>	
+                            <p:column colspan="2" class="filtro titulo">
+                                <h:outputText value="Filtrar Relatório por Cidade" />
+                            </p:column>
+                        </p:row>
 
-					<p:row>
-						<p:column class="checkbox">
-							<p:selectBooleanCheckbox class="checkbox" value="data" />
-						</p:column>
+                        <p:row>
+                            <p:column colspan="3" class="filtro margem" >
+                                <p:inputText class="cadastro" id="cidade" maxlength="25"
+                                             placeholder="Digite aqui a cidade..."
+                                             value="#{relatorioBean.cidade}"/>
+                            </p:column>
+                        </p:row>	
 
-						<p:column colspan="2" class="filtro titulo">
-							<h:outputText value="Filtrar Relatório por Data de agendamento" />
-						</p:column>
-					</p:row>
-					
-					<p:row>
-						<p:column colspan="3" class="filtro margem">
-							<p:inputText class="cadastro" maxlength="11"
-                                         placeholder="01/01/2016"
-                                         validatorMessage="Tamanho inválido (9-11)"
-                                         value="">
-                                         <f:validateLength minimum="9" maximum="11"/>
-                            </p:inputText>
-						</p:column>
-					</p:row>	
+                        <p:row>
+                            <p:column class="checkbox">
+                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuData}"/>
+                            </p:column>
 
-				</p:panelGrid>
-			</div>
-			<div class="container-center">
-				<div class="add-incluir">
-					<p:button class="btn-voltar" value="Voltar"
-						outcome="principal.xhtml" />
-					<p:commandButton class="btn-incluir" type="submit"
-						value="Gerar Relatório" update="pnlDados" actionListener="#" />
-				</div>
-			</div>
-		</h:form>
-	</ui:define>
-</ui:composition>
+                            <p:column colspan="2" class="filtro titulo">
+                                <h:outputText value="Filtrar Relatório por Data de agendamento" />
+                            </p:column>
+                        </p:row>
+
+                        <p:row>
+                            <p:column colspan="3" class="filtro margem">
+                                <p:calendar id="dataAgendamento" size="10" pattern="dd/MM/yyyy" 
+                                            readonlyInput="false" 
+                                            required = "true"
+                                            placeholder="01/01/1990"
+                                            yearRange="c-100:c+0"
+                                            value="#{relatorioBean.dataAgendamento}"/>
+                            </p:column>
+                        </p:row>	
+
+                    </p:panelGrid>
+                </div>
+                <div class="container-center">
+                    <div class="add-incluir">
+                        <p:button class="btn-voltar" value="Voltar"
+                                  outcome="principal.xhtml" />
+                        <p:commandButton class="btn-incluir" type="submit"
+                                         update="pnlDados"
+                                         value="Gerar Relatório" actionListener="#{relatorioBean.imprimir()}" />
+                    </div>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
