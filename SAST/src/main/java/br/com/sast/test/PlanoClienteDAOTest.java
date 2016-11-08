@@ -35,8 +35,8 @@ public class PlanoClienteDAOTest {
 
         PlanoClienteDAO planCliDAO = new PlanoClienteDAO();
 
-        planCli.setCodigoCliente(cliente);
-        planCli.setCodigoPlano(plan);
+        planCli.setCodigoCliente_codigo(cliente);
+        planCli.setCodigoPlano_codigo(plan);
 
         planCliDAO.inserir(planCli);
 
@@ -84,7 +84,7 @@ public class PlanoClienteDAOTest {
 
         System.out.println("PlanoCliente encontrado: " + resultado);
 
-        resultado.setCodigoCliente(cliente);
+        resultado.setCodigoCliente_codigo(cliente);
 
         planCliDAO.editar(resultado);
 
