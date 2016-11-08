@@ -13,148 +13,159 @@ import javax.persistence.Transient;
 
 /**
  * Classe definida para mapear a entidade "tb_perfil" e seus atributos.
+ *
  * @author Luiz Felipe Magalhães Galindo <lfgalindo@live.com>
  * @since 30/08/2016
  */
-
 @Entity
 @Table(name = "tb_perfil")
 public class Perfil implements java.io.Serializable {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer codigo;
-	
-	@Column(length = 45, nullable = false)
-	private String nomePerfil;
-	
-	@Column(nullable = false)
-	private Integer gerenciarClientes;
-	
-	@Column(nullable = false)
-	private Integer gerenciarFuncionarios;
-	
-	@Column(nullable = false)
-	private Integer gerenciarCargos;
-	
-	@Column(nullable = false)
-	private Integer gerenciarPlanos;
-	
-	@Column(nullable = false)
-	private Integer gerenciarManutencoes;
-	
-	@Column(nullable = false)
-	private Integer gerenciarConfiguracoes;
-        
-        //Exibit 'sim' e 'nao' na visualização de perfis
-        @Transient
-        private String gerCli;
-        
-        @Transient
-        private String gerFunc;
-        
-        @Transient
-        private String gerCargo;
-        
-        @Transient
-        private String gerPlan;
-        
-        @Transient
-        private String gerMan;
-        
-        @Transient
-        private String GerConfig;
-        
-        @Transient
-        private String GerPerfil;
-        
-        public String getGerCliInt() {
-                
-            if (gerenciarClientes == 1 ){
-                gerCli = "Sim";
-            }
-            else{
-                gerCli = "Não";
-            }
-            
-            return gerCli;
-        }
-        
-        public String getGerFuncInt() {
 
-            if (gerenciarFuncionarios == 1 ){
-                gerFunc = "Sim";
-            }
-            else{
-                gerFunc = "Não";
-            }
-            
-            return gerFunc;
-        }
-        
-        public String getGerCargInt() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer codigo;
 
-            if (gerenciarCargos == 1 ){
-                gerCargo = "Sim";
-            }
-            else{
-                gerCargo = "Não";
-            }
-            
-            return gerCargo;
-        }
-        
-        public String getGerPlanInt() {
+    @Column(length = 45, nullable = false)
+    private String nomePerfil;
 
-            if (gerenciarPlanos == 1 ){
-                gerPlan = "Sim";
-            }
-            else{
-                gerPlan = "Não";
-            }
-            
-            return gerPlan;
-        }
-        
-        public String getGerManInt() {
+    @Column(nullable = false)
+    private Integer gerenciarClientes;
 
-            if (gerenciarManutencoes == 1 ){
-                gerMan = "Sim";
-            }
-            else{
-                gerMan = "Não";
-            }
-            
-            return gerMan;
-        }
-        
-        public String getGerConfigInt() {
+    @Column(nullable = false)
+    private Integer gerenciarFuncionarios;
 
-            if (gerenciarConfiguracoes == 1 ){
-                GerConfig = "Sim";
-            }
-            else{
-                GerConfig = "Não";
-            }
-            
-            return GerConfig;
+    @Column(nullable = false)
+    private Integer gerenciarCargos;
+
+    @Column(nullable = false)
+    private Integer gerenciarPlanos;
+
+    @Column(nullable = false)
+    private Integer gerenciarManutencoes;
+
+    @Column(nullable = false)
+    private Integer gerenciarPerfis;
+
+    @Column(nullable = false)
+    private Integer gerenciarConfiguracoes;
+
+    //Exibit 'sim' e 'nao' na visualização de perfis
+    @Transient
+    private String gerCli;
+
+    @Transient
+    private String gerFunc;
+
+    @Transient
+    private String gerCargo;
+
+    @Transient
+    private String gerPlan;
+
+    @Transient
+    private String gerMan;
+
+    @Transient
+    private String GerConfig;
+
+    @Transient
+    private String GerPerfil;
+
+    public String getGerCliInt() {
+
+        if (gerenciarClientes == 1) {
+            gerCli = "Sim";
+        } else {
+            gerCli = "Não";
         }
-	
-	/** Setters e Getters **/
-	
-	public void setCodigo(Integer codigo){
-		this.codigo = codigo;
-	}
-	public Integer getCodigo(){
-		return codigo;
-	}
-	
-	public void setNomePerfil(String nomePerfil){
-		this.nomePerfil = nomePerfil;
-	}
-	public String getNomePerfil(){
-		return nomePerfil;
-	}
+
+        return gerCli;
+    }
+
+    public String getGerFuncInt() {
+
+        if (gerenciarFuncionarios == 1) {
+            gerFunc = "Sim";
+        } else {
+            gerFunc = "Não";
+        }
+
+        return gerFunc;
+    }
+
+    public String getGerCargInt() {
+
+        if (gerenciarCargos == 1) {
+            gerCargo = "Sim";
+        } else {
+            gerCargo = "Não";
+        }
+
+        return gerCargo;
+    }
+
+    public String getGerPlanInt() {
+
+        if (gerenciarPlanos == 1) {
+            gerPlan = "Sim";
+        } else {
+            gerPlan = "Não";
+        }
+
+        return gerPlan;
+    }
+
+    public String getGerManInt() {
+
+        if (gerenciarManutencoes == 1) {
+            gerMan = "Sim";
+        } else {
+            gerMan = "Não";
+        }
+
+        return gerMan;
+    }
+
+    public String getGerPerfilInt() {
+
+        if (gerenciarPerfis == 1) {
+            GerPerfil = "Sim";
+        } else {
+            GerPerfil = "Não";
+        }
+
+        return GerPerfil;
+    }
+
+    public String getGerConfigInt() {
+
+        if (gerenciarConfiguracoes == 1) {
+            GerConfig = "Sim";
+        } else {
+            GerConfig = "Não";
+        }
+
+        return GerConfig;
+    }
+
+    /**
+     * Setters e Getters *
+     */
+    public void setCodigo(Integer codigo) {
+        this.codigo = codigo;
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public void setNomePerfil(String nomePerfil) {
+        this.nomePerfil = nomePerfil;
+    }
+
+    public String getNomePerfil() {
+        return nomePerfil;
+    }
 
     public Integer getGerenciarClientes() {
         return gerenciarClientes;
@@ -203,9 +214,16 @@ public class Perfil implements java.io.Serializable {
     public void setGerenciarConfiguracoes(Integer gerenciarConfiguracoes) {
         this.gerenciarConfiguracoes = gerenciarConfiguracoes;
     }
- 
-    public String toString(){
-		return "Perfil " + codigo + ": { " + nomePerfil + " }";
+
+    public Integer getGerenciarPerfis() {
+        return gerenciarPerfis;
+    }
+
+    public void setGerenciarPerfis(Integer gerenciarPerfis) {
+        this.gerenciarPerfis = gerenciarPerfis;
+    }
+    public String toString() {
+        return "Perfil " + codigo + ": { " + nomePerfil + " }";
     }
 
     @Override
@@ -232,5 +250,5 @@ public class Perfil implements java.io.Serializable {
         }
         return true;
     }
-    
+
 }

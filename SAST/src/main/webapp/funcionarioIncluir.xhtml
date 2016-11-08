@@ -54,7 +54,7 @@
 
                             <p:outputLabel class="cadastro" value="Telefone" for="telefone"/>
                             <p:inputText class="cadastro" id="telefone" maxlength="13" required="true"
-                                         placeholder="Digite aqui o telefone..." 
+                                         placeholder="DDD + Telefone" 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (10-13)"
                                          value="#{funcionarioBean.funcionario.telefone}">
@@ -191,6 +191,7 @@
                                         yearRange="c-100:c+0"
                                         placeholder="01/01/1990"
                                         requiredMessage="Campo Obrigatório"
+                                        showButtonPanel="true"
                                         value="#{funcionarioBean.funcionario.dataAdmissao}"/>
                             <p:message class="cadastro" for="admissao"/>
 
@@ -200,6 +201,7 @@
                                         required = "false"
                                         placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
+                                        showButtonPanel="true"
                                         value="#{funcionarioBean.funcionario.dataDemissao}"/>
                             <p:message class="cadastro" for="demissao"/>
 
