@@ -27,7 +27,8 @@ import javax.faces.application.FacesMessage;
 
 @ManagedBean
 @SessionScoped
-public class AutenticacaoBean {
+public class AutenticacaoBean implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     private static final String PAGINA_PRINCIPAL = "principal.xhtml";
     private static final String PAGINA_AUTENTICACAO = "login.xhtml";

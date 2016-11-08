@@ -41,11 +41,11 @@
 
 	<!-- Dependências -->
 	<dependencies>
-                <!-- Dependencias para uso do JasperReport -->
+                <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
                 <dependency>
                     <groupId>net.sf.jasperreports</groupId>
                     <artifactId>jasperreports</artifactId>
-                    <version>6.2.0</version>
+                    <version>6.1.1</version>
                 </dependency>
             
 		<!-- Hibernate Core -->
@@ -53,13 +53,6 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.2.0.Final</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
-		<dependency>
-			<groupId>org.webjars</groupId>
-			<artifactId>bootstrap</artifactId>
-			<version>3.3.6</version>
 		</dependency>
 
 		<!-- http://search.maven.org/#artifactdetails%7Corg.glassfish%7Cjavax.faces%7C2.2.12%7Cjar -->

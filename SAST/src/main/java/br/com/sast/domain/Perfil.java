@@ -19,7 +19,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "tb_perfil")
-public class Perfil {
+public class Perfil implements java.io.Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

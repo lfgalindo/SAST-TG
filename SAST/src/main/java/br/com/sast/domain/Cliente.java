@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "tb_cliente")
-public class Cliente {
+public class Cliente implements java.io.Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

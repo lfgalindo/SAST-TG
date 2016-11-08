@@ -17,10 +17,10 @@ import org.apache.shiro.crypto.hash.SimpleHash;
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 31/08/2016
  */
-public class ClienteDAO {
+public class ClienteDAO implements java.io.Serializable{
     
     //Método para inserir dados no banco
-    public void inserir(Cliente cliente) {
+    public void inserir(Cliente cliente){
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         String senhaSemCriptografia = cliente.getSenha();

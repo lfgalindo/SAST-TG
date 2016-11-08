@@ -61,10 +61,11 @@ public class RelatorioBean implements Serializable{
             String caminho = Faces.getRealPath("/relatorios/jasper/Manutencoes.jasper");
             Map<String, Object> parametros = new HashMap();
             
+           /* 
             if(Util.isNotNull(getEscolheuCliente())){
-                parametros.put("MANUTECAO_CLIENTE", "%" + getCliente() + "%");
+                parametros.put("MANUTENCAO_CLIENTE", "%" + getCliente() + "%");
             } else {
-                parametros.put("MANUTECAO_CLIENTE", "%%");
+                parametros.put("MANUTENCAO_CLIENTE", "%%");
             }
             
             if(Util.isNotNull(getEscolheuFuncionario())){
@@ -77,7 +78,12 @@ public class RelatorioBean implements Serializable{
                 parametros.put("MANUTENCAO_CIDADE","%" + getCidade() + "%");
             } else {
                 parametros.put("MANUTENCAO_CIDADE", "%%");
-            }
+            }*/
+            parametros.put("MANUTENCAO_FUNCIONARIO", "%%");
+            parametros.put("MANUTENCAO_CLIENTE", "%%");
+            parametros.put("MANUTENCAO_CIDADE", "%%");
+            
+            System.out.println(parametros.toString());
             
             Connection conexao = HibernateUtil.getConexao();
 
