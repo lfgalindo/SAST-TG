@@ -8,8 +8,6 @@
 
     <f:metadata>
         <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
-        <f:viewAction action="#{planoClienteBean.novo()}" />
-
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -80,9 +78,11 @@
                     </div>
 
                     <div class="add-incluir">
-                        <p:button class="btn-cancelar" value="Cancelar" outcome="planoListar.xhtml" />
+                        <p:button class="btn-cancelar" value="Cancelar" outcome="planoclienteListar.xhtml">
+                            <f:param name="codigo" value="#{planoClienteBean.codCli}" />
+                        </p:button>
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="">
+                                         actionListener="#">
                             <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" />
                         </p:commandButton>
                         

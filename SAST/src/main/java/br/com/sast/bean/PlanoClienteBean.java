@@ -56,7 +56,7 @@ public class PlanoClienteBean {
         PlanoDAO planoDAO = new PlanoDAO();
 
         ClienteDAO clienteDAO = new ClienteDAO();
-        getPlanocliente().setCodigoCliente(clienteDAO.consultar(codCli));
+        getPlanocliente().setCodigoCliente_codigo(clienteDAO.consultar(codCli));
 
         //chave estrangeira.
         planos = planoDAO.listar();
@@ -64,13 +64,13 @@ public class PlanoClienteBean {
 
     }//fim do método novo
 
-     //MÉTODOS CRUD
+    //MÉTODOS CRUD
     //método para inserir um novo registro no banco.
     public void salvar() {
 
         PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
-        planocliente.setCodigoCliente(clienteDAO.consultar(codCli));
+        planocliente.setCodigoCliente_codigo(clienteDAO.consultar(codCli));
         planoclienteDAO.inserir(planocliente);
 
         Messages.addGlobalInfo("Atribuição de plano inserida com sucesso!");
@@ -84,6 +84,13 @@ public class PlanoClienteBean {
 
         PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
         planoclientes = planoclienteDAO.listar();
+
+    }//fim do método listar.
+
+    public void listarPlanCli() {
+
+        PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
+        planoclientes = planoclienteDAO.listarPlanCli(codCli);
 
     }//fim do método listar.
 
@@ -103,10 +110,10 @@ public class PlanoClienteBean {
 
     //método para editar um registro específico no banco.
     public void editar() {
-        
+
         PlanoDAO planoDAO = new PlanoDAO();
         planos = planoDAO.listar();
-        
+
         PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
         planoclienteDAO.editar(planocliente);
 
@@ -130,7 +137,7 @@ public class PlanoClienteBean {
         }
 
     }//fim do método excluir
-    
+
     //GETS & SETS
     public Integer getCodCli() {
         return codCli;
@@ -179,7 +186,5 @@ public class PlanoClienteBean {
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
-
-   
 
 }

@@ -29,14 +29,14 @@ public class PlanoClienteDAO {
 		try{
 			
 			sessao.beginTransaction();
-                        Cliente cliente = clienteDAO.consultar(planocliente.getCodigoCliente().getCodigo());
-                        PlanoCliente planoClienteSalvar = new PlanoCliente();
+                        //Cliente cliente = clienteDAO.consultar(planocliente.getCodigoCliente().getCodigo());
+                        //PlanoCliente planoClienteSalvar = new PlanoCliente();
                         
-                        planoClienteSalvar.setCodigo(planocliente.getCodigo());
-                        planoClienteSalvar.setCodigoCliente(cliente);
-                        planoClienteSalvar.setCodigoPlano(planocliente.getCodigoPlano());
+                        //planoClienteSalvar.setCodigo(planocliente.getCodigo());
+                        //planoClienteSalvar.setCodigoCliente(cliente);
+                        //planoClienteSalvar.setCodigoPlano(planocliente.getCodigoPlano());
                         
-			sessao.save(planoClienteSalvar);
+			sessao.save(planocliente);
 			sessao.getTransaction().commit();
 			
 		}catch(RuntimeException erro){
@@ -80,6 +80,33 @@ public class PlanoClienteDAO {
 		
 	}//Fim do método listar
 	
+        //Função para listar todos os registros da tabela planopessoa
+	@SuppressWarnings({"deprecation", "unchecked"})
+	public List<PlanoCliente> listarPlanCli(int codCli){
+		
+		Session sessao = HibernateUtil.getSessionFactory().openSession();
+		
+		try{
+			
+			Criteria consulta = sessao.createCriteria(PlanoCliente.class);
+			consulta.add(Restrictions.eq("codigo", codCli));
+			
+			List<PlanoCliente>resultado = consulta.list();
+			
+			return resultado;
+			
+		}catch(RuntimeException erro){
+			
+			throw erro;
+			
+		}finally{
+			
+			sessao.close();
+			
+		}
+		
+	}//Fim do método listar
+        
 	//Função para buscar um registro no banco
 	 @SuppressWarnings({"deprecation", "unchecked"})
 	public PlanoCliente consultar(int codPlanoPessoa){

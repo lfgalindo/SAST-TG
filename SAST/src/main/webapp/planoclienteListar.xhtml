@@ -51,10 +51,6 @@
 
                             <p:column headerText="Opções">
                                 <div class="options">
-                                    <p:button class="visualizar" value="" outcome="planoclienteVisualizar.xhtml">
-                                        <f:param name="codigo" value="#{Plano.codigo}" />
-                                    </p:button>
-
                                     <p:button class="editar" value="" outcome="planoclienteEditar.xhtml">
                                         <f:param name="codigo" value="#{Plano.codigo}" />
                                     </p:button>
@@ -69,7 +65,7 @@
                     <div class="add">
                         <p:button styleClass="incluir" value="Novo Plano"
                             outcome="planoclienteIncluir.xhtml">       
-                            <f:param name="codigocli" value="#{Plano.codigoCliente.codigo}" />
+                            <f:param name="codigo" value="#{planoClienteBean.codCli}" />
                         </p:button>
                     </div>
                 </div>

@@ -7,9 +7,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewParam name="codigocli" value="#{planoClienteBean.codCli}" />
+        <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
         <f:viewAction action="#{planoClienteBean.novo()}" />
-
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -26,7 +25,7 @@
                         <h:panelGrid id="pnlDados" columns="2">
 
                             <p:outputLabel value="Cliente" class="cadastro"/>
-                    
+
                             <p:inputText class="cadastro" readonly="true" value="#{planoClienteBean.planocliente.codigoCliente.nome}" />
 
                             <p:outputLabel class="cadastro" for="plano" value="Plano "/>
@@ -45,9 +44,19 @@
                     </div>
 
                     <div class="add-incluir">
-                        <p:button class="btn-cancelar" value="Cancelar" outcome="planoclienteListar.xhtml" />
+                        <p:button class="btn-cancelar" value="Cancelar" outcome="planoclienteListar.xhtml">
+                            <f:param name="codigo" value="#{planoClienteBean.codCli}" />
+                        </p:button>
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{planoClienteBean.salvar()}"/>
+                                         actionListener="#{planoClienteBean.salvar()}">
+                                <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" /> 
+                        </p:commandButton>
+                        
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>
