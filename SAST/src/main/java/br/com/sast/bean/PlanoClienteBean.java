@@ -56,7 +56,7 @@ public class PlanoClienteBean {
         PlanoDAO planoDAO = new PlanoDAO();
 
         ClienteDAO clienteDAO = new ClienteDAO();
-        getPlanocliente().setCodigoCliente_codigo(clienteDAO.consultar(codCli));
+        getPlanocliente().setCodigoCliente(clienteDAO.consultar(codCli));
 
         //chave estrangeira.
         planos = planoDAO.listar();
@@ -70,7 +70,7 @@ public class PlanoClienteBean {
 
         PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
-        planocliente.setCodigoCliente_codigo(clienteDAO.consultar(codCli));
+        planocliente.setCodigoCliente(clienteDAO.consultar(codCli));
         planoclienteDAO.inserir(planocliente);
 
         Messages.addGlobalInfo("Atribuição de plano inserida com sucesso!");

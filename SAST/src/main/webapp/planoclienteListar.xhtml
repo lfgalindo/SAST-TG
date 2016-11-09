@@ -9,7 +9,6 @@
     <f:metadata>
         <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
         <f:viewAction action="#{planoClienteBean.listar()}" />
-
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -23,12 +22,12 @@
                     <div class="table">
                         <p:dataTable emptyMessage="Nenhum registro encontrado." value="#{planoClienteBean.planoclientes}"
                                      var="Plano" paginator="true" paginatorPosition="bottom" rows="10">
-                            
+
                             <p:column headerText="Descrição" sortBy="#{Plano.codigoPlano.descricao}" filterBy="#{Plano.codigoPlano.descricao}"
                                       filterMatchMode="contains">
                                 <h:outputText value="#{Plano.codigoPlano.descricao}" />
                             </p:column>
-                            
+
                             <p:column headerText="Velocidade" sortBy="#{Plano.codigoPlano.velocidade}" filterBy="#{Plano.codigoPlano.velocidade}"
                                       filterMatchMode="contains">
                                 <h:outputText value="#{Plano.codigoPlano.velocidade} Kbps" />
@@ -51,12 +50,13 @@
 
                             <p:column headerText="Opções">
                                 <div class="options">
-                                    <p:button class="editar" value="" outcome="planoclienteEditar.xhtml">
-                                        <f:param name="codigo" value="#{Plano.codigo}" />
-                                    </p:button>
-
                                     <p:button styleClass="excluir" value="" outcome="planoclienteExcluir.xhtml">
-                                        <f:param name="codigo" value="#{Plano.codigo}" />
+                                        <f:param name="sastpc" value="#{Plano.codigo}" />
+                                        <f:param name="sastc" value="#{Plano.codigoCliente.codigo}" />
+                                    </p:button>
+                                    <p:button class="editar" value="" outcome="planoclienteEditar.xhtml">
+                                        <f:param name="sastpc" value="#{Plano.codigo}" />
+                                        <f:param name="sastc" value="#{Plano.codigoCliente.codigo}" />
                                     </p:button>
                                 </div>
                             </p:column>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="add">
                         <p:button styleClass="incluir" value="Novo Plano"
-                            outcome="planoclienteIncluir.xhtml">       
+                                  outcome="planoclienteIncluir.xhtml">       
                             <f:param name="codigo" value="#{planoClienteBean.codCli}" />
                         </p:button>
                     </div>

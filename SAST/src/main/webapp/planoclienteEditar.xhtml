@@ -7,7 +7,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
+        <f:viewParam name="sastpc" value="#{planoClienteBean.codigo}" />
+        <f:viewParam name="sastc" value="#{planoClienteBean.codCli}" />
+        <f:viewAction action="#{planoClienteBean.buscar()}" />
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -21,58 +23,23 @@
                     <div class="container-incluir">
                         <p:growl id="mensagem" globalOnly="true"/>
 
-                        <h:panelGrid id="pnlDados" columns="3">
+                        <h:panelGrid id="pnlDados" columns="2">
 
-                                                       <p:outputLabel value="Descrição" class="cadastro" for="descricao" />
-                            <p:inputText class="cadastro" id="descricao" maxlength="45" required = "true"
-                                         placeholder="Digite aqui a descrição do plano ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-45)"
-                                         value="#{planoBean.plano.descricao}">
-                                <f:validateLength minimum="5" maximum="45"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="descricao"/>
+                            <p:outputLabel value="Cliente" class="cadastro"/>
 
-                            <p:outputLabel value="Velocidade" class="cadastro" for="velocidade" />
-                            <p:inputText class="cadastro" id="velocidade" maxlength="20" required = "true"
-                                         placeholder="Digite aqui a velocidade do plano ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (3-11)"
-                                         value="#{planoBean.plano.velocidade}">
-                                <f:validateLength minimum="3" maximum="11"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="velocidade"/>
+                            <p:inputText class="cadastro planocliente" readonly="true" value="#{planoClienteBean.planocliente.codigoCliente.nome}" />
 
-                            <p:outputLabel value="Garantia de Banda" class="cadastro" for="garantia" />
-                            <p:inputText class="cadastro" id="garantia" maxlength="2" required = "true"
-                                         placeholder="Digite aqui a garantia de banda ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (1-3)"
-                                         value="#{planoBean.plano.garantia}">
-                                <f:validateLength minimum="1" maximum="3"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="garantia"/>
-
-                            <p:outputLabel value="Tipo de Conexão" class="cadastro" for="tipo" />
-                            <p:selectOneMenu class="cadastro" id="tipo" filter="true" filterMatchMode="contain" required="true" 
-                                             value="#{planoBean.plano.tipoConexao}"
-                                             requiredMessage="Campo obrigatório">
-                                <f:selectItem itemLabel="Selecione o tipo de conexão" noSelectionOption="true" />
-                                <f:selectItem itemLabel="Fibra" itemValue="Fibra" />
-                                <f:selectItem itemLabel="Rádio" itemValue="Radio" />
-
+                            <p:outputLabel class="cadastro" for="plano" value="Plano "/>
+                            <p:selectOneMenu class="cadastro" id="plano" filter="true" filterMatchMode="contains" required = "true" 
+                                             requiredMessage="Campo Obrigatório"
+                                             value="#{planoClienteBean.planocliente.codigoPlano}"
+                                             converter="omnifaces.SelectItemsConverter">
+                                <f:selectItem itemLabel="Selecione um Plano" noSelectionOption="true"/>
+                                <f:selectItems value="#{planoClienteBean.planos}"
+                                               var="plano"
+                                               itemValue="#{plano}"
+                                               itemLabel="#{plano.descricao}"/>
                             </p:selectOneMenu>
-                            <p:message class="cadastro" for="tipo"/>
-
-                            <p:outputLabel value="Valor" class="cadastro" for="valor" />
-                            <p:inputText class="cadastro" id="valor" maxlength="20" required = "true"
-                                         placeholder="Digite aqui o valor do plano ..."
-                                         requiredMessage="Campo Obrigatório"
-                                         validatorMessage="Tamanho inválido (5-10)"
-                                         value="#{planoBean.plano.valor}">
-                                <f:validateLength minimum="2" maximum="10"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="valor"/>
 
                         </h:panelGrid>
                     </div>
@@ -82,15 +49,15 @@
                             <f:param name="codigo" value="#{planoClienteBean.codCli}" />
                         </p:button>
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#">
+                                         actionListener="#{planoClienteBean.editar()}">
                             <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" />
                         </p:commandButton>
-                        
+
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
                             <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
                             <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
                         </p:confirmDialog>
-                        
+
                     </div>
                 </div>
             </h:form>
