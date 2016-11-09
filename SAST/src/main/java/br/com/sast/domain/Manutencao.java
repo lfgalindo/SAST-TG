@@ -40,10 +40,10 @@ public class Manutencao {
     @Column(length = 15, nullable = false)
     private String prioridade;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dtAgendamento;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dtExecucao;
 
     @Column(nullable = false)

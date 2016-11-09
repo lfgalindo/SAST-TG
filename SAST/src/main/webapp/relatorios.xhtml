@@ -7,7 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewAction action="#{relatorioBean.imprimir()}"/>
+        <f:viewAction action="#{relatorioBean.novo()}"/>
     </f:metadata>
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
@@ -15,17 +15,13 @@
         </ui:define>
 
         <ui:define name="conteudo">
-            <h:form>
+            <h:form id="principal">
                 <div class="relatorio">
                     <p:panelGrid class="relatorio" id="pnlDados">
 
                         <p:row>
-                            <p:column class="checkbox">
-                                <p:selectBooleanCheckbox class="checkbox" id="func" value="#{relatorioBean.escolheuFuncionario}" />
-                            </p:column>
-
                             <p:column colspan="2" class="filtro titulo">
-                                <h:outputLabel for="func" value="Filtrar Relatório por Técnico Responsável" />
+                                <h:outputLabel value="Filtrar Relatório por Técnico Responsável" />
                             </p:column>
                         </p:row>
 
@@ -42,9 +38,6 @@
                         </p:row>					
 
                         <p:row>
-                            <p:column class="checkbox">
-                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuCliente}"/>
-                            </p:column>
 
                             <p:column colspan="2" class="filtro titulo">
                                 <h:outputText value="Filtrar Relatório por Cliente" />
@@ -64,9 +57,6 @@
                         </p:row>
 
                         <p:row>
-                            <p:column class="checkbox">
-                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuCidade}"/>
-                            </p:column>
 
                             <p:column colspan="2" class="filtro titulo">
                                 <h:outputText value="Filtrar Relatório por Cidade" />
@@ -82,9 +72,6 @@
                         </p:row>	
 
                         <p:row>
-                            <p:column class="checkbox">
-                                <p:selectBooleanCheckbox class="checkbox" value="#{relatorioBean.escolheuData}"/>
-                            </p:column>
 
                             <p:column colspan="2" class="filtro titulo">
                                 <h:outputText value="Filtrar Relatório por Data de agendamento" />
@@ -108,9 +95,14 @@
                     <div class="add-incluir">
                         <p:button class="btn-voltar" value="Voltar"
                                   outcome="principal.xhtml" />
-                        <p:commandButton class="btn-incluir" type="submit"
-                                         update="pnlDados"
-                                         value="Gerar Relatório" actionListener="#{relatorioBean.imprimir()}" />
+                        
+                        <p:commandButton class="btn-incluir"
+                                         type="submit"
+                                         process=":principal"
+                                         id="imprimir"
+                                         value="Gerar Relatório" 
+                                         actionListener="#{relatorioBean.imprimir()}" 
+                                         immediate="true"/>
                     </div>
                 </div>
             </h:form>
