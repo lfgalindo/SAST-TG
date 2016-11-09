@@ -500,6 +500,12 @@ input.cadastro{
     border-radius: 0;
     width: 100%;
 }
+
+input.cadastro.planocliente{
+    background: #eff3f6!important;
+    border: none!important;
+}
+
 .ui-inputfield.ui-widget.ui-state-default.ui-corner-all.hasDatepicker{
     background: #fbfbfb!important;
     padding: 11px;
