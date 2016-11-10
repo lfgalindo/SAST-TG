@@ -20,13 +20,13 @@
                     <p:panelGrid class="relatorio" id="pnlDados">
 
                         <p:row>
-                            <p:column colspan="2" class="filtro titulo">
+                            <p:column class="filtro titulo">
                                 <h:outputLabel value="Filtrar Relatório por Técnico Responsável" />
                             </p:column>
                         </p:row>
 
                         <p:row>
-                            <p:column colspan="3" class="filtro margem">
+                            <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="funcionario" filter="true"
                                                  filterMatchMode="contains" value="#{relatorioBean.funcionario}">
                                     <f:selectItem itemLabel="Selecione um Funcionário ..."
@@ -39,13 +39,13 @@
 
                         <p:row>
 
-                            <p:column colspan="2" class="filtro titulo">
-                                <h:outputText value="Filtrar Relatório por Cliente" />
+                            <p:column class="filtro titulo">
+                                <h:outputText class="cadastro" value="Filtrar Relatório por Cliente" />
                             </p:column>
                         </p:row>
 
                         <p:row>
-                            <p:column colspan="3" class="filtro margem">
+                            <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="cliente" filter="true"
                                                  filterMatchMode="contains" value="#{relatorioBean.cliente}">
                                     <f:selectItem itemLabel="Selecione um Cliente ..."
@@ -58,13 +58,13 @@
 
                         <p:row>
 
-                            <p:column colspan="2" class="filtro titulo">
+                            <p:column class="filtro titulo">
                                 <h:outputText value="Filtrar Relatório por Cidade" />
                             </p:column>
                         </p:row>
 
                         <p:row>
-                            <p:column colspan="3" class="filtro margem" >
+                            <p:column class="filtro margem" >
                                 <p:inputText class="cadastro" id="cidade" maxlength="25"
                                              placeholder="Digite aqui a cidade..."
                                              value="#{relatorioBean.cidade}"/>
@@ -73,13 +73,13 @@
 
                         <p:row>
 
-                            <p:column colspan="2" class="filtro titulo">
+                            <p:column class="filtro titulo">
                                 <h:outputText value="Filtrar Relatório por Data de agendamento" />
                             </p:column>
                         </p:row>
 
                         <p:row>
-                            <p:column colspan="3" class="filtro margem">
+                            <p:column class="filtro margem">
                                 <p:calendar id="dataAgendamento" size="10" pattern="dd/MM/yyyy" 
                                             readonlyInput="false" 
                                             required = "true"
