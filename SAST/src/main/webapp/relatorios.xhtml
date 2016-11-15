@@ -17,6 +17,7 @@
         <ui:define name="conteudo">
             <h:form id="principal">
                 <div class="relatorio">
+                    <p:growl id="mensagem" globalOnly="true"/>
                     <p:panelGrid class="relatorio" id="pnlDados">
 
                         <p:row>
@@ -28,11 +29,12 @@
                         <p:row>
                             <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="funcionario" filter="true"
-                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario}">
+                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario}"
+                                                 converter="omnifaces.SelectItemsConverter">
                                     <f:selectItem itemLabel="Selecione um Funcionário ..."
                                                   noSelectionOption="true" 
                                                   value="#{null}"/>
-                                    <f:selectItems value="#{relatorioBean.listaFuncionarios}" var="funcionario" itemValue="#{funcionario.nome}" itemLabel="#{funcionario.nome}" />
+                                    <f:selectItems value="#{relatorioBean.listaFuncionarios}" var="funcionario" itemValue="#{funcionario}" itemLabel="#{funcionario.nome}" />
                                 </p:selectOneMenu>
                             </p:column>
                         </p:row>					
@@ -47,11 +49,11 @@
                         <p:row>
                             <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="cliente" filter="true"
-                                                 filterMatchMode="contains" value="#{relatorioBean.cliente}">
+                                                 filterMatchMode="contains" value="#{relatorioBean.cliente}"
+                                                 converter="omnifaces.SelectItemsConverter">
                                     <f:selectItem itemLabel="Selecione um Cliente ..."
-                                                  noSelectionOption="true" 
-                                                  value="#{null}"/>
-                                    <f:selectItems value="#{relatorioBean.listaClientes}" var="cliente" itemValue="#{cliente.nome}" itemLabel="#{cliente.nome}" />
+                                                  noSelectionOption="true"/>
+                                    <f:selectItems value="#{relatorioBean.listaClientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}" />
                                 </p:selectOneMenu>
                             </p:column>
                         </p:row>
@@ -67,7 +69,7 @@
                             <p:column class="filtro margem" >
                                 <p:inputText class="cadastro" id="cidade" maxlength="25"
                                              placeholder="Digite aqui a cidade..."
-                                             value="#{relatorioBean.cidade}"/>
+                                             value="#{relatorioBean.cliente.cidade}"/>
                             </p:column>
                         </p:row>	
 
@@ -97,12 +99,11 @@
                                   outcome="principal.xhtml" />
                         
                         <p:commandButton class="btn-incluir"
-                                         type="submit"
-                                         process=":principal"
+                                         process="@this"
                                          id="imprimir"
+                                         update="pnlDados mensagem"
                                          value="Gerar Relatório" 
-                                         actionListener="#{relatorioBean.imprimir()}" 
-                                         immediate="true"/>
+                                         actionListener="#{relatorioBean.imprimir()}" />
                     </div>
                 </div>
             </h:form>
