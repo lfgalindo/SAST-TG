@@ -111,6 +111,11 @@ public class ManutencaoBean {
         manutencoes = manutencaoDAO.listar();
 
     }//fim do método listar
+    
+    public void listarManutencoesFuncionario() {
+        ManutencaoDAO manutencaoDAO = new ManutencaoDAO();
+        manutencoes = manutencaoDAO.listarManutencoesFuncionario(codigo);
+    }
 
     //método para buscar um registro específico no banco.
     public void buscar() {

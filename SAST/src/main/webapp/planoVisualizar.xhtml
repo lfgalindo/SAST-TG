@@ -43,7 +43,11 @@
                     </div>
 
                     <div class="add-incluir">
-                        <p:button class="btn-voltar" value="Voltar" outcome="planoListar.xhtml" />
+                        <p:button rendered="#{autenticacaoBean.isFuncionario}" class="btn-voltar" value="Voltar" outcome="planoListar.xhtml"/>
+                            
+                        <p:button rendered="#{!autenticacaoBean.isFuncionario}" class="btn-voltar" value="Voltar" outcome="meusPlanos.xhtml" >
+                            <f:param name="codigo" value="#{autenticacaoBean.clienteLogado.codigo}" />
+                        </p:button>
                     </div>
                 </div>
             </h:form>

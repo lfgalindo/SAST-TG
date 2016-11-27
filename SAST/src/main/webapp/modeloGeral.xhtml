@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -45,8 +46,12 @@
                     <p:menu toggleable="true">
                         <p:submenu label="Início" expanded="false" >
                             <p:menuitem value="Principal" outcome="principal.xhtml"/>
-                            <p:menuitem value="Minhas Manutenções" outcome="minhasManutencoes.xhtml"/>
-                            <p:menuitem value="Meus Planos" outcome="meusPlanos.xhtml"/>
+                            <p:menuitem rendered="#{autenticacaoBean.isFuncionario}" value="Minhas Manutenções" outcome="minhasManutencoes.xhtml">
+                                <f:param name="codigo" value="#{autenticacaoBean.funcionarioLogado.codigo}" />
+                            </p:menuitem>
+                            <p:menuitem rendered="#{!autenticacaoBean.isFuncionario}" value="Meus Planos" outcome="meusPlanos.xhtml">
+                                <f:param name="codigo" value="#{autenticacaoBean.clienteLogado.codigo}" />
+                            </p:menuitem>
                         </p:submenu>
 
                         <p:submenu label="Consultas" expanded="false"

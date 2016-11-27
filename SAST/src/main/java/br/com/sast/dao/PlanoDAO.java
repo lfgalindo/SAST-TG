@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import br.com.sast.domain.Plano;
+import br.com.sast.domain.PlanoCliente;
 import br.com.sast.util.HibernateUtil;
+import java.util.ArrayList;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_plano".
@@ -53,6 +55,37 @@ public class PlanoDAO {
             List<Plano> resultado = consulta.list();
 
             return resultado;
+
+        } catch (RuntimeException erro) {
+            throw erro;
+
+        } finally {
+            sessao.close();
+
+        }
+    } // Fim do método listar
+    
+    // Método que fará a persistência no banco para listar todos os planos armazenados
+    @SuppressWarnings({"deprecation", "unchecked"})
+    public List<Plano> listarPlanosCliente(Integer codigo) {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Criteria consulta = sessao.createCriteria(PlanoCliente.class);
+            
+            ClienteDAO clienteDAO = new ClienteDAO();
+            
+            consulta.add(Restrictions.eq("codigoCliente", clienteDAO.consultar(codigo)));
+            List<PlanoCliente> resultado = consulta.list();
+            List<Plano> resultadoPlanoCliente = new ArrayList<>();
+            
+            Criteria consultaPlano = sessao.createCriteria(Plano.class);
+            resultado.forEach((planoCliente) -> {
+                resultadoPlanoCliente.add(planoCliente.getCodigoPlano());
+            });
+            
+            return resultadoPlanoCliente;
 
         } catch (RuntimeException erro) {
             throw erro;

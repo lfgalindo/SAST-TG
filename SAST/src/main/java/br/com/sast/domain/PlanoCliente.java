@@ -28,7 +28,7 @@ public class PlanoCliente {
     @JoinColumn( nullable = false, unique = false)
     private Cliente codigoCliente;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, unique = false)
     private Plano codigoPlano;
 

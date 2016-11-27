@@ -7,7 +7,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewAction action="#{manutencaoBean.listar()}" /> 
+        <f:viewParam name="codigo" value="#{manutencaoBean.codigo}" />
+        <f:viewAction action="#{manutencaoBean.listarManutencoesFuncionario()}" /> 
     </f:metadata>
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
