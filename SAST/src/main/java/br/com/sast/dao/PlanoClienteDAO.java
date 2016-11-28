@@ -89,7 +89,7 @@ public class PlanoClienteDAO {
 		try{
 			
 			Criteria consulta = sessao.createCriteria(PlanoCliente.class);
-			consulta.add(Restrictions.eq("codigo", codCli));
+			consulta.add(Restrictions.eq("codigoCliente_codigo", codCli));
 			
 			List<PlanoCliente>resultado = consulta.list();
 			

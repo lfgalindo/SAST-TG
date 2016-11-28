@@ -7,8 +7,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
-        <f:viewParam name="codigo" value="#{planoClienteBean.codCli}" />
-        <f:viewAction action="#{planoClienteBean.listar()}" />
+        <f:viewParam name="codCli" value="#{planoClienteBean.codCli}" />
+        <f:viewAction action="#{planoClienteBean.listarPlanCli()}" />
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">

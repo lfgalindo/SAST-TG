@@ -6,6 +6,10 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
+    <f:metadata>
+        <f:viewAction action="#{empresaBean.novo()}" />
+    </f:metadata>
+
     <ui:composition template="modeloGeral.xhtml">
         <ui:define name="titulo">
             Incluir os Dados da Empresa
@@ -24,7 +28,7 @@
                                          placeholder="Digite aqui o nome ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-255)"
-                                         value="">
+                                         value="#{empresaBean.empresa.nomeEmpresa}">
                                 <f:validateLength minimum="5" maximum="255"/>
                             </p:inputText>
                             <p:message class="cadastro" for="nome"/>
@@ -34,7 +38,7 @@
                                          placeholder="Digite aqui a razão social ..."
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-255)"
-                                         value="">
+                                         value="#{empresaBean.empresa.razaoSocial}">
                                 <f:validateLength minimum="5" maximum="255"/>
                             </p:inputText>
                             <p:message class="cadastro" for="razao"/>
@@ -43,7 +47,8 @@
                             <p:inputText class="cadastro" id="cnpj" required="true"
                                          placeholder="Digite aqui o CNPJ ..."
                                          requiredMessage="Campo obrigatório"
-                                         value="">
+                                         maxlength="14"
+                                         value="#{empresaBean.empresa.cnpj}">
                             </p:inputText>
                             <p:message class="cadastro" for="cnpj"/>
 
@@ -52,7 +57,7 @@
                                          placeholder="Digite aqui o telefone..." 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (10-13)"
-                                         value="">
+                                         value="#{empresaBean.empresa.telefone}">
                                 <f:validateLength minimum="10" maximum="13"/>
                             </p:inputText>
                             <p:message class="cadastro" for="telefone"/>
@@ -62,7 +67,7 @@
                                          placeholder="Digite aqui o endereço..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{empresaBean.empresa.endereco}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="endereco"/>
@@ -73,27 +78,17 @@
                                          placeholder="Digite aqui o número..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (1-5)"
-                                         value="">
+                                         value="#{empresaBean.empresa.numero}">
                                 <f:validateLength minimum="1" maximum="5"/>
                             </p:inputText>
                             <p:message class="cadastro" for="numero"/>
-
-                            <p:outputLabel value="Complemento" class="cadastro" for="complemento" />
-                            <p:inputText class="cadastro" id="complemento" maxlength="45"
-                                         placeholder="Digite aqui o complemento (se houver)..."
-                                         validatorMessage="Tamanho inválido (3-45)"
-                                         value="">
-                                <f:validateLength minimum="3" maximum="45"/>
-                            </p:inputText>
-                            <p:message class="cadastro" for="complemento"/>
-
 
                             <p:outputLabel value="Bairro" class="cadastro" for="bairro" />
                             <p:inputText class="cadastro" id="bairro" maxlength="45" required = "true"
                                          placeholder="Digite aqui o bairro..." 
                                          requiredMessage="Campo Obrigatório"
                                          validatorMessage="Tamanho inválido (5-45)"
-                                         value="">
+                                         value="#{empresaBean.empresa.bairro}">
                                 <f:validateLength minimum="5" maximum="45"/>
                             </p:inputText>
                             <p:message class="cadastro" for="bairro"/>
@@ -104,14 +99,14 @@
                                          placeholder="Digite aqui a cidade..." 
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (3-25)"
-                                         value="">
+                                         value="#{empresaBean.empresa.cidade}">
                                 <f:validateLength minimum="3" maximum="25"/>
                             </p:inputText>
                             <p:message class="cadastro" for="cidade"/>
 
                             <p:outputLabel class="cadastro" value="Estado " for="estado"/>
                             <p:selectOneMenu class="cadastro" id="estado" filter="true" filterMatchMode="contain" required="true" 
-                                             value=""
+                                             value="#{empresaBean.empresa.estado}"
                                              requiredMessage="Campo obrigatório">
                                 <f:selectItem itemLabel="Selecione um Estado" noSelectionOption="true" />
                                 <f:selectItem itemLabel="AC - Acre" itemValue="AC" />
@@ -150,7 +145,7 @@
                                          placeholder="exemplo@sast.com.br"
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (8-30)"
-                                         value="">
+                                         value="#{empresaBean.empresa.email}">
                                 <f:validateLength minimum="8" maximum="30"/>
                             </p:inputText>
                             <p:message class="cadastro" for="email"/>
@@ -161,7 +156,15 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="empresaVisualizar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Incluir" update="pnlDados mensagem"
-                                         actionListener="#"/>
+                                         actionListener="#{empresaBean.salvar()}">
+                            <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                            <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                        </p:confirmDialog>
+
                     </div>
                 </div>
             </h:form>
