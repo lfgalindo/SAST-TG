@@ -82,14 +82,14 @@ public class PlanoClienteDAO {
 	
         //Função para listar todos os registros da tabela planopessoa
 	@SuppressWarnings({"deprecation", "unchecked"})
-	public List<PlanoCliente> listarPlanCli(int codCli){
+	public List<PlanoCliente> listarPlanCli(Integer codCli){
 		
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 		
 		try{
 			
 			Criteria consulta = sessao.createCriteria(PlanoCliente.class);
-			consulta.add(Restrictions.eq("codigoCliente_codigo", codCli));
+			consulta.add(Restrictions.eq("codigoCliente", codCli));
 			
 			List<PlanoCliente>resultado = consulta.list();
 			

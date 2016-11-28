@@ -28,7 +28,7 @@ public class Cliente implements java.io.Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int codigo;
+	private Integer codigo;
 	
 	@Column(length = 45, nullable = false)
 	private String nome; 
@@ -84,10 +84,10 @@ public class Cliente implements java.io.Serializable{
 	
 	
 	//GETS & SETS
-	public int getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
 	public String getNome() {

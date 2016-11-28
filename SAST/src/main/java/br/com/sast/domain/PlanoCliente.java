@@ -24,7 +24,7 @@ public class PlanoCliente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int codigo;
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn( nullable = false, unique = false)
     private Cliente codigoCliente;
 
