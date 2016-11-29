@@ -46,7 +46,7 @@
 
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="planoclienteListar.xhtml">
-                            <f:param name="codigo" value="#{planoClienteBean.codCli}" />
+                            <f:param name="codCli" value="#{planoClienteBean.codCli}" />
                         </p:button>
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
                                          actionListener="#{planoClienteBean.editar()}">

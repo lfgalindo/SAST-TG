@@ -87,12 +87,10 @@ public class PlanoClienteBean {
 
     }//fim do método listar.
 
-    public void listarPlanCli() {
-
-        PlanoClienteDAO planoclienteDAO = new PlanoClienteDAO();
-        planoclientes = planoclienteDAO.listarPlanCli(codCli);
-
-    }//fim do método listar.
+    public void listarPlanosCliente () {
+        PlanoClienteDAO planDAO = new PlanoClienteDAO();
+        planoclientes = planDAO.listarPlanosCliente(codCli);
+    }
 
     //método para buscar um registro específico no banco.
     public void buscar() {

@@ -1,6 +1,7 @@
 package br.com.sast.dao;
 
 import br.com.sast.domain.Cliente;
+import br.com.sast.domain.Plano;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -10,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.sast.domain.PlanoCliente;
 import br.com.sast.util.HibernateUtil;
+import java.util.ArrayList;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_planopessoa".
@@ -80,32 +82,36 @@ public class PlanoClienteDAO {
 		
 	}//Fim do método listar
 	
-        //Função para listar todos os registros da tabela planopessoa
-	@SuppressWarnings({"deprecation", "unchecked"})
-	public List<PlanoCliente> listarPlanCli(Integer codCli){
-		
-		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		
-		try{
-			
-			Criteria consulta = sessao.createCriteria(PlanoCliente.class);
-			consulta.add(Restrictions.eq("codigoCliente", codCli));
-			
-			List<PlanoCliente>resultado = consulta.list();
-			
-			return resultado;
-			
-		}catch(RuntimeException erro){
-			
-			throw erro;
-			
-		}finally{
-			
-			sessao.close();
-			
-		}
-		
-	}//Fim do método listar
+         // Método que fará a persistência no banco para listar todos os planos armazenados
+    @SuppressWarnings({"deprecation", "unchecked"})
+    public List<PlanoCliente> listarPlanosCliente(Integer codigo) {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Criteria consulta = sessao.createCriteria(PlanoCliente.class);
+            
+            ClienteDAO clienteDAO = new ClienteDAO();
+            
+            consulta.add(Restrictions.eq("codigoCliente", clienteDAO.consultar(codigo)));
+            List<PlanoCliente> resultado = consulta.list();
+            List<Plano> resultadoPlanoCliente = new ArrayList<>();
+            
+            Criteria consultaPlano = sessao.createCriteria(Plano.class);
+            resultado.forEach((planoCliente) -> {
+                resultadoPlanoCliente.add(planoCliente.getCodigoPlano());
+            });
+            
+            return resultado;
+
+        } catch (RuntimeException erro) {
+            throw erro;
+
+        } finally {
+            sessao.close();
+
+        }
+    } // Fim do método listar
         
 	//Função para buscar um registro no banco
 	 @SuppressWarnings({"deprecation", "unchecked"})

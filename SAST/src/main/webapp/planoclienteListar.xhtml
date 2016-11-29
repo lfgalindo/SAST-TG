@@ -8,7 +8,7 @@
 
     <f:metadata>
         <f:viewParam name="codCli" value="#{planoClienteBean.codCli}" />
-        <f:viewAction action="#{planoClienteBean.listar()}" />
+        <f:viewAction action="#{planoClienteBean.listarPlanosCliente()}"/>
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -43,7 +43,7 @@
                                 <h:outputText value="#{Plano.codigoPlano.tipoConexao}" />
                             </p:column>
 
-                            <p:column headerText="Valor" sortBy="#{Plano.codigoPlano.valor}}" filterBy="#{Plano.codigoPlano.valor}"
+                            <p:column headerText="Valor" sortBy="#{Plano.codigoPlano.valor}}" filterBy="#{Plano.codigoPlano.codigoPlano.valor}"
                                       filterMatchMode="contains">
                                 <h:outputText value="R$ #{Plano.codigoPlano.valor}" />
                             </p:column>
