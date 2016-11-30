@@ -29,11 +29,10 @@
                         <p:row>
                             <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="funcionario" filter="true"
-                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario}"
+                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario.codigo}"
                                                  converter="omnifaces.SelectItemsConverter">
                                     <f:selectItem itemLabel="Selecione um Funcionário ..."
-                                                  noSelectionOption="true" 
-                                                  value="#{null}"/>
+                                                  noSelectionOption="true" />
                                     <f:selectItems value="#{relatorioBean.listaFuncionarios}" var="funcionario" itemValue="#{funcionario}" itemLabel="#{funcionario.nome}" />
                                 </p:selectOneMenu>
                             </p:column>
