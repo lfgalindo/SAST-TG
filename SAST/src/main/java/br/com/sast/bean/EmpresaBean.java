@@ -35,7 +35,8 @@ public class EmpresaBean {
 	
 	public void buscar(){
 		EmpresaDAO empresaDAO = new EmpresaDAO();
-		empresa = empresaDAO.consultar(codigo);
+		//empresa = empresaDAO.buscar(codigo);
+                empresa = empresaDAO.buscar();
 	}
 	
 	public void editar(){

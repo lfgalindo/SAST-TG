@@ -1,6 +1,7 @@
 package br.com.sast.bean;
 
 import br.com.sast.dao.ClienteDAO;
+import br.com.sast.dao.EmpresaDAO;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -35,6 +36,7 @@ public class AutenticacaoBean implements Serializable{
     
     public Boolean isFuncionario;
     public Boolean isCliente;
+    public Boolean Empresa;
 
     private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     private Funcionario funcionario;
@@ -64,6 +66,14 @@ public class AutenticacaoBean implements Serializable{
            if(Util.isNull(getFuncionarioLogado()) && Util.isNull(getClienteLogado())){
                Messages.addGlobalWarn("Login ou Senha incorretos", FacesMessage.SEVERITY_WARN);
                return;
+           }
+           
+           EmpresaDAO empDAO = new EmpresaDAO();
+           
+           if(empDAO.contarRegistrosEmpresa() > 0){
+               setEmpresa(Boolean.TRUE);
+           }else{
+               setEmpresa(Boolean.FALSE);
            }
            
            Faces.setSessionAttribute(PAGINA_AUTENTICACAO, this);
@@ -135,4 +145,13 @@ public class AutenticacaoBean implements Serializable{
     public void setFuncionarioLogado(Funcionario funcionarioLogado) {
         this.funcionarioLogado = funcionarioLogado;
     }
+
+    public Boolean getEmpresa() {
+        return Empresa;
+    }
+
+    public void setEmpresa(Boolean Empresa) {
+        this.Empresa = Empresa;
+    }
 }
+

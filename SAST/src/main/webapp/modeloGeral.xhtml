@@ -72,7 +72,7 @@
 
                         <p:submenu label="Empresa" expanded="false"
                                    rendered="#{autenticacaoBean.isFuncionario}">
-                            <p:menuitem value="Incluir Dados" outcome="empresaIncluir.xhtml" />
+                            <p:menuitem rendered="#{!autenticacaoBean.empresa}" value="Incluir Dados" outcome="empresaIncluir.xhtml" />
                             <p:menuitem value="Visualizar Dados" outcome="empresaVisualizar.xhtml" />
                             <p:menuitem value="Alterar Dados" outcome="empresaEditar.xhtml" />
                         </p:submenu>

@@ -42,15 +42,16 @@ public class EmpresaDAO {
 	} // Fim do método inserir
 
 	@SuppressWarnings("deprecation")
-	public Empresa buscar(Integer codigo) {
+	public Empresa buscar() {
 
 		Session sessao = HibernateUtil.getSessionFactory().openSession();
 
 		try {
 			Criteria consulta = sessao.createCriteria(Empresa.class);
 
-			consulta.add(Restrictions.eq("codigoEmpresa", codigo));
-
+			//consulta.add(Restrictions.eq("codigoEmpresa", codigo));
+                        consulta.addOrder(Order.asc("codigoEmpresa"));
+                        
 			Empresa resultado = (Empresa) consulta.uniqueResult();
 
 			return resultado;
@@ -132,34 +133,27 @@ public class EmpresaDAO {
 			sessao.close();
 		}
 	} // Fim do método Editar
-	
-	//Método para consultar um registro no banco
-	@SuppressWarnings("deprecation")
-	public Empresa consultar(int codEmpresa){
-		
-		Session sessao = HibernateUtil.getSessionFactory().openSession();
-		
-		Empresa empresa = null;
-		
-		try{
-
-			Criteria consulta = sessao.createCriteria(Empresa.class);
-			consulta.add(Restrictions.eq("codigo", codEmpresa));
-			
-			empresa = (Empresa)consulta.uniqueResult();
-			
-		}catch(RuntimeException erro){
-			
-			erro.getMessage();
-			
-		}finally{
-			
-			sessao.close();
-			
-		}
-		
-		return empresa;
-		
-	}//Fim da classe consultar
+        
+        
+        public Long contarRegistrosEmpresa(){
+            
+            Session sessao = HibernateUtil.getSessionFactory().openSession();
+                
+                Long count = null;
+            
+		try {
+            
+                    count = (Long) sessao.createQuery("select count(*) from  Empresa").uniqueResult();
+                    return count;
+                    
+                }catch (RuntimeException erro) {
+                    sessao.getTransaction().rollback();
+                    erro.getMessage();
+                    
+                    return count;
+                }
+                
+                
+        }//Fim do método contarRegistroEmpresa
 
 }
