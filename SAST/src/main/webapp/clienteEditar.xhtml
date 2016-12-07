@@ -45,42 +45,42 @@
                             <p:message class="cadastro" for="razao"/>
 
                             <p:outputLabel class="cadastro" value="RG" for="rg"/>
-                            <p:inputText class="cadastro" id="rg" maxlength="9" required="true"
+                            <p:inputMask class="cadastro" id="rg" required="true"
                                          placeholder="Digite aqui o RG ..."
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (8-9)"
-                                         value="#{clienteBean.cliente.rg}">
-                                <f:validateLength minimum="8" maximum="9"/>
-                            </p:inputText>
+                                         value="#{clienteBean.cliente.rg}"
+                                         mask="99.999.999-9"/>
                             <p:message class="cadastro" for="rg"/>
 
                             <p:outputLabel class="cadastro" value="CPF" for="cpf"/>
-                            <p:inputText class="cadastro" id="cpf" maxlength="11" required="true"
+                            <p:inputMask class="cadastro" id="cpf" required="true"
                                          placeholder="Digite aqui o CPF ..." 
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (10-11)"
-                                         value="#{clienteBean.cliente.cpf}">
-                                <f:validateLength minimum="10" maximum="11"/>
-                            </p:inputText>
+                                         value="#{clienteBean.cliente.cpf}"
+                                         mask="999.999.999-99">
+                            </p:inputMask>
                             <p:message class="cadastro" for="cpf"/>
 
                             <p:outputLabel class="cadastro" value="Telefone" for="telefone"/>
-                            <p:inputText class="cadastro" id="telefone" maxlength="13" required="true"
+                            <p:inputMask class="cadastro" id="telefone" required="true"
                                          placeholder="Digite aqui o telefone..." 
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (10-13)"
-                                         value="#{clienteBean.cliente.telefone}">
-                                <f:validateLength minimum="10" maximum="13"/>
-                            </p:inputText>
+                                         value="#{clienteBean.cliente.telefone}"
+                                         mask="(99) 9999-9999?9">
+                            </p:inputMask>
                             <p:message class="cadastro" for="telefone"/>
 
 
                             <p:outputLabel class="cadastro" value="nascimento" for="nascimento"/>
-                            <p:calendar id="nascimento" size="7" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
+                            <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
+                                        readonlyInput = "true"
+                                        required = "true"
+                                        placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
-                                        value="#{clienteBean.cliente.nascimento}"/>
+                                        maxdate="#{clienteBean.dataAtual}"
+                                        value="#{clienteBean.cliente.nascimento}"
+                                       />
                             <p:message class="cadastro" for="nascimento"/>
 
                             <p:outputLabel class="cadastro" value="Estado Civil" for="estadocivil"/>
@@ -215,19 +215,6 @@
                                 <f:validateLength minimum="5" maximum="10"/>
                             </p:inputText>
                             <p:message class="cadastro" for="senha"/>
-
-                            <p:outputLabel class="cadastro" for="perfil" value="Perfil "/>
-                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required = "true" 
-                                             requiredMessage="Campo Obrigatório"
-                                             value="#{clienteBean.cliente.codigoPerfil}"
-                                             converter="omnifaces.SelectItemsConverter">
-                                <f:selectItem itemLabel="Selecione um Perfil" noSelectionOption="true"/>
-                                <f:selectItems value="#{clienteBean.perfis}"
-                                               var="perfil"
-                                               itemValue="#{perfil}"
-                                               itemLabel="#{perfil.nomePerfil}"/>
-                            </p:selectOneMenu>
-                            <p:message class="cadastro" for="perfil"/>
 
                         </h:panelGrid>
                     </div>
