@@ -41,6 +41,8 @@ public class ClienteBean {
     private Integer codigo;
     private Date dataAtual;
 
+    private String senha;
+    
     //Chaves estrangeiras
     private List<Perfil> perfis;
 
@@ -157,6 +159,7 @@ public class ClienteBean {
         ClienteDAO clienteDAO = new ClienteDAO();
         cliente = clienteDAO.consultar(codigo);
         
+        this.senha = cliente.getSenha();
         cliente.setSenha("");
         
         PerfilDAO perfilDAO = new PerfilDAO();
@@ -181,13 +184,19 @@ public class ClienteBean {
         }
        
         if (salvar) {
-
+            Boolean senhaNova = Boolean.TRUE;    
+            
             PerfilDAO perfilDAO = new PerfilDAO();
+            
+            if(TreatString.isBlank(getCliente().getSenha())){
+                getCliente().setSenha(this.senha);
+                senhaNova = Boolean.FALSE;
+            } 
 
             getCliente().setCodigoPerfil(perfilDAO.buscar(codigoCliente));
         
         ClienteDAO clienteDAO = new ClienteDAO();
-        clienteDAO.editar(cliente);
+        clienteDAO.editar(cliente, senhaNova);
         
         Messages.addGlobalInfo("Cliente editado com sucesso!");
         buscar();

@@ -35,44 +35,44 @@
                             <p:message class="cadastro" for="nome"/>
 
                             <p:outputLabel class="cadastro" value="RG" for="rg"/>
-                            <p:inputText class="cadastro" id="rg" maxlength="9" required="true"
+                            <p:inputMask class="cadastro" id="rg" required="true"
                                          placeholder="Digite aqui o RG ..."
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (8-9)"
-                                         value="#{funcionarioBean.funcionario.rg}">
+                                         value="#{funcionarioBean.funcionario.rg}"
+                                         mask="99.999.999-9"/>
                                 <f:validateLength minimum="8" maximum="9"/>
-                            </p:inputText>
+                            </p:inputMask>
                             <p:message class="cadastro" for="rg"/>
 
                             <p:outputLabel class="cadastro" value="CPF" for="cpf"/>
-                            <p:inputText class="cadastro" id="cpf" maxlength="11" required="true"
+                            <p:inputMask class="cadastro" id="cpf" required="true"
                                          placeholder="Digite aqui o CPF ..." 
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (10-11)"
-                                         value="#{funcionarioBean.funcionario.cpf}">
-                                <f:validateLength minimum="10" maximum="11"/>
-                            </p:inputText>
+                                         value="#{funcionarioBean.funcionario.cpf}"
+                                         mask="999.999.999-99">
+                            </p:inputMask>
                             <p:message class="cadastro" for="cpf"/>
 
                             <p:outputLabel class="cadastro" value="Telefone" for="telefone"/>
-                            <p:inputText class="cadastro" id="telefone" maxlength="13" required="true"
+                            <p:inputMask class="cadastro" id="telefone" required="true"
                                          placeholder="Digite aqui o telefone..." 
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (10-13)"
-                                         value="#{funcionarioBean.funcionario.telefone}">
-                                <f:validateLength minimum="10" maximum="13"/>
-                            </p:inputText>
+                                         value="#{funcionarioBean.funcionario.telefone}"
+                                         mask="(99) 9999-9999?9">
+                            </p:inputMask>
                             <p:message class="cadastro" for="telefone"/>
 
 
                             <p:outputLabel class="cadastro" value="Data de Nascimento: " />
                             <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false"
+                                        readonlyInput = "true"
                                         required = "true"
-                                        yearRange="c-100:c+0"
                                         placeholder="01/01/1990"
+                                        yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
-                                        value="#{funcionarioBean.funcionario.nascimento}"/>
+                                        maxdate="#{funcionarioBean.dataAtual}"
+                                        value="#{funcionarioBean.funcionario.nascimento}"
+                                       />
                             <p:message class="cadastro" for="nascimento"/>
 
                             <p:outputLabel class="cadastro" value="Estado Civil" for="estadocivil"/>
@@ -188,23 +188,26 @@
 
                             <p:outputLabel class="cadastro" value="Data de Admissão" for="admissao"/>
                             <p:calendar id="admissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
-                                        required = "true"
-                                        yearRange="c-100:c+0"
-                                        placeholder="01/01/1990"
-                                        requiredMessage="Campo Obrigatório"
-                                        showButtonPanel="true"
-                                        value="#{funcionarioBean.funcionario.dataAdmissao}"/>
-                            <p:message class="cadastro" for="admissao"/>
-
-                            <p:outputLabel class="cadastro" value="Data de Demissão" for="demissao"/>
-                            <p:calendar id="demissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
+                                        readonlyInput = "true"
                                         required = "false"
                                         placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
-                                        showButtonPanel="true"
-                                        value="#{funcionarioBean.funcionario.dataDemissao}"/>
+                                        requiredMessage="Campo Obrigatório"
+                                        mindate="#{funcionarioBean.dataDemissao}"
+                                        value="#{funcionarioBean.funcionario.dataAdmissao}"
+                                        />
+                            <p:message class="cadastro" for="admissao"/>
+
+                            <p:outputLabel class="cadastro" value="Data de Demissão" for="demissao"/>
+                            <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
+                                        readonlyInput = "true"
+                                        required = "false"
+                                        placeholder="01/01/1990"
+                                        yearRange="c-100:c+0"
+                                        requiredMessage="Campo Obrigatório"
+                                        maxdate="#{funcionarioBean.dataDemissao}"
+                                        value="#{funcionarioBean.funcionario.dataDemissao}"
+                                       />
                             <p:message class="cadastro" for="demissao"/>
 
                             <p:outputLabel class="cadastro" for="cargo" value="Cargo "/>
@@ -250,19 +253,6 @@
                                 <f:validateLength minimum="5" maximum="10"/>
                             </p:inputText>
                             <p:message class="cadastro" for="senha"/>
-
-                            <p:outputLabel class="cadastro" for="perfil" value="Perfil "/>
-                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required="true" 
-                                             requiredMessage="Campo Obrigatório"
-                                             value="#{funcionarioBean.funcionario.codigoPerfil}"
-                                             converter="omnifaces.SelectItemsConverter">
-                                <f:selectItem itemLabel="Selecione um Perfil" noSelectionOption="true"/>
-                                <f:selectItems value="#{funcionarioBean.perfis}"
-                                               var="perfil"
-                                               itemValue="#{perfil}"
-                                               itemLabel="#{perfil.nomePerfil}"/>
-                            </p:selectOneMenu>
-                            <p:message class="cadastro" for="perfil"/>
 
                         </h:panelGrid>
                     </div>

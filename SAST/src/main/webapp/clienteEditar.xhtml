@@ -207,9 +207,8 @@
                             <p:message class="cadastro" for="login"/>
 
                             <p:outputLabel class="cadastro" value="Senha" for="senha"/>
-                            <p:inputText class="cadastro" id="senha" maxlength="10" required="true"
+                            <p:inputText class="cadastro" id="senha" maxlength="10"
                                          placeholder="Digite aqui a senha..."
-                                         requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (5-10)"
                                          value="#{clienteBean.cliente.senha}">
                                 <f:validateLength minimum="5" maximum="10"/>
