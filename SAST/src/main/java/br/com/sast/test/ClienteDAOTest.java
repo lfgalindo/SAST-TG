@@ -91,7 +91,11 @@ public class ClienteDAOTest {
         
         resultado.setNome("LUIZINHO GALINDO");
         
+<<<<<<< HEAD
         clienteDAO.editar(resultado, true);
+=======
+        clienteDAO.editar(resultado,false);
+>>>>>>> 06c6cbb62ae117abd22102b5733eada3dd8af917
         
         System.out.println("Cliente Editado: " + resultado);
     }

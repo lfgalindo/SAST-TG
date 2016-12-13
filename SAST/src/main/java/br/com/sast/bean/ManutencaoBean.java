@@ -151,7 +151,7 @@ public class ManutencaoBean {
         Messages.addGlobalInfo("Manutenção excluída com sucesso!");
 
         try {
-            Faces.redirect("funcionarioListar.xhtml");
+            Faces.redirect("manutencaoListar.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(PerfilBean.class.getName()).log(Level.SEVERE, null, ex);
         }
