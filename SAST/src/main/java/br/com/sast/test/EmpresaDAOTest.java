@@ -45,7 +45,7 @@ public class EmpresaDAOTest {
 		
 		EmpresaDAO empresaDAO = new EmpresaDAO();
 		
-		Empresa empresa = empresaDAO.buscar(15);
+		Empresa empresa = empresaDAO.buscar();
 		
 		System.out.println("Nome da empresa: " + empresa.getNomeEmpresa() + "\nRazão Social: " + empresa.getRazaoSocial());
 		
@@ -73,7 +73,7 @@ public class EmpresaDAOTest {
 
         EmpresaDAO empresaDAO = new EmpresaDAO();
 
-        Empresa resultado = empresaDAO.buscar(codigo);
+        Empresa resultado = empresaDAO.buscar();
         
         System.out.println("Objeto encontrado " + resultado);
         
@@ -92,7 +92,7 @@ public class EmpresaDAOTest {
 
         EmpresaDAO empresaDAO = new EmpresaDAO();
         
-        Empresa resultado = empresaDAO.buscar(codigo);
+        Empresa resultado = empresaDAO.buscar();
         
         empresaDAO.excluir(resultado);
         

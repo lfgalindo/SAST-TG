@@ -101,7 +101,7 @@ public class FuncionarioDAOTest {
         
         resultado.setNome("LUIZINHO GALINDO");
         
-        funcionarioDAO.editar(resultado);
+        funcionarioDAO.editar(resultado,false);
         
         System.out.println("Funcionário Editado: " + resultado);
     }
