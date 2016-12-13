@@ -105,7 +105,7 @@ public class FuncionarioDAO {
     }// Fim da classe consultar
 
     //Método para editar um registro do banco
-    public void editar(Funcionario funcionario) {
+    public void editar(Funcionario funcionario, Boolean senhaNova) {
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
 
@@ -114,13 +114,15 @@ public class FuncionarioDAO {
         try {
             sessao.beginTransaction();
             // Criptografando senha
-            SimpleHash hash = new SimpleHash("md5", funcionario.getSenha());
-            funcionario.setSenha(hash.toHex());
+            if(senhaNova){
+                SimpleHash hash = new SimpleHash("md5", funcionario.getSenha());
+                funcionario.setSenha(hash.toHex());
+            }
             sessao.update(funcionario);
             sessao.getTransaction().commit();
 
         } catch (RuntimeException erro) {
-            funcionario.setSenha(senhaSemCriptografia);
+
             sessao.getTransaction().rollback();
             erro.getMessage();
 

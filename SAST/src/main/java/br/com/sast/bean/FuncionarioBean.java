@@ -12,7 +12,11 @@ import javax.faces.bean.ViewScoped;
 
 import org.omnifaces.util.Messages;
 import br.com.sast.domain.Perfil;
+import br.com.sast.util.TreatString;
+import br.com.sast.util.Util;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.omnifaces.util.Faces;
@@ -21,17 +25,29 @@ import org.omnifaces.util.Faces;
 @ViewScoped
 public class FuncionarioBean {
 
+    private final Integer codigoFuncionario = 8;
+
     private Funcionario funcionario;
     private List<Funcionario> funcionarios;
     private Integer codigo;
+    private String senha;
 
     //Chaves estrangeiras
     private List<Perfil> perfis;
     private List<Cargo> cargos;
 
+    private Date dataAtual;
+    private Date dataDemissao;
+
     //MÉTODOS CRUD
     //método que prepara a tela para inserir novo registro.
     public void novo() {
+
+        Calendar calendar = Calendar.getInstance();
+        setDataDemissao(calendar.getTime());
+
+        calendar.add(Calendar.YEAR, -16);
+        setDataAtual(calendar.getTime());
 
         funcionario = new Funcionario();
 
@@ -52,12 +68,32 @@ public class FuncionarioBean {
     //método para inserir um novo registro no banco.
     public void salvar() {
 
-        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        funcionarioDAO.inserir(funcionario);
+        Boolean salvar = Boolean.TRUE;
 
-        Messages.addGlobalInfo("Funcionário inserido com sucesso!");
+        if (!Util.isCPFValid(getFuncionario().getCpf())) {
+            getFuncionario().setCpf("");
+            Messages.addGlobalWarn("CPF inválido!");
+            salvar = Boolean.FALSE;
+        }
+        if (!TreatString.isEmailValid(getFuncionario().getEmail())) {
+            getFuncionario().setEmail("");
+            Messages.addGlobalWarn("E-mail inválido!");
+            salvar = Boolean.FALSE;
+        }
 
-        novo();
+        if (salvar) {
+
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            PerfilDAO perfilDAO = new PerfilDAO();
+
+            funcionario.setCodigoPerfil(perfilDAO.buscar(codigoFuncionario));
+            funcionarioDAO.inserir(funcionario);
+
+                Messages.addGlobalInfo("Funcionário inserido com sucesso!");
+                
+                novo();
+
+        }
 
     }//fim do método salvar
 
@@ -72,8 +108,17 @@ public class FuncionarioBean {
     //método para buscar um registro específico no banco.
     public void buscar() {
 
+        Calendar calendar = Calendar.getInstance();
+        setDataDemissao(calendar.getTime());
+
+        calendar.add(Calendar.YEAR, -15);
+        setDataAtual(calendar.getTime());
+
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         funcionario = funcionarioDAO.consultar(codigo);
+
+        this.senha = getFuncionario().getSenha();
+        getFuncionario().setSenha("");
 
         PerfilDAO perfilDAO = new PerfilDAO();
         perfis = perfilDAO.listar();
@@ -86,11 +131,35 @@ public class FuncionarioBean {
     //método para editar um registro específico no banco.
     public void editar() {
 
-        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        funcionarioDAO.editar(funcionario);
+        Boolean salvar = Boolean.TRUE;
 
-        Messages.addGlobalInfo("Funcionário editado com sucesso!");
-        buscar();
+        if (!Util.isCPFValid(getFuncionario().getCpf())) {
+            getFuncionario().setCpf("");
+            Messages.addGlobalWarn("CPF inválido!");
+            salvar = Boolean.FALSE;
+        }
+        if (!TreatString.isEmailValid(getFuncionario().getEmail())) {
+            getFuncionario().setEmail("");
+            Messages.addGlobalWarn("E-mail inválido!");
+            salvar = Boolean.FALSE;
+        }
+
+        if (salvar) {
+
+            Boolean senhaNova = Boolean.TRUE;
+
+            if (TreatString.isBlank(getFuncionario().getSenha())) {
+                getFuncionario().setSenha(this.senha);
+                senhaNova = Boolean.FALSE;
+            }
+
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            funcionarioDAO.editar(funcionario, senhaNova);
+            
+            Messages.addGlobalInfo("Funcionário editado com sucesso!");
+            buscar();
+
+        }
 
     }//fim do método editar
 
@@ -149,6 +218,22 @@ public class FuncionarioBean {
 
     public void setCargos(List<Cargo> cargos) {
         this.cargos = cargos;
+    }
+
+    public Date getDataAtual() {
+        return dataAtual;
+    }
+
+    public void setDataAtual(Date dataAtual) {
+        this.dataAtual = dataAtual;
+    }
+
+    public Date getDataDemissao() {
+        return dataDemissao;
+    }
+
+    public void setDataDemissao(Date dataDemissao) {
+        this.dataDemissao = dataDemissao;
     }
 
 }

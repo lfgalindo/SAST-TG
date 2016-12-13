@@ -17,17 +17,14 @@ import br.com.sast.dao.ClienteDAO;
 import br.com.sast.dao.PerfilDAO;
 import br.com.sast.domain.Cliente;
 import br.com.sast.domain.Perfil;
-import br.com.sast.util.TreatDate;
 import br.com.sast.util.TreatString;
 import br.com.sast.util.Util;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.application.FacesMessage;
 import org.omnifaces.util.Faces;
 
 @ManagedBean

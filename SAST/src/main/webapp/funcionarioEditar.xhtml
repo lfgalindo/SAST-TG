@@ -39,8 +39,7 @@
                                          placeholder="Digite aqui o RG ..."
                                          requiredMessage="Campo obrigatório"
                                          value="#{funcionarioBean.funcionario.rg}"
-                                         mask="99.999.999-9"/>
-                                <f:validateLength minimum="8" maximum="9"/>
+                                         mask="99.999.999-9">
                             </p:inputMask>
                             <p:message class="cadastro" for="rg"/>
 
@@ -63,7 +62,7 @@
                             <p:message class="cadastro" for="telefone"/>
 
 
-                            <p:outputLabel class="cadastro" value="Data de Nascimento: " />
+                            <p:outputLabel class="cadastro" value="Data de Nascimento: " for="nascimento"/>
                             <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput = "true"
                                         required = "true"
@@ -189,23 +188,22 @@
                             <p:outputLabel class="cadastro" value="Data de Admissão" for="admissao"/>
                             <p:calendar id="admissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput = "true"
-                                        required = "false"
+                                        required = "true"
                                         placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
-                                        mindate="#{funcionarioBean.dataDemissao}"
+                                        maxdate="#{funcionarioBean.dataDemissao}"
                                         value="#{funcionarioBean.funcionario.dataAdmissao}"
                                         />
                             <p:message class="cadastro" for="admissao"/>
 
                             <p:outputLabel class="cadastro" value="Data de Demissão" for="demissao"/>
-                            <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
+                            <p:calendar id="demissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput = "true"
                                         required = "false"
                                         placeholder="01/01/1990"
                                         yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
-                                        maxdate="#{funcionarioBean.dataDemissao}"
                                         value="#{funcionarioBean.funcionario.dataDemissao}"
                                        />
                             <p:message class="cadastro" for="demissao"/>
@@ -245,7 +243,7 @@
                             <p:message class="cadastro" for="login"/>
 
                             <p:outputLabel class="cadastro" value="Senha" for="senha"/>
-                            <p:inputText class="cadastro" id="senha" maxlength="10" required="true"
+                            <p:inputText class="cadastro" id="senha" maxlength="10" required="false"
                                          placeholder="Digite aqui a senha..."
                                          requiredMessage="Campo obrigatório"
                                          validatorMessage="Tamanho inválido (5-10)"
@@ -260,7 +258,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="funcionarioListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{funcionarioBean.editar()}">
+                                         action="#{funcionarioBean.editar()}">
                             <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" /> 
                         </p:commandButton>
 

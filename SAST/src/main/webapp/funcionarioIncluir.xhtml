@@ -8,6 +8,7 @@
 
     <f:metadata>
         <f:viewAction action="#{funcionarioBean.novo()}"/>
+        <f:view 
     </f:metadata>
 
     <ui:composition template="modeloGeral.xhtml">
@@ -36,9 +37,8 @@
                             <p:inputMask class="cadastro" id="rg" required="true"
                                          placeholder="Digite aqui o RG ..."
                                          requiredMessage="Campo obrigatório"
-                                         value="#{funcionarioBean.cliente.rg}"
-                                         mask="99.999.999-9"/>
-                                <f:validateLength minimum="8" maximum="9"/>
+                                         value="#{funcionarioBean.funcionario.rg}"
+                                         mask="99.999.999-9">
                             </p:inputMask>
                             <p:message class="cadastro" for="rg"/>
 
@@ -46,7 +46,7 @@
                             <p:inputMask class="cadastro" id="cpf" required="true"
                                          placeholder="Digite aqui o CPF ..." 
                                          requiredMessage="Campo obrigatório"
-                                         value="#{funcionarioBean.cliente.cpf}"
+                                         value="#{funcionarioBean.funcionario.cpf}"
                                          mask="999.999.999-99">
                             </p:inputMask>
                             <p:message class="cadastro" for="cpf"/>
@@ -61,7 +61,7 @@
                             <p:message class="cadastro" for="telefone"/>
 
 
-                            <p:outputLabel class="cadastro" value="Data de Nascimento: " />
+                            <p:outputLabel class="cadastro" value="Data de Nascimento: " for="nascimento"/>
                             <p:calendar id="nascimento" size="10" navigator = "true" pattern="dd/MM/yyyy" 
                                         readonlyInput = "true"
                                         required = "true"
@@ -186,24 +186,14 @@
 
                             <p:outputLabel class="cadastro" value="Data de Admissão" for="admissao"/>
                             <p:calendar id="admissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
+                                        readonlyInput = "true"
                                         required = "true"
-                                        yearRange="c-100:c+0"
                                         placeholder="01/01/1990"
+                                        yearRange="c-100:c+0"
                                         requiredMessage="Campo Obrigatório"
-                                        showButtonPanel="true"
+                                        maxdate="#{funcionarioBean.dataDemissao}"
                                         value="#{funcionarioBean.funcionario.dataAdmissao}"/>
                             <p:message class="cadastro" for="admissao"/>
-
-                            <p:outputLabel class="cadastro" value="Data de Demissão" for="demissao"/>
-                            <p:calendar id="demissao" size="10" navigator = "true" pattern="dd/MM/yyyy" 
-                                        readonlyInput="false" 
-                                        required = "false"
-                                        placeholder="01/01/1990"
-                                        yearRange="c-100:c+0"
-                                        showButtonPanel="true"
-                                        value="#{funcionarioBean.funcionario.dataDemissao}"/>
-                            <p:message class="cadastro" for="demissao"/>
 
                             <p:outputLabel class="cadastro" for="cargo" value="Cargo "/>
                             <p:selectOneMenu class="cadastro" id="cargo" filter="true" filterMatchMode="contains" required = "true" 
@@ -249,28 +239,13 @@
                             </p:inputText>
                             <p:message class="cadastro" for="senha"/>
 
-                            <p:outputLabel class="cadastro" for="perfil" value="Perfil "/>
-                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required="true" 
-                                             requiredMessage="Campo Obrigatório"
-                                             value="#{funcionarioBean.funcionario.codigoPerfil}"
-                                             converter="omnifaces.SelectItemsConverter">
-                                <f:selectItem itemLabel="Selecione um Perfil" noSelectionOption="true"/>
-                                <f:selectItems value="#{funcionarioBean.perfis}"
-                                               var="perfil"
-                                               itemValue="#{perfil}"
-                                               itemLabel="#{perfil.nomePerfil}"/>
-                            </p:selectOneMenu>
-                            <p:message class="cadastro" for="perfil"/>
-
-
-
                         </h:panelGrid>
                     </div>
 
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="funcionarioListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{funcionarioBean.salvar()}">
+                                         action="#{funcionarioBean.salvar()}">
                             <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" />
                         </p:commandButton>
 

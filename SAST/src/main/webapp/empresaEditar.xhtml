@@ -44,21 +44,20 @@
                             <p:message class="cadastro" for="razao"/>
 
                             <p:outputLabel class="cadastro" value="CNPJ" for="cnpj"/>
-                            <p:inputText class="cadastro" id="cnpj" required="true"
+                            <p:inputMask class="cadastro" id="cnpj" required="true"
                                          placeholder="Digite aqui o CNPJ ..."
                                          requiredMessage="Campo obrigatório"
+                                         mask="99.999.999/9999-99"
                                          value="#{empresaBean.empresa.cnpj}">
-                            </p:inputText>
+                            </p:inputMask>
                             <p:message class="cadastro" for="cnpj"/>
 
                             <p:outputLabel class="cadastro" value="Telefone" for="telefone"/>
-                            <p:inputText class="cadastro" id="telefone" maxlength="13" required="true"
+                            <p:inputMask class="cadastro" id="telefone" required="true"
                                          placeholder="Digite aqui o telefone..." 
                                          requiredMessage="Campo obrigatório"
-                                         validatorMessage="Tamanho inválido (10-13)"
-                                         value="#{empresaBean.empresa.telefone}">
-                                <f:validateLength minimum="10" maximum="13"/>
-                            </p:inputText>
+                                         mask="(99) 9999-9999?9"
+                                         value="#{empresaBean.empresa.telefone}"/>
                             <p:message class="cadastro" for="telefone"/>
 
                             <p:outputLabel value="Endereço" class="cadastro" for="endereco" />
