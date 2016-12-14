@@ -23,22 +23,26 @@
                                      var="Funcionario" paginator="true" paginatorPosition="bottom" rows="10">
 
                             <p:column headerText="Nome" sortBy="#{Funcionario.nome}" filterBy="#{Funcionario.nome}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Funcionario.nome}" />
                             </p:column>
 
                             <p:column headerText="Telefone" sortBy="#{Funcionario.telefone}" filterBy="#{Funcionario.telefone}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Funcionario.telefone}" />
                             </p:column>
 
                             <p:column headerText="E-mail" sortBy="#{Funcionario.email}" filterBy="#{Funcionario.email}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Funcionario.email}" />
                             </p:column>
 
                             <p:column headerText="Cidade" sortBy="#{Funcionario.cidade}}" filterBy="#{Funcionario.cidade}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Funcionario.cidade}" />
                             </p:column>
 

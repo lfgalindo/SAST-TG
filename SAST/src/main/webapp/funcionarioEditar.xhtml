@@ -251,6 +251,19 @@
                                 <f:validateLength minimum="5" maximum="10"/>
                             </p:inputText>
                             <p:message class="cadastro" for="senha"/>
+                            
+                            <p:outputLabel class="cadastro" for="perfil" value="Perfil "/>
+                            <p:selectOneMenu class="cadastro" id="perfil" filter="true" filterMatchMode="contains" required = "true" 
+                                             requiredMessage="Campo Obrigatório"
+                                             value="#{funcionarioBean.funcionario.codigoPerfil}"
+                                             converter="omnifaces.SelectItemsConverter">
+                                <f:selectItem itemLabel="Selecione um Perfil" noSelectionOption="true"/>
+                                <f:selectItems value="#{funcionarioBean.perfis}"
+                                               var="perfil"
+                                               itemValue="#{perfil}"
+                                               itemLabel="#{perfil.nomePerfil}"/>
+                            </p:selectOneMenu>
+                            <p:message class="cadastro" for="perfil"/>
 
                         </h:panelGrid>
                     </div>

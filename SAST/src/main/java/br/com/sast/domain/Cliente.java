@@ -72,7 +72,7 @@ public class Cliente implements java.io.Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date nascimento;	
 	
-	@Column(length = 20, nullable = false)
+	@Column(length = 20, nullable = false, unique = true)
 	private String login;
 	
 	@Column(length = 32, nullable = false)

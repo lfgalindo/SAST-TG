@@ -24,27 +24,32 @@
                                      var="Plano" paginator="true" paginatorPosition="bottom" rows="10">
 
                             <p:column headerText="Descrição" sortBy="#{Plano.codigoPlano.descricao}" filterBy="#{Plano.codigoPlano.descricao}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Plano.codigoPlano.descricao}" />
                             </p:column>
 
                             <p:column headerText="Velocidade" sortBy="#{Plano.codigoPlano.velocidade}" filterBy="#{Plano.codigoPlano.velocidade}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Plano.codigoPlano.velocidade} Kbps" />
                             </p:column>
 
                             <p:column headerText="Garantia de Banda" sortBy="#{Plano.codigoPlano.garantia}" filterBy="#{Plano.codigoPlano.garantia}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Plano.codigoPlano.garantia}%" />
                             </p:column>
 
                             <p:column headerText="Tipo de Conexão" sortBy="#{Plano.codigoPlano.tipoConexao}" filterBy="#{Plano.codigoPlano.tipoConexao}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Plano.codigoPlano.tipoConexao}" />
                             </p:column>
 
                             <p:column headerText="Valor" sortBy="#{Plano.codigoPlano.valor}}" filterBy="#{Plano.codigoPlano.codigoPlano.valor}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="R$ #{Plano.codigoPlano.valor}" />
                             </p:column>
 

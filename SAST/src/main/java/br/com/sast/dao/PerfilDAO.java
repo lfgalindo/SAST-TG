@@ -87,6 +87,30 @@ public class PerfilDAO {
 
         }
     } // Fim do método buscar
+    
+    // Método que fará a persistência no banco para buscar um determinado perfil
+    @SuppressWarnings("deprecation")
+    public Perfil buscarCliente() {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+            Criteria consulta = sessao.createCriteria(Perfil.class);
+
+            consulta.add(Restrictions.eq("nomePerfil", "%Cliente%"));
+
+            Perfil resultado = (Perfil) consulta.uniqueResult();
+
+            return resultado;
+
+        } catch (RuntimeException erro) {
+            throw erro;
+
+        } finally {
+            sessao.close();
+
+        }
+    } // Fim do método buscar
 
     // Método que fará a persistência no banco para excluir um perfil
     public void excluir(Perfil perfil) {

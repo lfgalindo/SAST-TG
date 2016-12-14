@@ -221,7 +221,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="clienteListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{clienteBean.editar()}">
+                                         action="#{clienteBean.editar()}">
                             <p:confirm header="Confirmar edição" message="Deseja realmente editar este registro?" icon="ui-icon-alert" />
                         </p:commandButton>
 

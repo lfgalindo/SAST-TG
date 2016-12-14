@@ -22,29 +22,34 @@
                                      var="Manutencao" paginator="true" paginatorPosition="bottom" rows="10">
 
                             <p:column headerText="Cliente" sortBy="#{Manutencao.codigoCliente.nome}" filterBy="#{Manutencao.codigoCliente.nome}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Manutencao.codigoCliente.nome}" />
                             </p:column>
 
                             <p:column headerText="Funcionario" sortBy="#{Manutencao.codigoFuncionario.nome}" filterBy="#{Manutencao.codigoFuncionario.nome}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Manutencao.codigoFuncionario.nome}" />
                             </p:column>
 
                             <p:column headerText="Descrição" sortBy="#{Manutencao.descricao}" filterBy="#{Manutencao.descricao}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Manutencao.descricao}" />
                             </p:column>
 
                             <p:column headerText="Data do agendamento" sortBy="#{Manutencao.dtAgendamento}" filterBy="#{Manutencao.dtAgendamento}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Manutencao.dtAgendamento}">
                                     <f:convertDateTime locale="pt_BR" />
                                 </h:outputText>
                             </p:column>
 
                             <p:column headerText="Prioridade" sortBy="#{Manutencao.prioridade}" filterBy="#{Manutencao.prioridade}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Manutencao.prioridade}" />
                             </p:column>
 

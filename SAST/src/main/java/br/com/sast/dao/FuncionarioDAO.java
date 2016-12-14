@@ -9,7 +9,9 @@ import org.hibernate.criterion.Restrictions;
 import br.com.sast.domain.Funcionario;
 import br.com.sast.util.HibernateUtil;
 import br.com.sast.util.Util;
+
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.hibernate.HibernateException;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_funcionario".
@@ -103,7 +105,73 @@ public class FuncionarioDAO {
         return pessoa;
 
     }// Fim da classe consultar
+    
+    //Método para buscar um registro do banco.
+    @SuppressWarnings("deprecation")
+    public Funcionario buscarCpfExistente(String cpf) {
 
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Funcionario pessoa = null;
+
+        try {
+
+            Criteria consulta = sessao.createCriteria(Funcionario.class);
+
+            consulta.add(Restrictions.eq("cpf", cpf));
+
+            pessoa = (Funcionario) consulta.uniqueResult();
+
+        } catch(HibernateException e) {
+            System.out.println(""+e);
+        } catch (RuntimeException erro) {
+
+            erro.getMessage();
+            
+
+        } finally {
+
+            sessao.close();
+
+        }
+
+        return pessoa;
+
+    }// Fim da classe consultar
+
+    //Método para buscar um registro do banco.
+    @SuppressWarnings("deprecation")
+    public Funcionario buscarRgExistente(String rg) {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Funcionario pessoa = null;
+
+        try {
+
+            Criteria consulta = sessao.createCriteria(Funcionario.class);
+
+            consulta.add(Restrictions.eq("rg", rg));
+
+            pessoa = (Funcionario) consulta.uniqueResult();
+
+        } catch(HibernateException e) {
+            System.out.println(""+e);
+        } catch (RuntimeException erro) {
+
+            erro.getMessage();
+            
+
+        } finally {
+
+            sessao.close();
+
+        }
+
+        return pessoa;
+
+    }// Fim da classe consultar
+    
     //Método para editar um registro do banco
     public void editar(Funcionario funcionario, Boolean senhaNova) {
 
@@ -121,7 +189,9 @@ public class FuncionarioDAO {
             sessao.update(funcionario);
             sessao.getTransaction().commit();
 
-        } catch (RuntimeException erro) {
+        } catch(org.hibernate.exception.ConstraintViolationException e) {
+            System.err.println(""+e); 
+        }catch (RuntimeException erro) {
 
             sessao.getTransaction().rollback();
             erro.getMessage();

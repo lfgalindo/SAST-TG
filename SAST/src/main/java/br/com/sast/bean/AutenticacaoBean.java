@@ -37,6 +37,14 @@ public class AutenticacaoBean implements Serializable{
     public Boolean isFuncionario;
     public Boolean isCliente;
     public Boolean Empresa;
+    
+    private Integer gerenciarClientes;
+    private Integer gerenciarFuncionarios;
+    private Integer gerenciarCargos;
+    private Integer gerenciarPlanos;
+    private Integer gerenciarManutencoes;
+    private Integer gerenciarPerfis;
+    private Integer gerenciarConfiguracoes;
 
     private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     private Funcionario funcionario;
@@ -74,6 +82,16 @@ public class AutenticacaoBean implements Serializable{
                setEmpresa(Boolean.TRUE);
            }else{
                setEmpresa(Boolean.FALSE);
+           }
+           
+           if(Util.isNotNull(getFuncionarioLogado())){
+               setGerenciarCargos(getFuncionarioLogado().getCodigoPerfil().getGerenciarCargos());
+               setGerenciarClientes(getFuncionarioLogado().getCodigoPerfil().getGerenciarClientes());
+               setGerenciarConfiguracoes(getFuncionarioLogado().getCodigoPerfil().getGerenciarConfiguracoes());
+               setGerenciarFuncionarios(getFuncionarioLogado().getCodigoPerfil().getGerenciarFuncionarios());
+               setGerenciarManutencoes(getFuncionarioLogado().getCodigoPerfil().getGerenciarManutencoes());
+               setGerenciarPerfis(getFuncionarioLogado().getCodigoPerfil().getGerenciarPerfis());
+               setGerenciarPlanos(getFuncionarioLogado().getCodigoPerfil().getGerenciarPlanos());
            }
            
            Faces.setSessionAttribute(PAGINA_AUTENTICACAO, this);
@@ -153,5 +171,79 @@ public class AutenticacaoBean implements Serializable{
     public void setEmpresa(Boolean Empresa) {
         this.Empresa = Empresa;
     }
+
+    public Integer getGerenciarClientes() {
+        return gerenciarClientes;
+    }
+
+    public void setGerenciarClientes(Integer gerenciarClientes) {
+        this.gerenciarClientes = gerenciarClientes;
+    }
+
+    public Integer getGerenciarFuncionarios() {
+        return gerenciarFuncionarios;
+    }
+
+    public void setGerenciarFuncionarios(Integer gerenciarFuncionarios) {
+        this.gerenciarFuncionarios = gerenciarFuncionarios;
+    }
+
+    public Integer getGerenciarCargos() {
+        return gerenciarCargos;
+    }
+
+    public void setGerenciarCargos(Integer gerenciarCargos) {
+        this.gerenciarCargos = gerenciarCargos;
+    }
+
+    public Integer getGerenciarPlanos() {
+        return gerenciarPlanos;
+    }
+
+    public void setGerenciarPlanos(Integer gerenciarPlanos) {
+        this.gerenciarPlanos = gerenciarPlanos;
+    }
+
+    public Integer getGerenciarManutencoes() {
+        return gerenciarManutencoes;
+    }
+
+    public void setGerenciarManutencoes(Integer gerenciarManutencoes) {
+        this.gerenciarManutencoes = gerenciarManutencoes;
+    }
+
+    public Integer getGerenciarPerfis() {
+        return gerenciarPerfis;
+    }
+
+    public void setGerenciarPerfis(Integer gerenciarPerfis) {
+        this.gerenciarPerfis = gerenciarPerfis;
+    }
+
+    public Integer getGerenciarConfiguracoes() {
+        return gerenciarConfiguracoes;
+    }
+
+    public void setGerenciarConfiguracoes(Integer gerenciarConfiguracoes) {
+        this.gerenciarConfiguracoes = gerenciarConfiguracoes;
+    }
+
+    public FuncionarioDAO getFuncionarioDAO() {
+        return funcionarioDAO;
+    }
+
+    public void setFuncionarioDAO(FuncionarioDAO funcionarioDAO) {
+        this.funcionarioDAO = funcionarioDAO;
+    }
+
+    public ClienteDAO getClienteDAO() {
+        return clienteDAO;
+    }
+
+    public void setClienteDAO(ClienteDAO clienteDAO) {
+        this.clienteDAO = clienteDAO;
+    }
+    
+    
 }
 

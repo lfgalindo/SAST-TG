@@ -31,15 +31,13 @@ import org.omnifaces.util.Faces;
 @ViewScoped
 public class ClienteBean {
 
-    private final Integer codigoCliente = 3;
-
     private Cliente cliente;
+    private Cliente clienteAuxiliar;
+
     private List<Cliente> clientes;
     private Integer codigo;
     private Date dataAtual;
 
-    private String senha;
-    
     //Chaves estrangeiras
     private List<Perfil> perfis;
 
@@ -75,7 +73,7 @@ public class ClienteBean {
     public void setPerfis(List<Perfil> perfis) {
         this.perfis = perfis;
     }
-    
+
     public Date getDataAtual() {
         return dataAtual;
     }
@@ -87,13 +85,14 @@ public class ClienteBean {
     //MÉTODOS CRUD
     //método que prepara a tela para inserir novo registro.
     public void novo() {
-        
+
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, -15);
-        
+
         setDataAtual(calendar.getTime());
 
         cliente = new Cliente();
+        clienteAuxiliar = new Cliente();
 
         ClienteDAO clienteDAO = new ClienteDAO();
 
@@ -121,19 +120,30 @@ public class ClienteBean {
             Messages.addGlobalWarn("E-mail inválido!");
             salvar = Boolean.FALSE;
         }
-       
+
         if (salvar) {
 
-            PerfilDAO perfilDAO = new PerfilDAO();
-
-            getCliente().setCodigoPerfil(perfilDAO.buscar(codigoCliente));
-            
             ClienteDAO clienteDAO = new ClienteDAO();
-            clienteDAO.inserir(cliente);
 
-            Messages.addGlobalInfo("Cliente inserido com sucesso!");
+            if (Util.isNotNull(clienteDAO.buscarRgExistente(getCliente().getRg()))) {
+                Messages.addGlobalWarn("RG já existente!");
+            } else if (Util.isNotNull(clienteDAO.buscarCpfExistente(getCliente().getCpf()))) {
+                Messages.addGlobalWarn("CPF já existente!");
+            } else {
+                
+                System.err.println(clienteDAO.buscarRgExistente(getCliente().getRg()));
+                System.err.println(clienteDAO.buscarCpfExistente(getCliente().getCpf()));
 
-            novo();
+                PerfilDAO perfilDAO = new PerfilDAO();
+
+                getCliente().setCodigoPerfil(perfilDAO.buscarCliente());
+
+                clienteDAO.inserir(cliente);
+
+                Messages.addGlobalInfo("Cliente inserido com sucesso!");
+
+                novo();
+            }
         }
     }//fim do método salvar
 
@@ -150,15 +160,19 @@ public class ClienteBean {
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.YEAR, -15);
-        
+
         setDataAtual(calendar.getTime());
-        
+
         ClienteDAO clienteDAO = new ClienteDAO();
         cliente = clienteDAO.consultar(codigo);
-        
-        this.senha = cliente.getSenha();
+
+        clienteAuxiliar = new Cliente();
+
+        this.clienteAuxiliar.setSenha(getCliente().getSenha());
+        this.clienteAuxiliar.setRg(getCliente().getRg());
+        this.clienteAuxiliar.setCpf(getCliente().getCpf());
         cliente.setSenha("");
-        
+
         PerfilDAO perfilDAO = new PerfilDAO();
         perfis = perfilDAO.listar();
 
@@ -166,8 +180,9 @@ public class ClienteBean {
 
     //método para editar um registro específico no banco.
     public void editar() {
-        
-         Boolean salvar = Boolean.TRUE;
+
+        ClienteDAO clienteDAO = new ClienteDAO();
+        Boolean salvar = Boolean.TRUE;
 
         if (!Util.isCPFValid(getCliente().getCpf())) {
             getCliente().setCpf("");
@@ -179,24 +194,33 @@ public class ClienteBean {
             Messages.addGlobalWarn("E-mail inválido!");
             salvar = Boolean.FALSE;
         }
-       
-        if (salvar) {
-            Boolean senhaNova = Boolean.TRUE;    
-            
-            PerfilDAO perfilDAO = new PerfilDAO();
-            
-            if(TreatString.isBlank(getCliente().getSenha())){
-                getCliente().setSenha(this.senha);
-                senhaNova = Boolean.FALSE;
-            } 
 
-            getCliente().setCodigoPerfil(perfilDAO.buscar(codigoCliente));
-        
-        ClienteDAO clienteDAO = new ClienteDAO();
-        clienteDAO.editar(cliente, senhaNova);
-        
-        Messages.addGlobalInfo("Cliente editado com sucesso!");
-        buscar();
+        if (!clienteAuxiliar.getCpf().equals(getCliente().getCpf())) {
+            if (Util.isNotNull(clienteDAO.buscarCpfExistente(getCliente().getCpf()))) {
+                Messages.addGlobalWarn("CPF já existente!");
+                salvar = Boolean.FALSE;
+            }
+        }
+
+        if (!clienteAuxiliar.getRg().equals(getCliente().getRg())) {
+            if (Util.isNotNull(clienteDAO.buscarRgExistente(getCliente().getRg()))) {
+                Messages.addGlobalWarn("RG já existente!");
+                salvar = Boolean.FALSE;
+            }
+        }
+
+        if (salvar) {
+            Boolean senhaNova = Boolean.TRUE;
+
+            if (TreatString.isBlank(getCliente().getSenha())) {
+                getCliente().setSenha(clienteAuxiliar.getSenha());
+                senhaNova = Boolean.FALSE;
+            }
+
+            clienteDAO.editar(cliente, senhaNova);
+
+            Messages.addGlobalInfo("Cliente editado com sucesso!");
+            buscar();
         }
     }//fim do método editar
 

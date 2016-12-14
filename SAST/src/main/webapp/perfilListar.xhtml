@@ -23,12 +23,14 @@
                                                  var="Perfil" paginator="true" paginatorPosition="bottom" rows="10">
 
                                         <p:column headerText="Código" sortBy="#{Perfil.codigo}" filterBy="#{Perfil.codigo}"
-							filterMatchMode="contains">
+							filterMatchMode="contains"
+                                                        style="text-align: center">
 							<h:outputText value="#{Perfil.codigo}" />
 						</p:column>
 
                                         <p:column headerText="Nome do perfil" sortBy="#{Perfil.nomePerfil}" filterBy="#{Perfil.nomePerfil}"
-							filterMatchMode="contains">
+							filterMatchMode="contains"
+                                                        style="text-align: center">
                                             <h:outputText value="#{Perfil.nomePerfil}" />
 						</p:column>
 

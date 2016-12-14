@@ -8,8 +8,10 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import br.com.sast.domain.Cliente;
+import br.com.sast.domain.Funcionario;
 import br.com.sast.util.HibernateUtil;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.hibernate.HibernateException;
 
 /**
  * Classe definida para realizar a persistência na entidade "tb_cliente".
@@ -17,10 +19,10 @@ import org.apache.shiro.crypto.hash.SimpleHash;
  * @author Luís Guilherme Fernandes Ferreira <guihms1@gmail.com>
  * @since 31/08/2016
  */
-public class ClienteDAO implements java.io.Serializable{
-    
+public class ClienteDAO implements java.io.Serializable {
+
     //Método para inserir dados no banco
-    public void inserir(Cliente cliente){
+    public void inserir(Cliente cliente) {
 
         Session sessao = HibernateUtil.getSessionFactory().openSession();
         String senhaSemCriptografia = cliente.getSenha();
@@ -29,7 +31,7 @@ public class ClienteDAO implements java.io.Serializable{
             // Criptografando senha
             SimpleHash hash = new SimpleHash("md5", cliente.getSenha());
             cliente.setSenha(hash.toHex());
-            
+
             sessao.save(cliente);
 
             sessao.getTransaction().commit();
@@ -87,7 +89,6 @@ public class ClienteDAO implements java.io.Serializable{
             consulta.add(Restrictions.eq("codigo", codCli));
 
             cliente = (Cliente) consulta.uniqueResult();
-            
 
         } catch (RuntimeException erro) {
 
@@ -102,6 +103,38 @@ public class ClienteDAO implements java.io.Serializable{
         return cliente;
 
     }// Fim da classe consultar
+    
+    //Método para buscar um registro do banco.
+    @SuppressWarnings("deprecation")
+    public Cliente buscarRgExistente(String rg) {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Cliente pessoa = null;
+
+        try {
+
+            Criteria consulta = sessao.createCriteria(Cliente.class);
+
+            consulta.add(Restrictions.eq("rg", rg));
+
+            pessoa = (Cliente) consulta.uniqueResult();
+
+        } catch (HibernateException e) {
+            System.out.println("" + e);
+        } catch (RuntimeException erro) {
+
+            erro.getMessage();
+
+        } finally {
+
+            sessao.close();
+
+        }
+
+        return pessoa;
+
+    }// Fim da classe consultar
 
     //Método para editar um registro do banco
     public void editar(Cliente cliente, Boolean senhaNova) {
@@ -112,7 +145,7 @@ public class ClienteDAO implements java.io.Serializable{
         try {
             sessao.beginTransaction();
             // Criptografando senha
-            if(senhaNova){
+            if (senhaNova) {
                 SimpleHash hash = new SimpleHash("md5", cliente.getSenha());
                 cliente.setSenha(hash.toHex());
             }
@@ -157,25 +190,58 @@ public class ClienteDAO implements java.io.Serializable{
     }//Fim do método excluir
 
     @SuppressWarnings("deprecation")
-        public Cliente autenticar(String login,String senha){
-            
-            Session sessao = HibernateUtil.getSessionFactory().openSession();
-        
-            try{
-            
-                Criteria consulta = sessao.createCriteria(Cliente.class);
+    public Cliente autenticar(String login, String senha) {
 
-                consulta.add(Restrictions.eq("login", login));
-                SimpleHash hash = new SimpleHash("md5", senha);
-                consulta.add(Restrictions.eq("senha", hash.toHex()));
-            
-                Cliente resultado = (Cliente) consulta.uniqueResult(); 
-            
-                return resultado;
-            } catch(RuntimeException e) {
-                throw e;
-            } finally {
-                sessao.close();
-            }
-        }//Fim do método autenticar
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        try {
+
+            Criteria consulta = sessao.createCriteria(Cliente.class);
+
+            consulta.add(Restrictions.eq("login", login));
+            SimpleHash hash = new SimpleHash("md5", senha);
+            consulta.add(Restrictions.eq("senha", hash.toHex()));
+
+            Cliente resultado = (Cliente) consulta.uniqueResult();
+
+            return resultado;
+        } catch (RuntimeException e) {
+            throw e;
+        } finally {
+            sessao.close();
+        }
+    }//Fim do método autenticar
+
+    //Método para buscar um registro do banco.
+    @SuppressWarnings("deprecation")
+    public Cliente buscarCpfExistente(String cpf) {
+
+        Session sessao = HibernateUtil.getSessionFactory().openSession();
+
+        Cliente pessoa = null;
+
+        try {
+
+            Criteria consulta = sessao.createCriteria(Cliente.class);
+
+            consulta.add(Restrictions.eq("cpf", cpf));
+
+            pessoa = (Cliente) consulta.uniqueResult();
+
+        } catch (HibernateException e) {
+            System.out.println("" + e);
+        } catch (RuntimeException erro) {
+
+            erro.getMessage();
+
+        } finally {
+
+            sessao.close();
+
+        }
+
+        return pessoa;
+
+    }// Fim da classe consultar
+
 } //Fim da classe PessoaDAO

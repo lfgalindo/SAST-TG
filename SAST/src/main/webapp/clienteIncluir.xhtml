@@ -220,7 +220,7 @@
                     <div class="add-incluir">
                         <p:button class="btn-cancelar" value="Cancelar" outcome="clienteListar.xhtml" />
                         <p:commandButton class="btn-incluir" type="submit" value="Salvar" update="pnlDados mensagem"
-                                         actionListener="#{clienteBean.salvar()}">
+                                         action="#{clienteBean.salvar()}">
                             <p:confirm header="Confirmar inclusão" message="Deseja realmente salvar este registro?" icon="ui-icon-alert" />
                         </p:commandButton>
                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">

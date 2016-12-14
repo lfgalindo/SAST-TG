@@ -23,17 +23,20 @@
                                      var="Cargo" paginator="true" paginatorPosition="bottom" rows="10">
 
                             <p:column headerText="Código" sortBy="#{Cargo.codigo}" filterBy="#{Cargo.codigo}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Cargo.codigo}" />
                             </p:column>
 
                             <p:column headerText="Nome" sortBy="#{Cargo.nome}" filterBy="#{Cargo.nome}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Cargo.nome}" />
                             </p:column>
 
                             <p:column headerText="Descrição" sortBy="#{Cargo.descricao}" filterBy="#{Cargo.descricao}"
-                                      filterMatchMode="contains">
+                                      filterMatchMode="contains"
+                                      style="text-align: center">
                                 <h:outputText value="#{Cargo.descricao}" />
                             </p:column>
 

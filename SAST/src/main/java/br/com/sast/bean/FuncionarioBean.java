@@ -25,12 +25,10 @@ import org.omnifaces.util.Faces;
 @ViewScoped
 public class FuncionarioBean {
 
-    private final Integer codigoFuncionario = 8;
-
     private Funcionario funcionario;
     private List<Funcionario> funcionarios;
     private Integer codigo;
-    private String senha;
+    private Funcionario funcionarioAuxiliar;
 
     //Chaves estrangeiras
     private List<Perfil> perfis;
@@ -50,6 +48,7 @@ public class FuncionarioBean {
         setDataAtual(calendar.getTime());
 
         funcionario = new Funcionario();
+        funcionarioAuxiliar = new Funcionario();
 
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
@@ -84,14 +83,18 @@ public class FuncionarioBean {
         if (salvar) {
 
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-            PerfilDAO perfilDAO = new PerfilDAO();
 
-            funcionario.setCodigoPerfil(perfilDAO.buscar(codigoFuncionario));
-            funcionarioDAO.inserir(funcionario);
+            if (Util.isNotNull(funcionarioDAO.buscarRgExistente(getFuncionario().getRg()))) {
+                Messages.addGlobalWarn("RG já existente!");
+            } else if (Util.isNotNull(funcionarioDAO.buscarCpfExistente(getFuncionario().getCpf()))) {
+                Messages.addGlobalWarn("CPF já existente!");
+            } else {
+                funcionarioDAO.inserir(funcionario);
 
                 Messages.addGlobalInfo("Funcionário inserido com sucesso!");
-                
+
                 novo();
+            }
 
         }
 
@@ -108,6 +111,8 @@ public class FuncionarioBean {
     //método para buscar um registro específico no banco.
     public void buscar() {
 
+        this.funcionarioAuxiliar = new Funcionario();
+
         Calendar calendar = Calendar.getInstance();
         setDataDemissao(calendar.getTime());
 
@@ -117,7 +122,9 @@ public class FuncionarioBean {
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         funcionario = funcionarioDAO.consultar(codigo);
 
-        this.senha = getFuncionario().getSenha();
+        this.funcionarioAuxiliar.setSenha(getFuncionario().getSenha());
+        this.funcionarioAuxiliar.setCpf(getFuncionario().getCpf());
+        this.funcionarioAuxiliar.setRg(getFuncionario().getRg());
         getFuncionario().setSenha("");
 
         PerfilDAO perfilDAO = new PerfilDAO();
@@ -130,6 +137,8 @@ public class FuncionarioBean {
 
     //método para editar um registro específico no banco.
     public void editar() {
+
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
         Boolean salvar = Boolean.TRUE;
 
@@ -144,18 +153,31 @@ public class FuncionarioBean {
             salvar = Boolean.FALSE;
         }
 
+        if (!funcionarioAuxiliar.getCpf().equals(funcionario.getCpf())) {
+            if (Util.isNotNull(funcionarioDAO.buscarCpfExistente(getFuncionario().getCpf()))) {
+                Messages.addGlobalWarn("CPF já existente!");
+                salvar = Boolean.FALSE;
+            }
+        }
+        
+        if(!funcionarioAuxiliar.getRg().equals(funcionario.getRg())){
+            if (Util.isNotNull(funcionarioDAO.buscarRgExistente(getFuncionario().getRg()))) {
+                Messages.addGlobalWarn("RG já existente!");
+                salvar = Boolean.FALSE;
+            }
+        }
+
         if (salvar) {
 
             Boolean senhaNova = Boolean.TRUE;
 
             if (TreatString.isBlank(getFuncionario().getSenha())) {
-                getFuncionario().setSenha(this.senha);
+                getFuncionario().setSenha(this.funcionarioAuxiliar.getSenha());
                 senhaNova = Boolean.FALSE;
             }
 
-            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             funcionarioDAO.editar(funcionario, senhaNova);
-            
+
             Messages.addGlobalInfo("Funcionário editado com sucesso!");
             buscar();
 

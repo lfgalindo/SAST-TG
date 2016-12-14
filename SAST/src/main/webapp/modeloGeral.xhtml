@@ -56,12 +56,12 @@
 
                         <p:submenu label="Consultas" expanded="false"
                                    rendered="#{autenticacaoBean.isFuncionario}">
-                            <p:menuitem value="Manutenções" outcome="manutencaoListar.xhtml" />
-                            <p:menuitem value="Clientes" outcome="clienteListar.xhtml" />
-                            <p:menuitem value="Funcionários" outcome="funcionarioListar.xhtml"/>
-                            <p:menuitem value="Cargos" outcome="cargoListar.xhtml" />
-                            <p:menuitem value="Perfis" outcome="perfilListar.xhtml" />
-                            <p:menuitem value="Planos" outcome="planoListar.xhtml" />
+                            <p:menuitem value="Manutenções" outcome="manutencaoListar.xhtml" rendered="#{autenticacaoBean.gerenciarManutencoes == 1}"/>
+                            <p:menuitem value="Clientes" outcome="clienteListar.xhtml" rendered="#{autenticacaoBean.gerenciarClientes == 1}"/>
+                            <p:menuitem value="Funcionários" outcome="funcionarioListar.xhtml" rendered="#{autenticacaoBean.gerenciarFuncionarios == 1}"/>
+                            <p:menuitem value="Cargos" outcome="cargoListar.xhtml" rendered="#{autenticacaoBean.gerenciarCargos == 1}"/>
+                            <p:menuitem value="Perfis" outcome="perfilListar.xhtml" rendered="#{autenticacaoBean.gerenciarPerfis == 1}"/>
+                            <p:menuitem value="Planos" outcome="planoListar.xhtml" rendered="#{autenticacaoBean.gerenciarPlanos == 1}"/>
                         </p:submenu>
 
                         <p:submenu label="Sistema" expanded="false"
