@@ -22,7 +22,8 @@
 							os dados gravados no seu banco para um local externo.</label>
 							
 							<p:commandButton class="btn-incluir" type="submit" value="Gerar Backup"
-                                         actionListener="#"/>
+                                                                         actionListener="#{empresaBean.backup()}"
+                                                                         update="mensagem"/>
 						
 						</div>
 					

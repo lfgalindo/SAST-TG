@@ -11,6 +11,11 @@ import br.com.sast.dao.EmpresaDAO;
 import br.com.sast.domain.Empresa;
 import br.com.sast.util.TreatString;
 import br.com.sast.util.Util;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
 
 @ManagedBean
 @ViewScoped
@@ -19,6 +24,11 @@ public class EmpresaBean {
     private Empresa empresa;
     private List<Empresa> empresas;
     private Integer codigo;
+
+    ServletContext ctx = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+    String basePath = ctx.getRealPath("/");
+
+    String txtPath = basePath + "Backup";
 
     public void novo() {
         empresa = new Empresa();
@@ -56,6 +66,33 @@ public class EmpresaBean {
         EmpresaDAO empresaDAO = new EmpresaDAO();
         //empresa = empresaDAO.buscar(codigo);
         empresa = empresaDAO.buscar();
+    }
+
+    public void backup() throws InterruptedException {
+        try {
+            
+            Date now = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss");
+
+            String strFilename = dateFormat.format(now);
+
+            String command = "C:\\xampp\\mysql\\bin\\mysqldump -uroot -p  --add-drop-database -B sast -r " + "\"" + txtPath + "\\" + strFilename + "_sast.sql\"";
+
+            System.err.println(command + "\n" + txtPath);
+                    
+            Process p = Runtime.getRuntime().exec("rundll32 SHELL32.DLL,ShellExec_RunDLL "+command);
+            
+            int processComplete = p.waitFor();
+            
+            if(processComplete == 0) {
+                Messages.addGlobalInfo("Backup Gerado com sucesso");
+            } else {
+                Messages.addGlobalWarn("Nao foi possível a geraçao do Backup, entre em contato com o Administrador");
+            }
+
+        } catch (IOException ex) {
+            Messages.addGlobalWarn("erro" + ex.getMessage());
+        }
     }
 
     public void editar() {
