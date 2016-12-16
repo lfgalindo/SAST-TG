@@ -29,7 +29,7 @@
                         <p:row>
                             <p:column class="filtro margem">
                                 <p:selectOneMenu class="cadastro" id="funcionario" filter="true"
-                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario.codigo}"
+                                                 filterMatchMode="contains" value="#{relatorioBean.funcionario}"
                                                  converter="omnifaces.SelectItemsConverter">
                                     <f:selectItem itemLabel="Selecione um Funcionário ..."
                                                   noSelectionOption="true" />
@@ -68,25 +68,7 @@
                             <p:column class="filtro margem" >
                                 <p:inputText class="cadastro" id="cidade" maxlength="25"
                                              placeholder="Digite aqui a cidade..."
-                                             value="#{relatorioBean.cliente.cidade}"/>
-                            </p:column>
-                        </p:row>	
-
-                        <p:row>
-
-                            <p:column class="filtro titulo">
-                                <h:outputText value="Filtrar Relatório por Data de agendamento" />
-                            </p:column>
-                        </p:row>
-
-                        <p:row>
-                            <p:column class="filtro margem">
-                                <p:calendar id="dataAgendamento" size="10" pattern="dd/MM/yyyy" 
-                                            readonlyInput="false" 
-                                            required = "true"
-                                            placeholder="01/01/1990"
-                                            yearRange="c-100:c+0"
-                                            value="#{relatorioBean.dataAgendamento}"/>
+                                             value="#{relatorioBean.cidade}"/>
                             </p:column>
                         </p:row>	
 
@@ -98,11 +80,11 @@
                                   outcome="principal.xhtml" />
                         
                         <p:commandButton class="btn-incluir"
-                                         process="@this"
+                                         type="submit"
                                          id="imprimir"
                                          update="pnlDados mensagem"
                                          value="Gerar Relatório" 
-                                         actionListener="#{relatorioBean.imprimir()}" />
+                                         action="#{relatorioBean.imprimir()}" />
                     </div>
                 </div>
             </h:form>

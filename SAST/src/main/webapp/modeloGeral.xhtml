@@ -65,16 +65,16 @@
                         </p:submenu>
 
                         <p:submenu label="Sistema" expanded="false"
-                                   rendered="#{autenticacaoBean.isFuncionario}">
-                            <p:menuitem value="Relatórios" outcome="relatorios.xhtml" />
-                            <p:menuitem value="Backup" outcome="backup.xhtml" />
+                                   rendered="#{autenticacaoBean.isFuncionario and autenticacaoBean.gerenciarConfiguracoes == 1}">
+                            <p:menuitem value="Relatórios" outcome="relatorios.xhtml" rendered="#{autenticacaoBean.gerenciarConfiguracoes == 1}"/>
+                            <p:menuitem value="Backup" outcome="backup.xhtml" rendered="#{autenticacaoBean.gerenciarConfiguracoes == 1}"/>
                         </p:submenu>
 
                         <p:submenu label="Empresa" expanded="false"
                                    rendered="#{autenticacaoBean.isFuncionario}">
-                            <p:menuitem rendered="#{!autenticacaoBean.empresa}" value="Incluir Dados" outcome="empresaIncluir.xhtml" />
+                            <p:menuitem rendered="#{!autenticacaoBean.empresa and autenticacaoBean.gerenciarConfiguracoes == 1}" value="Incluir Dados" outcome="empresaIncluir.xhtml" />
                             <p:menuitem value="Visualizar Dados" outcome="empresaVisualizar.xhtml" />
-                            <p:menuitem value="Alterar Dados" outcome="empresaEditar.xhtml" />
+                            <p:menuitem value="Alterar Dados" outcome="empresaEditar.xhtml" rendered="#{autenticacaoBean.gerenciarConfiguracoes == 1}"/>
                         </p:submenu>
                     </p:menu>
                 </h:form>
